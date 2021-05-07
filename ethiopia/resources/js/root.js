@@ -1,7 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Example from "./components/example";
+import Main from "./Main";
+
+import "./root.css";
 
 if (document.getElementById("root")) {
-    ReactDOM.render(<Example />, document.getElementById("root"));
+    ReactDOM.render(<Main />, document.getElementById("root"));
 }
