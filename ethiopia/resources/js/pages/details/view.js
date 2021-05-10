@@ -25,7 +25,7 @@ function Detail() {
     const [geoUrl, setGeoUrl] = useState();
 
     useEffect(() => {
-        fetch("http://localhost:8000/data/eth-filtered.topo.json")
+        fetch("/data/eth-filtered.topo.json")
             .then((res) => res.json())
             .then((res) => setGeoUrl(res));
         const { data, config } = hh;
