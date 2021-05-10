@@ -5,14 +5,15 @@ import { UIStore } from "../store";
 
 const { Header } = Layout;
 
-const handleOnChangeWoreda = (e) => {
-    console.log(e);
+const handleOnChangeWoreda = (key) => {
     UIStore.update((e) => {
         e.page = "details";
+        e.woreda = key;
     });
 };
 
 export function HeaderHome() {
+    const woreda = UIStore.useState((e) => e.woreda);
     return (
         <Header
             className="site-layout"
@@ -35,10 +36,15 @@ export function HeaderHome() {
                     <Select
                         style={{ width: 220 }}
                         placeholder="Select Woreda"
+                        defaultValue={woreda}
                         onChange={handleOnChangeWoreda}
                     >
-                        <Select.Option key="1">Shashemene</Select.Option>
-                        <Select.Option key="2">Negele Asri</Select.Option>
+                        <Select.Option key="shashemene">
+                            Shashemene
+                        </Select.Option>
+                        <Select.Option key="arsi negele">
+                            Arsi Negele
+                        </Select.Option>
                     </Select>
                 </div>
                 <div>
@@ -50,6 +56,7 @@ export function HeaderHome() {
 }
 
 export function HeaderDetail() {
+    const woreda = UIStore.useState((e) => e.woreda);
     return (
         <Header
             className="site-layout"
@@ -72,9 +79,18 @@ export function HeaderDetail() {
                     <h4>WAI Ethiopia</h4>
                 </div>
                 <div>
-                    <Select style={{ width: 220 }} placeholder="Select Woreda">
-                        <Select.Option key="1">Shashemene</Select.Option>
-                        <Select.Option key="2">Negele Asri</Select.Option>
+                    <Select
+                        style={{ width: 220 }}
+                        placeholder="Select Woreda"
+                        defaultValue={woreda}
+                        onChange={handleOnChangeWoreda}
+                    >
+                        <Select.Option key="shashemene">
+                            Shashemene
+                        </Select.Option>
+                        <Select.Option key="arsi negele">
+                            Arsi Negele
+                        </Select.Option>
                     </Select>
                     <Select style={{ width: 220 }} placeholder="All Kebeles">
                         <Select.Option key="1">Faji Goba</Select.Option>
