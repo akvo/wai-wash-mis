@@ -22,11 +22,14 @@ export const UIStore = new Store({
         data: healthData,
         config: healthConfig,
     },
-    data: [],
-    config: {},
+    state: {
+        data: hhData,
+        config: hhConfig,
+        charts: null,
+    },
     page: "home",
     woreda: null,
     kabele: null,
-    firstFilter: "households",
+    firstFilter: "hh",
     secondFilter: "all",
 });

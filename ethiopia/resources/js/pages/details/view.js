@@ -6,8 +6,8 @@ import {
     Geography,
     ZoomableGroup,
 } from "react-simple-maps";
-import { Col, Layout, Menu, Row, Affix } from "antd";
-import PropTypes from "prop-types";
+import { Col, Layout, Menu, Row, Affix, Spin, Divider } from "antd";
+import { LoadingOutlined } from "@ant-design/icons";
 
 import { HeaderDetail } from "../../components/header";
 
@@ -19,8 +19,62 @@ import "./style.css";
 
 const { Content } = Layout;
 
+const generateChartOptions = (config, data, locations, kebele) => {
+    const options = config.charts.map((item) => {
+        let option = {
+            tooltip: {
+                trigger: "axis",
+                axisPointer: {
+                    type: "shadow",
+                },
+            },
+            legend: {
+                data: item.value,
+            },
+            grid: {
+                left: "3%",
+                right: "4%",
+                bottom: "3%",
+                containLabel: true,
+            },
+            xAxis: {
+                type: "category",
+                data: locations,
+            },
+            yAxis: {
+                type: "value",
+            },
+            series: [],
+        };
+
+        const dataByTopic = item.value.map((val) => {
+            const topic = data.filter((x) => x[item.key] === val);
+            return {
+                name: val,
+                values: topic,
+            };
+        });
+        const seriesData = dataByTopic.map((topic) => {
+            const dataByLocation = locations.map((loc) => {
+                const val = topic.values.filter((x) => x[kebele] === loc);
+                return val.length;
+            });
+            const series = {
+                name: topic.name,
+                type: "bar",
+                stack: "test",
+                data: dataByLocation,
+            };
+            option["series"] = [...option.series, series];
+        });
+        return { name: item.name, option: option };
+    });
+    return options;
+};
+
 function Detail() {
-    const { hh, firstFilter, secondFilter } = UIStore.useState();
+    const store = UIStore.useState();
+    const { woreda, state, firstFilter, secondFilter } = store;
     const [chartOptions, setChartOptions] = useState();
     const [geoUrl, setGeoUrl] = useState();
 
@@ -28,59 +82,54 @@ function Detail() {
         fetch("/data/eth-filtered.topo.json")
             .then((res) => res.json())
             .then((res) => setGeoUrl(res));
-        const { data, config } = hh;
-        const locations = Object.keys(groupBy(data, "B"));
-        const options = config.charts.map((item) => {
-            let option = {
-                tooltip: {
-                    trigger: "axis",
-                    axisPointer: {
-                        type: "shadow",
-                    },
-                },
-                legend: {
-                    data: item.value,
-                },
-                grid: {
-                    left: "3%",
-                    right: "4%",
-                    bottom: "3%",
-                    containLabel: true,
-                },
-                xAxis: {
-                    type: "category",
-                    data: locations,
-                },
-                yAxis: {
-                    type: "value",
-                },
-                series: [],
-            };
 
-            const dataByTopic = item.value.map((val) => {
-                const topic = data.filter((x) => x[item.key] === val);
-                return {
-                    name: val,
-                    values: topic,
-                };
-            });
-            const seriesData = dataByTopic.map((topic) => {
-                const dataByLocation = locations.map((loc) => {
-                    const val = topic.values.filter((x) => x["B"] === loc);
-                    return val.length;
-                });
-                const series = {
-                    name: topic.name,
-                    type: "bar",
-                    stack: "test",
-                    data: dataByLocation,
-                };
-                option["series"] = [...option.series, series];
-            });
-            return { name: item.name, option: option };
+        const { data, config } = state;
+        const woredaKey = config.locations.woreda;
+        const kebeleKey = config.locations.kebele;
+        // const filterDataByWoreda = data.filter(
+        //     (x) => x[woredaKey].toLowerCase() === woreda.toLowerCase()
+        // );
+        const filterDataByWoreda = data;
+        const locations = Object.keys(groupBy(filterDataByWoreda, kebeleKey));
+        const options = generateChartOptions(
+            config,
+            filterDataByWoreda,
+            locations,
+            kebeleKey
+        );
+        UIStore.update((e) => {
+            e.state = {
+                ...state,
+                charts: options,
+            };
         });
         setChartOptions(options);
-    }, []);
+    }, [firstFilter, woreda]);
+
+    useEffect(() => {
+        if (!state.charts) return;
+        if (chartOptions && secondFilter === "all") {
+            setChartOptions(state.charts);
+        }
+        if (chartOptions && secondFilter !== "all") {
+            const filter = state.charts.filter((x) =>
+                x.name.toLowerCase().includes(secondFilter.toLowerCase())
+            );
+            setChartOptions(filter);
+        }
+    }, [secondFilter]);
+
+    const handleFirstFilterClick = (cur) => {
+        setChartOptions([]);
+        UIStore.update((e) => {
+            e.firstFilter = cur.key;
+            e.state = {
+                data: store[cur.key].data,
+                config: store[cur.key].config,
+                charts: null,
+            };
+        });
+    };
 
     return (
         <div>
@@ -88,51 +137,64 @@ function Detail() {
             <Affix offsetTop={0}>
                 <Menu
                     selectedKeys={[firstFilter]}
-                    onClick={(cur) =>
-                        UIStore.update((e) => {
-                            e.firstFilter = cur.key;
-                        })
-                    }
+                    onClick={(cur) => handleFirstFilterClick(cur)}
                     mode="horizontal"
                     style={{
                         backgroundColor: "#F9F9F9",
-                        padding: "0px 100px",
+                        padding: "0px 175px",
                         marginTop: "64px",
                     }}
                 >
-                    <Menu.Item key="households">Households</Menu.Item>
-                    <Menu.Item key="schools">Schools</Menu.Item>
-                    <Menu.Item key="health-facilities">
-                        Health Facilities
-                    </Menu.Item>
+                    <Menu.Item key="hh">Households</Menu.Item>
+                    <Menu.Item key="school">Schools</Menu.Item>
+                    <Menu.Item key="health">Health Facilities</Menu.Item>
                 </Menu>
             </Affix>
             <Content
                 className="site-layout-background"
-                style={{ padding: "20px 100px" }}
+                style={{ padding: "20px 175px" }}
             >
                 <Row>
                     <Col span="24">
-                        <div>
-                            <Menu
-                                selectedKeys={[secondFilter]}
-                                onClick={(cur) =>
-                                    UIStore.update((e) => {
-                                        e.secondFilter = cur.key;
-                                    })
-                                }
-                                mode="horizontal"
-                                style={{ borderBottom: 0 }}
+                        {!geoUrl ? (
+                            <div
+                                style={{
+                                    paddingTop: "175px",
+                                    display: "flex",
+                                    justifyContent: "center",
+                                }}
                             >
-                                <Menu.Item key="all">All</Menu.Item>
-                                <Menu.Item key="water">Water</Menu.Item>
-                                <Menu.Item key="sanitation">
-                                    Sanitation
-                                </Menu.Item>
-                                <Menu.Item key="hygiene">Hygiene</Menu.Item>
-                            </Menu>
-                        </div>
-                        {geoUrl && (
+                                <Spin
+                                    indicator={
+                                        <LoadingOutlined
+                                            style={{ fontSize: 24 }}
+                                            spin
+                                        />
+                                    }
+                                />
+                            </div>
+                        ) : (
+                            <div>
+                                <Menu
+                                    selectedKeys={[secondFilter]}
+                                    onClick={(cur) =>
+                                        UIStore.update((e) => {
+                                            e.secondFilter = cur.key;
+                                        })
+                                    }
+                                    mode="horizontal"
+                                    style={{ borderBottom: 0 }}
+                                >
+                                    <Menu.Item key="all">All</Menu.Item>
+                                    <Menu.Item key="water">Water</Menu.Item>
+                                    <Menu.Item key="sanitation">
+                                        Sanitation
+                                    </Menu.Item>
+                                    <Menu.Item key="hygiene">Hygiene</Menu.Item>
+                                </Menu>
+                            </div>
+                        )}
+                        {geoUrl && chartOptions && (
                             <div
                                 key="maps"
                                 style={{
@@ -144,9 +206,9 @@ function Detail() {
                                 <ComposableMap
                                     data-tip=""
                                     projection="geoEquirectangular"
-                                    zoom={12}
-                                    height={400}
-                                    projectionConfig={{ scale: 30000 }}
+                                    zoom={10}
+                                    height={300}
+                                    projectionConfig={{ scale: 22000 }}
                                 >
                                     <ZoomableGroup
                                         center={["38.69590", "7.34350"]}
@@ -196,8 +258,11 @@ function Detail() {
                                         padding: "20px 0",
                                         margin: "25px 0",
                                         border: "1px solid black",
+                                        textAlign: "center",
                                     }}
                                 >
+                                    <h4>{opt.name}</h4>
+                                    <Divider />
                                     <ReactECharts
                                         option={opt.option}
                                         style={{ height: "300px" }}

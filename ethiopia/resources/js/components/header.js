@@ -39,7 +39,7 @@ export function HeaderHome() {
                         defaultValue={woreda}
                         onChange={handleOnChangeWoreda}
                     >
-                        <Select.Option key="shashemene">
+                        <Select.Option key="shashamene">
                             Shashemene
                         </Select.Option>
                         <Select.Option key="arsi negele">
@@ -85,7 +85,7 @@ export function HeaderDetail() {
                         defaultValue={woreda}
                         onChange={handleOnChangeWoreda}
                     >
-                        <Select.Option key="shashemene">
+                        <Select.Option key="shashamene">
                             Shashemene
                         </Select.Option>
                         <Select.Option key="arsi negele">

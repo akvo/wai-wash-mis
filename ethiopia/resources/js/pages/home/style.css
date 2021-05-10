@@ -2,6 +2,6 @@
     padding: 0 175px;
 }
 
-.ant-row {
-    padding: 75px 0;
+.ant-row.ant-row-center.ant-row-middle {
+    margin: 75px 0;
 }
