@@ -25,3 +25,8 @@
 .site-layout .site-layout-background {
     background: #fff;
 }
+
+.site-layout-background {
+    padding: 24;
+    min-height: 100vh;
+}
