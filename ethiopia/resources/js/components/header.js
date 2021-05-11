@@ -46,6 +46,7 @@ export function HeaderHome() {
                         UIStore.update((e) => {
                             e.page = "home";
                             e.woreda = null;
+                            e.kebele = null;
                         })
                     }
                 >
@@ -111,6 +112,7 @@ export function HeaderDetail() {
                         UIStore.update((e) => {
                             e.page = "home";
                             e.woreda = null;
+                            e.kebele = null;
                         })
                     }
                 >

@@ -23,8 +23,8 @@ export const UIStore = new Store({
         config: healthConfig,
     },
     state: {
-        data: hhData,
-        config: hhConfig,
+        data: {},
+        config: [],
         charts: null,
         tables: null,
     },
