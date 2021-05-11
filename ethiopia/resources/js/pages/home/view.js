@@ -55,20 +55,36 @@ function Home() {
                         </Row>
                         <Row justify="center" align="middle" gutter={[16, 16]}>
                             <Col span="6">
-                                <Image src="https://via.placeholder.com/300" />
-                                <strong>Image Title</strong>
+                                <div>
+                                    <Image src="https://via.placeholder.com/300" />
+                                </div>
+                                <div>
+                                    <strong>Image Title</strong>
+                                </div>
                             </Col>
                             <Col span="6">
-                                <Image src="https://via.placeholder.com/300" />
-                                <strong>Image Title</strong>
+                                <div>
+                                    <Image src="https://via.placeholder.com/300" />
+                                </div>
+                                <div>
+                                    <strong>Image Title</strong>
+                                </div>
                             </Col>
                             <Col span="6">
-                                <Image src="https://via.placeholder.com/300" />
-                                <strong>Image Title</strong>
+                                <div>
+                                    <Image src="https://via.placeholder.com/300" />
+                                </div>
+                                <div>
+                                    <strong>Image Title</strong>
+                                </div>
                             </Col>
                             <Col span="6">
-                                <Image src="https://via.placeholder.com/300" />
-                                <strong>Image Title</strong>
+                                <div>
+                                    <Image src="https://via.placeholder.com/300" />
+                                </div>
+                                <div>
+                                    <strong>Image Title</strong>
+                                </div>
                             </Col>
                         </Row>
                         <Row justify="center" align="middle">

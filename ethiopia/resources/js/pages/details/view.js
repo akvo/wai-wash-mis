@@ -24,6 +24,11 @@ const generateChartOptions = (
     firstFilter,
     kebele
 ) => {
+    const ff = {
+        hh: "Households",
+        school: "Schools",
+        health: "Health Facilities",
+    };
     const options = config.charts.map((item) => {
         let option = {
             tooltip: {
@@ -36,17 +41,27 @@ const generateChartOptions = (
                 data: item.value,
             },
             grid: {
-                left: "3%",
-                right: "4%",
-                bottom: "3%",
+                left: "7%",
+                right: "7%",
+                bottom: "5%",
                 containLabel: true,
             },
             yAxis: {
                 type: "category",
-                data: locations,
+                data: locations.map((x) => ({
+                    value: x,
+                    textStyle: { fontSize: 14 },
+                })),
             },
             xAxis: {
                 type: "value",
+                name: `% of ${ff[firstFilter]} Per ${item.name}`,
+                nameLocation: "middle",
+                nameGap: 45,
+                nameTextStyle: {
+                    fontWeight: "bold",
+                    fontSize: 14,
+                },
             },
             dataZoom: [
                 {
@@ -69,7 +84,17 @@ const generateChartOptions = (
         const seriesData = dataByTopic.map((topic) => {
             const dataByLocation = locations.map((loc) => {
                 const val = topic.values.filter((x) => x[kebeleKey] === loc);
-                let res = { name: loc, value: val.length };
+                const totalDataKebele = data.filter(
+                    (x) => x[kebeleKey] === loc
+                );
+                const value =
+                    val.length !== 0
+                        ? (val.length / totalDataKebele.length) * 100
+                        : 0;
+                let res = {
+                    name: loc,
+                    value: Math.round((value + Number.EPSILON) * 100) / 100,
+                };
                 if (kebele && kebele !== loc.toLowerCase()) {
                     res = {
                         ...res,
