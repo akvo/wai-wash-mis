@@ -33,11 +33,11 @@ const generateChartOptions = (config, data, locations, kebeleKey) => {
                 bottom: "3%",
                 containLabel: true,
             },
-            xAxis: {
+            yAxis: {
                 type: "category",
                 data: locations,
             },
-            yAxis: {
+            xAxis: {
                 type: "value",
             },
             series: [],
@@ -68,7 +68,7 @@ const generateChartOptions = (config, data, locations, kebeleKey) => {
     return options;
 };
 
-const generateTable = (config, data, kebeleKey, kebele) => {
+const generateTable = (config, data, kebeleKey, kebele, firstFilter) => {
     const column = [
         {
             title: "Indicator",
@@ -107,6 +107,45 @@ const generateTable = (config, data, kebeleKey, kebele) => {
     const filterDataByKebele = data.filter(
         (x) => x[kebeleKey].toLowerCase() === kebele.toLowerCase()
     );
+    let tmp = [];
+    // for demographics
+    tmp.push({
+        name: "Demographics",
+        column: column,
+        data: [
+            {
+                indicator: "Demographics",
+                option: null,
+                value: null,
+            },
+            {
+                indicator: "Population",
+                option: "Total Population",
+                value: "NA",
+            },
+            {
+                indicator: "Topic",
+                option:
+                    firstFilter === "hh"
+                        ? "Total Households"
+                        : firstFilter === "school"
+                        ? "Total Schools"
+                        : "Total Health Facilities",
+                value: "NA",
+            },
+            {
+                indicator: "Adults",
+                option: "Total Adults",
+                value: "NA",
+            },
+            {
+                indicator: "Childs",
+                option: "Total Childrens",
+                value: "NA",
+            },
+        ],
+    });
+    // end of static demographics
     const tableData = table.map((tb) => {
         const indicators = [];
         tb.indicators.forEach((ind) => {
@@ -131,7 +170,7 @@ const generateTable = (config, data, kebeleKey, kebele) => {
             indicators.push(dataByIndicator);
             return;
         });
-        return {
+        const results = {
             name: tb.name,
             column: column,
             data: flatten(indicators).map((x, i) => {
@@ -139,8 +178,10 @@ const generateTable = (config, data, kebeleKey, kebele) => {
                 return x;
             }),
         };
+        tmp.push(results);
+        return results;
     });
-    return tableData;
+    return tmp;
 };
 
 function Detail() {
@@ -193,7 +234,13 @@ function Detail() {
         // generate table when selected
         let tableConfig = null;
         if (kebele) {
-            tableConfig = generateTable(config, filterData, kebeleKey, kebele);
+            tableConfig = generateTable(
+                config,
+                filterData,
+                kebeleKey,
+                kebele,
+                firstFilter
+            );
             secondFilter !== "all" &&
                 setTable(
                     tableConfig.filter((x) =>
@@ -294,20 +341,26 @@ function Detail() {
                                     <Divider />
                                     <ReactECharts
                                         option={opt.option}
-                                        style={{ height: "300px" }}
+                                        style={{
+                                            height:
+                                                opt.option.series.length * 150,
+                                        }}
                                     />
                                 </div>
                             ))}
                         {kebele &&
                             table &&
                             table.map((tb, index) => (
-                                <div key={index} className="table-container">
+                                <div
+                                    key={tb.name + index}
+                                    className="table-container"
+                                >
                                     <h4 style={{ textTransform: "capitalize" }}>
                                         {tb.name}
                                     </h4>
                                     <Divider />
                                     <Table
-                                        key={index}
+                                        key={tb.name + index + 1}
                                         size="small"
                                         showHeader={false}
                                         pagination={false}
