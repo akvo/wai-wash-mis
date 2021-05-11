@@ -1,0 +1,31 @@
+#details {
+    .first-filter {
+        padding: 0 175px;
+        margin-top: 64px;
+    }
+
+    .content-container {
+        background-color: #fff;
+        padding: 20px 175px;
+        min-height: 100vh;
+    }
+
+    .loading-container {
+        padding-top: 175px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .map-container,
+    .chart-container,
+    .table-container {
+        padding: 20px 0;
+        margin: 25px 0;
+        border: 1px solid black;
+    }
+
+    .chart-container,
+    .table-container {
+        text-align: center;
+    }
+}

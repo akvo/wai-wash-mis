@@ -3,15 +3,15 @@ import { Col, Layout, Row, Image } from "antd";
 
 import { HeaderHome } from "../../components/header";
 
-import "./style.css";
+import "./styles.scss";
 
 const { Content } = Layout;
 
 function Home() {
     return (
-        <div>
+        <div id="home">
             <HeaderHome />
-            <Content className="site-layout-background content-container">
+            <Content className="content-container">
                 <Row>
                     <Col span={24}>
                         <Row justify="center" align="middle">

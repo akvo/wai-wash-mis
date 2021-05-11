@@ -1,22 +1,17 @@
 import React, { useState, useEffect } from "react";
 import ReactECharts from "echarts-for-react";
-import {
-    ComposableMap,
-    Geographies,
-    Geography,
-    ZoomableGroup,
-} from "react-simple-maps";
 import { Col, Layout, Menu, Row, Affix, Spin, Divider, Table } from "antd";
 import { LoadingOutlined } from "@ant-design/icons";
 
 import { HeaderDetail } from "../../components/header";
+import Map from "./maps";
 
 import { UIStore } from "../../store";
 
 import groupBy from "lodash/groupBy";
 import flatten from "lodash/flatten";
 
-import "./style.css";
+import "./styles.scss";
 
 const { Content } = Layout;
 
@@ -137,18 +132,25 @@ function Detail() {
             .then((res) => res.json())
             .then((res) => setGeoUrl(res));
 
-        // generate charts
         const { data, config } = state;
         const woredaKey = config.locations.woreda;
         const kebeleKey = config.locations.kebele;
+
+        // filter data by woreda
         // const filterDataByWoreda = data.filter(
         //     (x) => x[woredaKey].toLowerCase() === woreda.toLowerCase()
         // );
-        const filterDataByWoreda = data;
-        const locations = Object.keys(groupBy(filterDataByWoreda, kebeleKey));
+
+        // filter data by kebele
+        // const filterDataByKebele = data.filter(
+        //     (x) => x[kebeleKey].toLowerCase() === kebele.toLowerCase()
+        // );
+
+        // generate charts
+        const locations = Object.keys(groupBy(data, kebeleKey));
         const options = generateChartOptions(
             config,
-            filterDataByWoreda,
+            data,
             locations,
             kebeleKey
         );
@@ -217,17 +219,16 @@ function Detail() {
     };
 
     return (
-        <div>
+        <div id="details">
             <HeaderDetail />
             <Affix offsetTop={0}>
                 <Menu
                     selectedKeys={[firstFilter]}
                     onClick={(cur) => handleFirstFilterClick(cur)}
                     mode="horizontal"
+                    className="first-filter"
                     style={{
                         backgroundColor: "#F9F9F9",
-                        padding: "0px 175px",
-                        marginTop: "64px",
                     }}
                 >
                     <Menu.Item key="hh">Households</Menu.Item>
@@ -235,20 +236,11 @@ function Detail() {
                     <Menu.Item key="health">Health Facilities</Menu.Item>
                 </Menu>
             </Affix>
-            <Content
-                className="site-layout-background"
-                style={{ padding: "20px 175px" }}
-            >
+            <Content className="content-container">
                 <Row>
                     <Col span="24">
                         {!geoUrl ? (
-                            <div
-                                style={{
-                                    paddingTop: "175px",
-                                    display: "flex",
-                                    justifyContent: "center",
-                                }}
-                            >
+                            <div className="loading-container">
                                 <Spin
                                     indicator={
                                         <LoadingOutlined
@@ -280,72 +272,14 @@ function Detail() {
                             </div>
                         )}
                         {geoUrl && chartOptions && (
-                            <div
-                                key="maps"
-                                style={{
-                                    padding: "20px 0",
-                                    margin: "25px 0",
-                                    border: "1px solid black",
-                                }}
-                            >
-                                <ComposableMap
-                                    data-tip=""
-                                    projection="geoEquirectangular"
-                                    zoom={10}
-                                    height={300}
-                                    projectionConfig={{ scale: 22000 }}
-                                >
-                                    <ZoomableGroup
-                                        center={["38.69590", "7.34350"]}
-                                    >
-                                        <Geographies geography={geoUrl}>
-                                            {({ geographies }) =>
-                                                geographies.map((geo) => {
-                                                    return (
-                                                        <Geography
-                                                            key={geo.rsmKey}
-                                                            geography={geo}
-                                                            style={{
-                                                                default: {
-                                                                    fill:
-                                                                        "#D6D6DA",
-                                                                    outline:
-                                                                        "none",
-                                                                },
-                                                                hover: {
-                                                                    fill:
-                                                                        "#F53",
-                                                                    outline:
-                                                                        "none",
-                                                                },
-                                                                pressed: {
-                                                                    fill:
-                                                                        "#E42",
-                                                                    outline:
-                                                                        "none",
-                                                                },
-                                                            }}
-                                                        />
-                                                    );
-                                                })
-                                            }
-                                        </Geographies>
-                                    </ZoomableGroup>
-                                </ComposableMap>
+                            <div key="maps" className="map-container">
+                                <Map geoUrl={geoUrl} />
                             </div>
                         )}
                         {geoUrl &&
                             chartOptions &&
                             chartOptions.map((opt) => (
-                                <div
-                                    key={opt.name}
-                                    style={{
-                                        padding: "20px 0",
-                                        margin: "25px 0",
-                                        border: "1px solid black",
-                                        textAlign: "center",
-                                    }}
-                                >
+                                <div key={opt.name} className="chart-container">
                                     <h4>{opt.name}</h4>
                                     <Divider />
                                     <ReactECharts
@@ -357,14 +291,7 @@ function Detail() {
                         {kebele &&
                             table &&
                             table.map((tb, index) => (
-                                <div
-                                    key={`div-${index}`}
-                                    style={{
-                                        padding: "20px 0",
-                                        margin: "25px 0",
-                                        textAlign: "center",
-                                    }}
-                                >
+                                <div key={index} className="table-container">
                                     <h4 style={{ textTransform: "capitalize" }}>
                                         {tb.name}
                                     </h4>
