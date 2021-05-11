@@ -1,5 +1,5 @@
 import React from "react";
-import { Layout, Menu, Button, Select } from "antd";
+import { Layout, Menu, Button, Select, Image } from "antd";
 
 import { UIStore } from "../store";
 
@@ -29,8 +29,25 @@ export function HeaderHome() {
                     justifyContent: "space-between",
                 }}
             >
-                <div>
-                    <h4>WAI Ethiopia</h4>
+                <div
+                    style={{
+                        display: "flex",
+                        alignItems: "center",
+                        cursor: "pointer",
+                    }}
+                    onClick={(e) =>
+                        UIStore.update((e) => {
+                            e.page = "home";
+                            e.woreda = null;
+                        })
+                    }
+                >
+                    <Image
+                        width={30}
+                        src="/images/wai-logo.png"
+                        preview={false}
+                    />
+                    <span>WAI Ethiopia</span>
                 </div>
                 <div>
                     <Select
@@ -75,8 +92,25 @@ export function HeaderDetail() {
                     justifyContent: "space-between",
                 }}
             >
-                <div>
-                    <h4>WAI Ethiopia</h4>
+                <div
+                    style={{
+                        display: "flex",
+                        alignItems: "center",
+                        cursor: "pointer",
+                    }}
+                    onClick={(e) =>
+                        UIStore.update((e) => {
+                            e.page = "home";
+                            e.woreda = null;
+                        })
+                    }
+                >
+                    <Image
+                        width={30}
+                        src="/images/wai-logo.png"
+                        preview={false}
+                    />
+                    <span>WAI Ethiopia</span>
                 </div>
                 <div>
                     <Select

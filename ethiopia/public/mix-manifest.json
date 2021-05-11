@@ -1,4 +1,7 @@
 {
     "/js/app.js": "/js/app.js",
-    "/css/app.css": "/css/app.css"
+    "/css/app.css": "/css/app.css",
+    "/data/eth-filtered.topo.json": "/data/eth-filtered.topo.json",
+    "/data/eth.topo.json": "/data/eth.topo.json",
+    "/images/wai-logo.png": "/images/wai-logo.png"
 }
