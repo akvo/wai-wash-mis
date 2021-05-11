@@ -140,6 +140,7 @@ export function HeaderDetail() {
                     <Select
                         style={{ width: 220 }}
                         placeholder="All Kebeles"
+                        allowClear={true}
                         defaultValue={kebele}
                         onChange={handleOnChangeKebele}
                     >

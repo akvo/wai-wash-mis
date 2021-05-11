@@ -185,9 +185,7 @@ function Detail() {
     }, [firstFilter, woreda, kebele]);
 
     useEffect(() => {
-        if (chartOptions && secondFilter === "all") {
-            setChartOptions(state.charts);
-        }
+        chartOptions && secondFilter === "all" && setChartOptions(state.charts);
         if (chartOptions && secondFilter !== "all") {
             const filterOptions = state.charts.filter((x) =>
                 x.name.toLowerCase().includes(secondFilter.toLowerCase())
@@ -195,9 +193,7 @@ function Detail() {
             setChartOptions(filterOptions);
         }
 
-        if (kebele && secondFilter === "all") {
-            setTable(state.tables);
-        }
+        kebele && secondFilter === "all" && setTable(state.tables);
         if (kebele && secondFilter !== "all") {
             const filterTables = state.tables.filter((x) =>
                 x.name.toLowerCase().includes(secondFilter.toLowerCase())
