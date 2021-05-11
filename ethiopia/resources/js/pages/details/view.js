@@ -130,7 +130,7 @@ function Detail() {
     const { woreda, kebele, state, firstFilter, secondFilter } = store;
     const [chartOptions, setChartOptions] = useState();
     const [geoUrl, setGeoUrl] = useState();
-    const [table, setTable] = useState([{ name: null, data: [], column: [] }]);
+    const [table, setTable] = useState();
 
     useEffect(() => {
         fetch("/data/eth-filtered.topo.json")
@@ -152,13 +152,27 @@ function Detail() {
             locations,
             kebeleKey
         );
-        setChartOptions(options);
+        secondFilter !== "all" &&
+            setChartOptions(
+                options.filter((x) =>
+                    x.name.toLowerCase().includes(secondFilter.toLowerCase())
+                )
+            );
+        secondFilter === "all" && setChartOptions(options);
 
         // generate table when selected
         let tableConfig = null;
         if (kebele) {
             tableConfig = generateTable(config, data, kebeleKey, kebele);
-            setTable(tableConfig);
+            secondFilter !== "all" &&
+                setTable(
+                    tableConfig.filter((x) =>
+                        x.name
+                            .toLowerCase()
+                            .includes(secondFilter.toLowerCase())
+                    )
+                );
+            secondFilter === "all" && setTable(tableConfig);
         }
 
         UIStore.update((e) => {
@@ -171,7 +185,6 @@ function Detail() {
     }, [firstFilter, woreda, kebele]);
 
     useEffect(() => {
-        if (!state.charts) return;
         if (chartOptions && secondFilter === "all") {
             setChartOptions(state.charts);
         }
@@ -195,6 +208,7 @@ function Detail() {
 
     const handleFirstFilterClick = (cur) => {
         setChartOptions([]);
+        setTable([]);
         UIStore.update((e) => {
             e.firstFilter = cur.key;
             e.state = {
@@ -345,6 +359,7 @@ function Detail() {
                                 </div>
                             ))}
                         {kebele &&
+                            table &&
                             table.map((tb, index) => (
                                 <div
                                     key={`div-${index}`}
