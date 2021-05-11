@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import ReactECharts from "echarts-for-react";
 import { Col, Layout, Menu, Row, Affix, Spin, Divider, Table } from "antd";
 import { LoadingOutlined, ReadOutlined } from "@ant-design/icons";
 
 import { HeaderDetail } from "../../components/header";
 import Map from "./maps";
+import { jmpColors } from "../../utils/jmp_color";
 
 import { UIStore } from "../../store";
 
@@ -15,7 +16,13 @@ import "./styles.scss";
 
 const { Content } = Layout;
 
-const generateChartOptions = (config, data, locations, kebeleKey) => {
+const generateChartOptions = (
+    config,
+    data,
+    locations,
+    kebeleKey,
+    firstFilter
+) => {
     const options = config.charts.map((item) => {
         let option = {
             tooltip: {
@@ -40,8 +47,16 @@ const generateChartOptions = (config, data, locations, kebeleKey) => {
             xAxis: {
                 type: "value",
             },
+            dataZoom: [
+                {
+                    type: "inside",
+                },
+            ],
             series: [],
         };
+
+        const jmpColor = jmpColors[firstFilter];
+        const itemColors = jmpColor[item.name.split(" ")[0].toLowerCase()];
 
         const dataByTopic = item.value.map((val) => {
             const topic = data.filter((x) => x[item.key] === val);
@@ -55,11 +70,17 @@ const generateChartOptions = (config, data, locations, kebeleKey) => {
                 const val = topic.values.filter((x) => x[kebeleKey] === loc);
                 return val.length;
             });
+            const itemColor = itemColors.find(
+                (c) => c.name.toLowerCase() === topic.name.toLowerCase()
+            );
             const series = {
                 name: topic.name,
                 type: "bar",
                 stack: "test",
                 data: dataByLocation,
+                itemStyle: {
+                    color: itemColor?.color,
+                },
             };
             option["series"] = [...option.series, series];
         });
@@ -190,6 +211,7 @@ function Detail() {
     const [chartOptions, setChartOptions] = useState();
     const [geoUrl, setGeoUrl] = useState();
     const [table, setTable] = useState();
+    const chartsRef = useRef([]);
 
     useEffect(() => {
         fetch("/data/eth-filtered.topo.json")
@@ -200,28 +222,15 @@ function Detail() {
         const woredaKey = config.locations.woreda;
         const kebeleKey = config.locations.kebele;
 
-        // filter data by woreda
         let filterData = data;
-        if (woreda) {
-            filterData = filterData.filter(
-                (x) => x[woredaKey].toLowerCase() === woreda.toLowerCase()
-            );
-        }
-
-        // filter data by kebele
-        if (kebele) {
-            filterData = filterData.filter(
-                (x) => x[kebeleKey].toLowerCase() === kebele.toLowerCase()
-            );
-        }
-
         // generate charts
         const locations = Object.keys(groupBy(filterData, kebeleKey));
         const options = generateChartOptions(
             config,
             filterData,
             locations,
-            kebeleKey
+            kebeleKey,
+            firstFilter
         );
         secondFilter !== "all" &&
             setChartOptions(
@@ -234,6 +243,19 @@ function Detail() {
         // generate table when selected
         let tableConfig = null;
         if (kebele) {
+            // filter data by woreda
+            if (woreda) {
+                filterData = filterData.filter(
+                    (x) => x[woredaKey].toLowerCase() === woreda.toLowerCase()
+                );
+            }
+
+            // filter data by kebele
+            if (kebele) {
+                filterData = filterData.filter(
+                    (x) => x[kebeleKey].toLowerCase() === kebele.toLowerCase()
+                );
+            }
             tableConfig = generateTable(
                 config,
                 filterData,
@@ -273,6 +295,25 @@ function Detail() {
                 tables: null,
             };
         });
+    };
+
+    const onChartsClick = (e, index) => {
+        const echartInstance = chartsRef.current[index].getEchartsInstance();
+        // const base64 = echartInstance.getDataURL();
+        let zoomSize = 6;
+        const option = chartOptions[index].option;
+        // echartInstance.dispatchAction({
+        //     type: "dataZoom", // seriesIndex: e.seriesIndex,
+        //     startValue:
+        //         option["yAxis"].data[Math.max(e.dataIndex - zoomSize / 2, 0)],
+        //     endValue:
+        //         option["yAxis"].data[
+        //             Math.max(
+        //                 e.dataIndex + zoomSize / 2,
+        //                 option.series[0].data.length - 1
+        //             )
+        //         ],
+        // });
     };
 
     return (
@@ -335,15 +376,24 @@ function Detail() {
                         )}
                         {geoUrl &&
                             chartOptions &&
-                            chartOptions.map((opt) => (
+                            chartOptions.map((opt, index) => (
                                 <div key={opt.name} className="chart-container">
                                     <h4>{opt.name}</h4>
                                     <Divider />
                                     <ReactECharts
                                         option={opt.option}
+                                        onEvents={{
+                                            click: (e) =>
+                                                onChartsClick(e, index),
+                                        }}
                                         style={{
-                                            height:
-                                                opt.option.series.length * 150,
+                                            height: opt.option.series?.[0]?.data
+                                                ? opt.option.series[0].data
+                                                      .length * 30
+                                                : 600,
+                                        }}
+                                        ref={(ref) => {
+                                            chartsRef.current[index] = ref;
                                         }}
                                     />
                                 </div>
