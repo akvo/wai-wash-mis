@@ -30,7 +30,9 @@ export const UIStore = new Store({
     },
     page: "home",
     woreda: null,
-    kabele: null,
+    kebele: null,
     firstFilter: "hh",
     secondFilter: "all",
+    woredaList: [],
+    kebeleList: [],
 });

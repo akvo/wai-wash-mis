@@ -110,12 +110,13 @@ const generateTable = (config, data, kebeleKey, kebele) => {
     const tableData = table.map((tb) => {
         const indicators = [];
         tb.indicators.forEach((ind) => {
-            indicators.push({
-                indicator: config[ind],
-                option: null,
-                value: null,
-            });
             let dataByIndicator = groupBy(filterDataByKebele, ind);
+            Object.values(dataByIndicator).length > 0 &&
+                indicators.push({
+                    indicator: config[ind],
+                    option: null,
+                    value: null,
+                });
             dataByIndicator = Object.keys(dataByIndicator).map((key) => {
                 let value =
                     (dataByIndicator[key].length / filterDataByKebele.length) *

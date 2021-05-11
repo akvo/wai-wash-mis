@@ -8,17 +8,37 @@ import Detail from "./pages/details/view";
 
 function Main() {
     const store = UIStore.useState();
-    const { page, firstFilter } = store;
+    const { page, firstFilter, state } = store;
 
     useEffect(() => {
+        const { data, config } = store[firstFilter];
+        const { woreda, kebele } = config.locations;
+
+        const woredaList = data
+            .map((x) => x[woreda])
+            .filter((value, index, self) => self.indexOf(value) === index);
+
+        let kebeleList = [];
+        if (store.woreda) {
+            kebeleList = data
+                .filter(
+                    (x) =>
+                        x[woreda].toLowerCase() === store.woreda.toLowerCase()
+                )
+                .map((x) => x[kebele])
+                .filter((value, index, self) => self.indexOf(value) === index);
+        }
+
         UIStore.update((e) => {
             e.state = {
                 ...store.state,
-                data: store[firstFilter].data,
-                config: store[firstFilter].config,
+                data: data,
+                config: config,
             };
+            e.woredaList = woredaList;
+            e.kebeleList = kebeleList;
         });
-    }, []);
+    }, [state]);
 
     return (
         <Layout>
