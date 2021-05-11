@@ -23,6 +23,9 @@ function Map({ geoUrl }) {
                                 <Geography
                                     key={geo.rsmKey}
                                     geography={geo}
+                                    stroke="#79B0CC"
+                                    strokeWidth="0.5"
+                                    strokeOpacity="0.6"
                                     style={{
                                         default: {
                                             fill: "#D6D6DA",

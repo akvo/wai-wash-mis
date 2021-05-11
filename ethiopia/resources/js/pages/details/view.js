@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ReactECharts from "echarts-for-react";
 import { Col, Layout, Menu, Row, Affix, Spin, Divider, Table } from "antd";
-import { LoadingOutlined } from "@ant-design/icons";
+import { LoadingOutlined, ReadOutlined } from "@ant-design/icons";
 
 import { HeaderDetail } from "../../components/header";
 import Map from "./maps";
@@ -74,16 +74,33 @@ const generateTable = (config, data, kebeleKey, kebele) => {
             title: "Indicator",
             dataIndex: "indicator",
             key: "indicator",
-        },
-        {
-            title: "Option",
-            dataIndex: "option",
-            key: "option",
+            render: (text, row, index) => {
+                if (!row.option && !row.value) {
+                    return {
+                        children: <b>{text}</b>,
+                        props: {
+                            colSpan: 2,
+                        },
+                    };
+                }
+                return <span style={{ marginLeft: "20px" }}>{row.option}</span>;
+            },
         },
         {
             title: "Value",
             dataIndex: "value",
             key: "value",
+            render: (text, row, index) => {
+                if (!row.option && !row.value) {
+                    return {
+                        children: text,
+                        props: {
+                            colSpan: 0,
+                        },
+                    };
+                }
+                return text;
+            },
         },
     ];
     const { table } = config;
@@ -93,6 +110,11 @@ const generateTable = (config, data, kebeleKey, kebele) => {
     const tableData = table.map((tb) => {
         const indicators = [];
         tb.indicators.forEach((ind) => {
+            indicators.push({
+                indicator: config[ind],
+                option: null,
+                value: null,
+            });
             let dataByIndicator = groupBy(filterDataByKebele, ind);
             dataByIndicator = Object.keys(dataByIndicator).map((key) => {
                 let value =
@@ -299,6 +321,7 @@ function Detail() {
                                     <Table
                                         key={index}
                                         size="small"
+                                        showHeader={false}
                                         pagination={false}
                                         dataSource={tb.data}
                                         columns={tb.column}
