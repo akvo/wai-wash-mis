@@ -21,7 +21,8 @@ const generateChartOptions = (
     data,
     locations,
     kebeleKey,
-    firstFilter
+    firstFilter,
+    kebele
 ) => {
     const options = config.charts.map((item) => {
         let option = {
@@ -68,7 +69,16 @@ const generateChartOptions = (
         const seriesData = dataByTopic.map((topic) => {
             const dataByLocation = locations.map((loc) => {
                 const val = topic.values.filter((x) => x[kebeleKey] === loc);
-                return val.length;
+                let res = { name: loc, value: val.length };
+                if (kebele && kebele !== loc.toLowerCase()) {
+                    res = {
+                        ...res,
+                        itemStyle: {
+                            opacity: 0.25,
+                        },
+                    };
+                }
+                return res;
             });
             const itemColor = itemColors.find(
                 (c) => c.name.toLowerCase() === topic.name.toLowerCase()
@@ -230,7 +240,8 @@ function Detail() {
             filterData,
             locations,
             kebeleKey,
-            firstFilter
+            firstFilter,
+            kebele
         );
         secondFilter !== "all" &&
             setChartOptions(
@@ -402,15 +413,18 @@ function Detail() {
                             table &&
                             table.map((tb, index) => (
                                 <div
-                                    key={tb.name + index}
+                                    key={"div-" + tb.name + index}
                                     className="table-container"
                                 >
-                                    <h4 style={{ textTransform: "capitalize" }}>
+                                    <h4
+                                        style={{
+                                            textTransform: "capitalize",
+                                        }}
+                                    >
                                         {tb.name}
                                     </h4>
                                     <Divider />
                                     <Table
-                                        key={tb.name + index + 1}
                                         size="small"
                                         showHeader={false}
                                         pagination={false}
