@@ -160,20 +160,25 @@ function Detail() {
         const kebeleKey = config.locations.kebele;
 
         // filter data by woreda
-        // const filterDataByWoreda = data.filter(
-        //     (x) => x[woredaKey].toLowerCase() === woreda.toLowerCase()
-        // );
+        let filterData = data;
+        if (woreda) {
+            filterData = filterData.filter(
+                (x) => x[woredaKey].toLowerCase() === woreda.toLowerCase()
+            );
+        }
 
         // filter data by kebele
-        // const filterDataByKebele = data.filter(
-        //     (x) => x[kebeleKey].toLowerCase() === kebele.toLowerCase()
-        // );
+        if (kebele) {
+            filterData = filterData.filter(
+                (x) => x[kebeleKey].toLowerCase() === kebele.toLowerCase()
+            );
+        }
 
         // generate charts
-        const locations = Object.keys(groupBy(data, kebeleKey));
+        const locations = Object.keys(groupBy(filterData, kebeleKey));
         const options = generateChartOptions(
             config,
-            data,
+            filterData,
             locations,
             kebeleKey
         );
@@ -188,7 +193,7 @@ function Detail() {
         // generate table when selected
         let tableConfig = null;
         if (kebele) {
-            tableConfig = generateTable(config, data, kebeleKey, kebele);
+            tableConfig = generateTable(config, filterData, kebeleKey, kebele);
             secondFilter !== "all" &&
                 setTable(
                     tableConfig.filter((x) =>
@@ -207,25 +212,7 @@ function Detail() {
                 tables: tableConfig,
             };
         });
-    }, [firstFilter, woreda, kebele]);
-
-    useEffect(() => {
-        chartOptions && secondFilter === "all" && setChartOptions(state.charts);
-        if (chartOptions && secondFilter !== "all") {
-            const filterOptions = state.charts.filter((x) =>
-                x.name.toLowerCase().includes(secondFilter.toLowerCase())
-            );
-            setChartOptions(filterOptions);
-        }
-
-        kebele && secondFilter === "all" && setTable(state.tables);
-        if (kebele && secondFilter !== "all") {
-            const filterTables = state.tables.filter((x) =>
-                x.name.toLowerCase().includes(secondFilter.toLowerCase())
-            );
-            setTable(filterTables);
-        }
-    }, [secondFilter]);
+    }, [firstFilter, secondFilter, woreda, kebele]);
 
     const handleFirstFilterClick = (cur) => {
         setChartOptions([]);
