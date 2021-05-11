@@ -26,6 +26,7 @@ export const UIStore = new Store({
         data: hhData,
         config: hhConfig,
         charts: null,
+        tables: null,
     },
     page: "home",
     woreda: null,

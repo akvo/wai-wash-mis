@@ -152,19 +152,22 @@ function Detail() {
             locations,
             kebeleKey
         );
+        setChartOptions(options);
+
+        // generate table when selected
+        let tableConfig = null;
+        if (kebele) {
+            tableConfig = generateTable(config, data, kebeleKey, kebele);
+            setTable(tableConfig);
+        }
+
         UIStore.update((e) => {
             e.state = {
                 ...state,
                 charts: options,
+                tables: tableConfig,
             };
         });
-        setChartOptions(options);
-
-        // generate table when selected
-        if (kebele) {
-            const tableConfig = generateTable(config, data, kebeleKey, kebele);
-            setTable(tableConfig);
-        }
     }, [firstFilter, woreda, kebele]);
 
     useEffect(() => {
@@ -173,10 +176,20 @@ function Detail() {
             setChartOptions(state.charts);
         }
         if (chartOptions && secondFilter !== "all") {
-            const filter = state.charts.filter((x) =>
+            const filterOptions = state.charts.filter((x) =>
                 x.name.toLowerCase().includes(secondFilter.toLowerCase())
             );
-            setChartOptions(filter);
+            setChartOptions(filterOptions);
+        }
+
+        if (kebele && secondFilter === "all") {
+            setTable(state.tables);
+        }
+        if (kebele && secondFilter !== "all") {
+            const filterTables = state.tables.filter((x) =>
+                x.name.toLowerCase().includes(secondFilter.toLowerCase())
+            );
+            setTable(filterTables);
         }
     }, [secondFilter]);
 
@@ -188,6 +201,7 @@ function Detail() {
                 data: store[cur.key].data,
                 config: store[cur.key].config,
                 charts: null,
+                tables: null,
             };
         });
     };
