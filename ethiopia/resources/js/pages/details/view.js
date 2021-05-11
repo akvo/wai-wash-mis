@@ -6,7 +6,7 @@ import {
     Geography,
     ZoomableGroup,
 } from "react-simple-maps";
-import { Col, Layout, Menu, Row, Affix, Spin, Divider } from "antd";
+import { Col, Layout, Menu, Row, Affix, Spin, Divider, Table } from "antd";
 import { LoadingOutlined } from "@ant-design/icons";
 
 import { HeaderDetail } from "../../components/header";
@@ -14,12 +14,13 @@ import { HeaderDetail } from "../../components/header";
 import { UIStore } from "../../store";
 
 import groupBy from "lodash/groupBy";
+import flatten from "lodash/flatten";
 
 import "./style.css";
 
 const { Content } = Layout;
 
-const generateChartOptions = (config, data, locations, kebele) => {
+const generateChartOptions = (config, data, locations, kebeleKey) => {
     const options = config.charts.map((item) => {
         let option = {
             tooltip: {
@@ -56,7 +57,7 @@ const generateChartOptions = (config, data, locations, kebele) => {
         });
         const seriesData = dataByTopic.map((topic) => {
             const dataByLocation = locations.map((loc) => {
-                const val = topic.values.filter((x) => x[kebele] === loc);
+                const val = topic.values.filter((x) => x[kebeleKey] === loc);
                 return val.length;
             });
             const series = {
@@ -72,17 +73,71 @@ const generateChartOptions = (config, data, locations, kebele) => {
     return options;
 };
 
+const generateTable = (config, data, kebeleKey, kebele) => {
+    const column = [
+        {
+            title: "Indicator",
+            dataIndex: "indicator",
+            key: "indicator",
+        },
+        {
+            title: "Option",
+            dataIndex: "option",
+            key: "option",
+        },
+        {
+            title: "Value",
+            dataIndex: "value",
+            key: "value",
+        },
+    ];
+    const { table } = config;
+    const filterDataByKebele = data.filter(
+        (x) => x[kebeleKey].toLowerCase() === kebele.toLowerCase()
+    );
+    const tableData = table.map((tb) => {
+        const indicators = [];
+        tb.indicators.forEach((ind) => {
+            let dataByIndicator = groupBy(filterDataByKebele, ind);
+            dataByIndicator = Object.keys(dataByIndicator).map((key) => {
+                let value =
+                    (dataByIndicator[key].length / filterDataByKebele.length) *
+                    100;
+                value = Math.round((value + Number.EPSILON) * 100) / 100;
+                return {
+                    indicator: config[ind],
+                    option: key,
+                    value: `${value}%`,
+                };
+            });
+            indicators.push(dataByIndicator);
+            return;
+        });
+        return {
+            name: tb.name,
+            column: column,
+            data: flatten(indicators).map((x, i) => {
+                x.key = i;
+                return x;
+            }),
+        };
+    });
+    return tableData;
+};
+
 function Detail() {
     const store = UIStore.useState();
-    const { woreda, state, firstFilter, secondFilter } = store;
+    const { woreda, kebele, state, firstFilter, secondFilter } = store;
     const [chartOptions, setChartOptions] = useState();
     const [geoUrl, setGeoUrl] = useState();
+    const [table, setTable] = useState([{ name: null, data: [], column: [] }]);
 
     useEffect(() => {
         fetch("/data/eth-filtered.topo.json")
             .then((res) => res.json())
             .then((res) => setGeoUrl(res));
 
+        // generate charts
         const { data, config } = state;
         const woredaKey = config.locations.woreda;
         const kebeleKey = config.locations.kebele;
@@ -104,7 +159,13 @@ function Detail() {
             };
         });
         setChartOptions(options);
-    }, [firstFilter, woreda]);
+
+        // generate table when selected
+        if (kebele) {
+            const tableConfig = generateTable(config, data, kebeleKey, kebele);
+            setTable(tableConfig);
+        }
+    }, [firstFilter, woreda, kebele]);
 
     useEffect(() => {
         if (!state.charts) return;
@@ -266,6 +327,29 @@ function Detail() {
                                     <ReactECharts
                                         option={opt.option}
                                         style={{ height: "300px" }}
+                                    />
+                                </div>
+                            ))}
+                        {kebele &&
+                            table.map((tb, index) => (
+                                <div
+                                    key={`div-${index}`}
+                                    style={{
+                                        padding: "20px 0",
+                                        margin: "25px 0",
+                                        textAlign: "center",
+                                    }}
+                                >
+                                    <h4 style={{ textTransform: "capitalize" }}>
+                                        {tb.name}
+                                    </h4>
+                                    <Divider />
+                                    <Table
+                                        key={index}
+                                        size="small"
+                                        pagination={false}
+                                        dataSource={tb.data}
+                                        columns={tb.column}
                                     />
                                 </div>
                             ))}

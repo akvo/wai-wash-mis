@@ -12,8 +12,15 @@ const handleOnChangeWoreda = (key) => {
     });
 };
 
+const handleOnChangeKebele = (key) => {
+    UIStore.update((e) => {
+        e.kebele = key;
+    });
+};
+
 export function HeaderHome() {
     const woreda = UIStore.useState((e) => e.woreda);
+
     return (
         <Header
             className="site-layout"
@@ -74,6 +81,8 @@ export function HeaderHome() {
 
 export function HeaderDetail() {
     const woreda = UIStore.useState((e) => e.woreda);
+    const kebele = UIStore.useState((e) => e.kebele);
+
     return (
         <Header
             className="site-layout"
@@ -126,9 +135,14 @@ export function HeaderDetail() {
                             Arsi Negele
                         </Select.Option>
                     </Select>
-                    <Select style={{ width: 220 }} placeholder="All Kebeles">
-                        <Select.Option key="1">Faji Goba</Select.Option>
-                        <Select.Option key="2">Ebicha</Select.Option>
+                    <Select
+                        style={{ width: 220 }}
+                        placeholder="All Kebeles"
+                        defaultValue={kebele}
+                        onChange={handleOnChangeKebele}
+                    >
+                        <Select.Option key="faji goba">Faji Goba</Select.Option>
+                        <Select.Option key="ebichaa">Ebicha</Select.Option>
                     </Select>
                 </div>
                 <div>
