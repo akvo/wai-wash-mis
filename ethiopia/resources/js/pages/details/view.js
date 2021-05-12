@@ -43,7 +43,7 @@ const generateChartOptions = (
             grid: {
                 left: "7%",
                 right: "7%",
-                bottom: "5%",
+                bottom: "10%",
                 containLabel: true,
             },
             yAxis: {
@@ -258,6 +258,12 @@ function Detail() {
         const kebeleKey = config.locations.kebele;
 
         let filterData = data;
+        // filter data by woreda
+        if (woreda) {
+            filterData = filterData.filter(
+                (x) => x[woredaKey].toLowerCase() === woreda.toLowerCase()
+            );
+        }
         // generate charts
         const locations = Object.keys(groupBy(filterData, kebeleKey));
         const options = generateChartOptions(
@@ -279,13 +285,6 @@ function Detail() {
         // generate table when selected
         let tableConfig = null;
         if (kebele) {
-            // filter data by woreda
-            if (woreda) {
-                filterData = filterData.filter(
-                    (x) => x[woredaKey].toLowerCase() === woreda.toLowerCase()
-                );
-            }
-
             // filter data by kebele
             if (kebele) {
                 filterData = filterData.filter(
@@ -333,23 +332,11 @@ function Detail() {
         });
     };
 
-    const onChartsClick = (e, index) => {
+    const onChartsClick = (params, index) => {
         const echartInstance = chartsRef.current[index].getEchartsInstance();
-        // const base64 = echartInstance.getDataURL();
-        let zoomSize = 6;
-        const option = chartOptions[index].option;
-        // echartInstance.dispatchAction({
-        //     type: "dataZoom", // seriesIndex: e.seriesIndex,
-        //     startValue:
-        //         option["yAxis"].data[Math.max(e.dataIndex - zoomSize / 2, 0)],
-        //     endValue:
-        //         option["yAxis"].data[
-        //             Math.max(
-        //                 e.dataIndex + zoomSize / 2,
-        //                 option.series[0].data.length - 1
-        //             )
-        //         ],
-        // });
+        UIStore.update((e) => {
+            e.kebele = params.data.name.toLowerCase();
+        });
     };
 
     return (
