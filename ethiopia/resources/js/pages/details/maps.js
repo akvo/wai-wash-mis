@@ -7,12 +7,20 @@ import {
     Marker,
 } from "react-simple-maps";
 import ReactTooltip from "react-tooltip";
+import { Tooltip, Button } from "antd";
+import {
+    ZoomInOutlined,
+    ZoomOutOutlined,
+    FullscreenOutlined,
+} from "@ant-design/icons";
 
 import { UIStore } from "../../store";
 
 import groupBy from "lodash/groupBy";
 import { scaleQuantize } from "d3-scale";
 
+const mapMaxZoom = 4;
+const defCenter = ["38.69590", "7.34350"];
 const colorRange = ["#bbedda", "#a7e1cb", "#92d5bd", "#7dcaaf", "#67bea1"];
 
 const ToolTipContent = ({ data, geo }) => {
@@ -24,9 +32,8 @@ const ToolTipContent = ({ data, geo }) => {
 };
 
 function Map({ geoUrl }) {
-    const mapMaxZoom = 4;
     const [position, setPosition] = useState({
-        coordinates: ["38.69590", "7.34350"],
+        coordinates: defCenter,
         zoom: 1,
     });
     const { state, woreda, kebele, config, firstFilter } = UIStore.useState();
@@ -105,11 +112,49 @@ function Map({ geoUrl }) {
 
     return (
         <div>
+            <div className="map-buttons">
+                <Tooltip title="zoom out">
+                    <Button
+                        type="secondary"
+                        icon={<ZoomOutOutlined />}
+                        onClick={() => {
+                            position.zoom > 1 &&
+                                setPosition({
+                                    ...position,
+                                    zoom: position.zoom - 0.5,
+                                });
+                        }}
+                        disabled={position.zoom <= 1}
+                    />
+                </Tooltip>
+                <Tooltip title="zoom in">
+                    <Button
+                        disabled={position.zoom >= mapMaxZoom}
+                        type="secondary"
+                        icon={<ZoomInOutlined />}
+                        onClick={() => {
+                            setPosition({
+                                ...position,
+                                zoom: position.zoom + 0.5,
+                            });
+                        }}
+                    />
+                </Tooltip>
+                <Tooltip title="reset zoom">
+                    <Button
+                        type="secondary"
+                        icon={<FullscreenOutlined />}
+                        onClick={() => {
+                            setPosition({ coordinates: defCenter, zoom: 1 });
+                        }}
+                    />
+                </Tooltip>
+            </div>
             <ComposableMap
                 data-tip=""
                 projection="geoEquirectangular"
-                height={300}
-                projectionConfig={{ scale: 22000 }}
+                height={350}
+                projectionConfig={{ scale: 25000 }}
             >
                 <ZoomableGroup
                     maxZoom={mapMaxZoom}
