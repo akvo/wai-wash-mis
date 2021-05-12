@@ -15,6 +15,8 @@ import flatten from "lodash/flatten";
 import "./styles.scss";
 
 const { Content } = Layout;
+const bestIndicators = ["safely managed", "advanced"];
+const goodIndicators = ["safely managed", "advanced", "basic"];
 
 const generateChartOptions = (
     config,
@@ -82,29 +84,56 @@ const generateChartOptions = (
             };
         });
         const seriesData = dataByTopic.map((topic) => {
-            const dataByLocation = locations.map((loc) => {
-                const val = topic.values.filter((x) => x[kebeleKey] === loc);
-                const totalDataKebele = data.filter(
-                    (x) => x[kebeleKey] === loc
-                );
-                const value =
-                    val.length !== 0
-                        ? (val.length / totalDataKebele.length) * 100
-                        : 0;
-                let res = {
-                    name: loc,
-                    value: Math.round((value + Number.EPSILON) * 100) / 100,
-                };
-                if (kebele && kebele !== loc.toLowerCase()) {
+            const dataByLocation = locations
+                .map((loc) => {
+                    const val = topic.values.filter(
+                        (x) => x[kebeleKey] === loc
+                    );
+                    const totalDataKebele = data.filter(
+                        (x) => x[kebeleKey] === loc
+                    );
+                    const value =
+                        val.length !== 0
+                            ? (val.length / totalDataKebele.length) * 100
+                            : 0;
+                    let res = {
+                        name: loc,
+                        value: Math.round((value + Number.EPSILON) * 100) / 100,
+                    };
+                    if (kebele && kebele !== loc.toLowerCase()) {
+                        res = {
+                            ...res,
+                            itemStyle: {
+                                opacity: 0.25,
+                            },
+                        };
+                    }
+                    // #::TODO add sum value of 2 good indicator and sort the charts according to that
+                    const sortBy = dataByTopic
+                        .map((d) => {
+                            if (goodIndicators.includes(d.name.toLowerCase())) {
+                                const k = d.values.filter(
+                                    (x) => x[kebeleKey] === loc
+                                );
+                                return k.length;
+                            }
+                            // put also best value to pretend the value with same total and have best indicator is better
+                            if (bestIndicators.includes(d.name.toLowerCase())) {
+                                const bk = d.values.filter(
+                                    (x) => x[kebeleKey] === loc
+                                );
+                                return bk.length;
+                            }
+                            return 0;
+                        })
+                        .reduce((acc, cur) => acc + cur);
                     res = {
                         ...res,
-                        itemStyle: {
-                            opacity: 0.25,
-                        },
+                        sortBy: sortBy,
                     };
-                }
-                return res;
-            });
+                    return res;
+                })
+                .sort((a, b) => a.sortBy - b.sortBy);
             const itemColor = itemColors.find(
                 (c) => c.name.toLowerCase() === topic.name.toLowerCase()
             );
@@ -117,6 +146,11 @@ const generateChartOptions = (
                     color: itemColor?.color,
                 },
             };
+            // #::TODO Replace yAxis with sorted value
+            option["yAxis"]["data"] = dataByLocation.map((x) => ({
+                value: x.name,
+                textStyle: { fontSize: 14 },
+            }));
             option["series"] = [...option.series, series];
         });
         return { name: item.name, option: option };

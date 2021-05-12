@@ -228,7 +228,7 @@ function Map({ geoUrl }) {
                             })
                         }
                     </Geographies>
-                    {firstFilter === "school" &&
+                    {firstFilter === "show" &&
                         filterData &&
                         filterData.map((item, index) => {
                             const { latitude, longitude } = latlong;
