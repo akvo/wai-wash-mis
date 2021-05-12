@@ -26,11 +26,13 @@
     "dependencies": {
         "@ant-design/icons": "^4.6.2",
         "antd": "^4.15.4",
+        "d3-scale": "^3.3.0",
         "echarts": "^5.1.1",
         "echarts-for-react": "^3.0.1",
         "lodash": "^4.17.21",
         "prop-types": "^15.7.2",
         "pullstate": "^1.22.1",
-        "react-simple-maps": "^2.3.0"
+        "react-simple-maps": "^2.3.0",
+        "react-tooltip": "^4.2.19"
     }
 }
