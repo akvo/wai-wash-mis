@@ -6,6 +6,8 @@ import { UIStore } from "./store";
 import Home from "./pages/home/view";
 import Detail from "./pages/details/view";
 
+import "./main.scss";
+
 function Main() {
     const store = UIStore.useState();
     const { page, firstFilter, state } = store;

@@ -8,11 +8,7 @@ const { Header } = Layout;
 const renderLogo = () => {
     return (
         <div
-            style={{
-                display: "flex",
-                alignItems: "center",
-                cursor: "pointer",
-            }}
+            className="header-logo-wrapper"
             onClick={(e) =>
                 UIStore.update((e) => {
                     e.page = "home";
@@ -21,8 +17,8 @@ const renderLogo = () => {
                 })
             }
         >
-            <Image width={30} src="/images/wai-logo.png" preview={false} />
-            <span>WAI Ethiopia</span>
+            <Image width={35} src="/images/wai-logo.png" preview={false} />
+            <span className="brand">WAI Ethiopia</span>
         </div>
     );
 };
@@ -32,7 +28,7 @@ const renderWoredaOption = (woreda, woredaList) => {
         <Select
             style={{ width: 220 }}
             placeholder="Select Woreda"
-            defaultValue={woreda}
+            value={woreda}
             onChange={handleOnChangeWoreda}
         >
             {woredaList.map((x) => (
@@ -48,13 +44,23 @@ const renderKebeleOption = (kebele, kebeleList) => {
             style={{ width: 220 }}
             placeholder="All Kebeles"
             allowClear={true}
-            defaultValue={kebele}
+            value={kebele}
             onChange={handleOnChangeKebele}
         >
             {kebeleList.map((x) => (
-                <Select.Option key={x.toLowerCase()}>{x}</Select.Option>
+                <Select.Option key={x.toLowerCase()} value={x.toLowerCase()}>
+                    {x}
+                </Select.Option>
             ))}
         </Select>
+    );
+};
+
+const renderLoginBtn = () => {
+    return (
+        <div>
+            <Button type="secondary">Login</Button>
+        </div>
     );
 };
 
@@ -77,25 +83,11 @@ export function HeaderHome() {
     const woredaList = UIStore.useState((e) => e.woredaList);
 
     return (
-        <Header
-            className="site-layout"
-            style={{
-                padding: "10px",
-                backgroundColor: "#fff",
-            }}
-        >
-            <div
-                style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "space-between",
-                }}
-            >
+        <Header className="header-container">
+            <div className="header-content-wrapper">
                 {renderLogo()}
                 <div>{renderWoredaOption(woreda, woredaList)}</div>
-                <div>
-                    <Button type="secondary">Login</Button>
-                </div>
+                {renderLoginBtn()}
             </div>
         </Header>
     );
@@ -108,31 +100,14 @@ export function HeaderDetail() {
     const kebeleList = UIStore.useState((e) => e.kebeleList);
 
     return (
-        <Header
-            className="site-layout"
-            style={{
-                padding: "10px",
-                backgroundColor: "#F9F9F9",
-                position: "fixed",
-                zIndex: 1,
-                width: "100%",
-            }}
-        >
-            <div
-                style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "space-between",
-                }}
-            >
+        <Header className="header-container header-fixed">
+            <div className="header-content-wrapper">
                 {renderLogo()}
                 <div>
                     {renderWoredaOption(woreda, woredaList)}
                     {renderKebeleOption(kebele, kebeleList)}
                 </div>
-                <div>
-                    <Button type="secondary">Login</Button>
-                </div>
+                {renderLoginBtn()}
             </div>
         </Header>
     );
