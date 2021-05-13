@@ -223,6 +223,15 @@ const generateDetailTable = (config, data) => {
             if (ind.action === "select" && !ind.value) {
                 value = data[ind.column];
             }
+            if (ind.type === "date" && value !== "") {
+                value = new Date(value);
+                value = value.toLocaleString("en-US", {
+                    weekday: "short",
+                    year: "numeric",
+                    month: "2-digit",
+                    day: "numeric",
+                });
+            }
             indicators.push({
                 indicator: ind.name,
                 option: ind.name,

@@ -111,7 +111,6 @@ function Map({ geoUrl }) {
     };
 
     const onMarkerClick = (data) => {
-        console.log(data);
         UIStore.update((e) => {
             e.kebele = data[kebeleKey].toLowerCase();
             e.markerDetail = {
