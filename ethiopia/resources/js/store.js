@@ -9,6 +9,9 @@ import schoolConfig from "./data/eth_school_config.json";
 import healthData from "./data/eth_health_data.json";
 import healthConfig from "./data/eth_health_config.json";
 
+import cltsData from "./data/eth_clts_data.json";
+import cltsConfig from "./data/eth_clts_config.json";
+
 export const UIStore = new Store({
     hh: {
         data: hhData,
@@ -21,6 +24,10 @@ export const UIStore = new Store({
     health: {
         data: healthData,
         config: healthConfig,
+    },
+    clts: {
+        data: cltsData,
+        config: cltsConfig,
     },
     state: {
         data: {},
