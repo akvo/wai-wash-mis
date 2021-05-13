@@ -17,7 +17,7 @@ if [[ "${CI_PULL_REQUEST}" == "true" ]]; then
     exit 0
 fi
 
-base_folder="www/wai-mis.tc.akvo.org/public_html/ethiopia"
+base_folder="www/wai-mis.tc.akvo.org/public_html"
 
 rsync \
     --archive \
