@@ -16,7 +16,7 @@ docker run \
        --entrypoint /bin/sh \
        composer:2.0.7 -c 'composer dump-autoload'
 
-echo 'MIX_PUBLIC_URL="https://wai-mis.tc.akvo.org"' > .env
+echo 'MIX_PUBLIC_URL="https://wai-mis.tc.akvo.org/ethiopia"' > .env
 
 docker run \
        --rm \

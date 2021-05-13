@@ -17,7 +17,7 @@ if [[ "${CI_PULL_REQUEST}" == "true" ]]; then
     exit 0
 fi
 
-base_folder="www/tc.akvo.org/public_html/wai-mis/ethiopia"
+base_folder="www/wai-mis.tc.akvo.org/public_html/ethiopia"
 
 rsync \
     --archive \
@@ -26,7 +26,7 @@ rsync \
     --exclude=ci \
     --exclude=node_modules \
     --rsh="ssh -i ${SITES_SSH_KEY} -o BatchMode=yes -p 18765 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no" \
-    . "u7-nnfq7m4dqfyx@35.214.170.100:/home/customer/${base_folder}"
+    . "u7-nnfq7m4dqfyx@35.214.170.100:/home/u7-nnfq7m4dqfyx/${base_folder}"
 
 remote_exec () {
     ssh -i "${SITES_SSH_KEY}" -o BatchMode=yes \
