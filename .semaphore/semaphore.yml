@@ -10,9 +10,13 @@ global_job_config:
   prologue:
     commands:
       - echo "${DOCKER_PASSWORD}" | docker login --username "${DOCKER_USERNAME}" --password-stdin
-      - checkout
+      - export CI_COMMIT="${SEMAPHORE_GIT_SHA:0:7}"
+      - export CI_BRANCH="${SEMAPHORE_GIT_BRANCH}"
+      - export CI_TAG="${SEMAPHORE_GIT_TAG_NAME}"
+      - export CI_PULL_REQUEST="${SEMAPHORE_GIT_REF_TYPE/pull-request/true}"
       - export SITES_SSH_KEY=/home/semaphore/.siteground/private.key
       - chmod 400 /home/semaphore/.siteground/private.key
+      - checkout
 
 blocks:
   - name: 'Build and deploy'
