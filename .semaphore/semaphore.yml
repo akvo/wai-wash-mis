@@ -1,0 +1,23 @@
+version: v1.0
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+global_job_config:
+  secrets:
+    - name: docker-hub-credentials
+    - name: siteground
+  prologue:
+    commands:
+      - echo "${DOCKER_PASSWORD}" | docker login --username "${DOCKER_USERNAME}" --password-stdin
+      - checkout
+      - export SITES_SSH_KEY=/home/semaphore/.siteground/private.key
+      - chmod 400 /home/semaphore/.siteground/private.key
+
+blocks:
+  - name: 'Build and deploy'
+    task:
+      jobs:
+        - name: 'Build and deploy'
+          commands:
+            - ./monorepo-build.sh
