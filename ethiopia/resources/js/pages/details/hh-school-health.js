@@ -168,6 +168,7 @@ const generateTable = (config, data, kebeleKey, kebele, firstFilter) => {
         {
             title: "Value",
             dataIndex: "value",
+            className: "value-column",
             key: "value",
             render: (text, row, index) => {
                 if (!row.option && !row.value) {

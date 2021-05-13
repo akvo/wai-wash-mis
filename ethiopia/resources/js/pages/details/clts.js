@@ -132,6 +132,7 @@ const column = [
     {
         title: "Value",
         dataIndex: "value",
+        className: "value-column",
         key: "value",
         render: (text, row, index) => {
             if (!row.option && !row.value) {
