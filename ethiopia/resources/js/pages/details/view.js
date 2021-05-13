@@ -32,6 +32,11 @@ function Detail() {
                 charts: null,
                 tables: null,
             };
+            e.markerDetail = {
+                ...e.markerDetail,
+                active: false,
+                data: {},
+            };
         });
     };
 
@@ -80,6 +85,11 @@ function Detail() {
                                 onClick={(cur) =>
                                     UIStore.update((e) => {
                                         e.secondFilter = cur.key;
+                                        e.markerDetail = {
+                                            ...e.markerDetail,
+                                            active: false,
+                                            data: {},
+                                        };
                                     })
                                 }
                                 mode="horizontal"

@@ -110,6 +110,18 @@ function Map({ geoUrl }) {
         });
     };
 
+    const onMarkerClick = (data) => {
+        console.log(data);
+        UIStore.update((e) => {
+            e.kebele = data[kebeleKey].toLowerCase();
+            e.markerDetail = {
+                ...e.markerDetail,
+                active: true,
+                data: data,
+            };
+        });
+    };
+
     return (
         <div>
             <div className="map-buttons">
@@ -243,7 +255,7 @@ function Map({ geoUrl }) {
                                         fill="#F00"
                                         stroke="#fff"
                                         strokeWidth={0.7}
-                                        onClick={() => console.log(item)}
+                                        onClick={() => onMarkerClick(item)}
                                         cursor="pointer"
                                     />
                                 </Marker>

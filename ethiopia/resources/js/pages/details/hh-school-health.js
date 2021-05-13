@@ -337,6 +337,11 @@ function HouseholdSchoolHealth({ geoUrl }) {
         const echartInstance = chartsRef.current[index].getEchartsInstance();
         UIStore.update((e) => {
             e.kebele = params.data.name.toLowerCase();
+            e.markerDetail = {
+                ...e.markerDetail,
+                active: false,
+                data: {},
+            };
         });
     };
 

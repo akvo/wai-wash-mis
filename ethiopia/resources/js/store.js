@@ -30,11 +30,10 @@ export const UIStore = new Store({
         config: cltsConfig,
     },
     state: {
-        data: {},
-        config: [],
+        data: [],
+        config: {},
         charts: null,
         tables: null,
-        markerDetail: false,
     },
     page: "home",
     woreda: null,
@@ -43,4 +42,8 @@ export const UIStore = new Store({
     secondFilter: "all",
     woredaList: [],
     kebeleList: [],
+    markerDetail: {
+        active: false,
+        data: {},
+    },
 });

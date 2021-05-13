@@ -113,41 +113,42 @@ const generateChartOptions = (config, data, kebeleKey, firstFilter, kebele) => {
     return options;
 };
 
+const column = [
+    {
+        title: "Name",
+        dataIndex: "indicator",
+        key: "indicator",
+        render: (text, row, index) => {
+            if (!row.option && !row.value) {
+                return {
+                    children: <b>{text}</b>,
+                    props: {
+                        colSpan: 2,
+                    },
+                };
+            }
+            return <span style={{ marginLeft: "20px" }}>{row.option}</span>;
+        },
+    },
+    {
+        title: "Value",
+        dataIndex: "value",
+        key: "value",
+        render: (text, row, index) => {
+            if (!row.option && !row.value) {
+                return {
+                    children: text,
+                    props: {
+                        colSpan: 0,
+                    },
+                };
+            }
+            return text;
+        },
+    },
+];
+
 const generateTable = (config, data, kebeleKey, kebele, firstFilter) => {
-    const column = [
-        {
-            title: "Name",
-            dataIndex: "indicator",
-            key: "indicator",
-            render: (text, row, index) => {
-                if (!row.option && !row.value) {
-                    return {
-                        children: <b>{text}</b>,
-                        props: {
-                            colSpan: 2,
-                        },
-                    };
-                }
-                return <span style={{ marginLeft: "20px" }}>{row.option}</span>;
-            },
-        },
-        {
-            title: "Value",
-            dataIndex: "value",
-            key: "value",
-            render: (text, row, index) => {
-                if (!row.option && !row.value) {
-                    return {
-                        children: text,
-                        props: {
-                            colSpan: 0,
-                        },
-                    };
-                }
-                return text;
-            },
-        },
-    ];
     const { table } = config;
     const filterDataByKebele = data.filter(
         (x) => x[kebeleKey].toLowerCase() === kebele.toLowerCase()
@@ -211,9 +212,48 @@ const generateTable = (config, data, kebeleKey, kebele, firstFilter) => {
     return tmp;
 };
 
+const generateDetailTable = (config, data) => {
+    const { table } = config;
+    let tableData = table.filter((x) => x.type === "detail");
+    let tmp = [];
+    tableData = tableData.map((tb) => {
+        const indicators = [];
+        tb.indicators.forEach((ind) => {
+            let value = "-";
+            if (ind.action === "select" && !ind.value) {
+                value = data[ind.column];
+            }
+            indicators.push({
+                indicator: ind.name,
+                option: ind.name,
+                value: value,
+            });
+            return;
+        });
+        const results = {
+            name: tb.name,
+            column: column,
+            data: flatten(indicators).map((x, i) => {
+                x.key = i;
+                return x;
+            }),
+        };
+        tmp.push(results);
+        return results;
+    });
+    return tmp;
+};
+
 function Clts({ geoUrl }) {
     const store = UIStore.useState();
-    const { woreda, kebele, state, firstFilter, secondFilter } = store;
+    const {
+        woreda,
+        kebele,
+        state,
+        firstFilter,
+        secondFilter,
+        markerDetail,
+    } = store;
     const [chartOptions, setChartOptions] = useState();
     const [table, setTable] = useState();
     const chartsRef = useRef([]);
@@ -259,6 +299,13 @@ function Clts({ geoUrl }) {
                 kebele,
                 firstFilter
             );
+            if (markerDetail.active) {
+                const tableDetailConfig = generateDetailTable(
+                    config,
+                    markerDetail.data
+                );
+                tableConfig = [...tableConfig, ...tableDetailConfig];
+            }
             setTable(tableConfig);
         }
 
@@ -269,12 +316,17 @@ function Clts({ geoUrl }) {
                 tables: tableConfig,
             };
         });
-    }, [firstFilter, secondFilter, woreda, kebele]);
+    }, [firstFilter, secondFilter, woreda, kebele, markerDetail]);
 
     const onChartsClick = (params, index) => {
         const echartInstance = chartsRef.current[index].getEchartsInstance();
         UIStore.update((e) => {
             e.kebele = params.data.name.toLowerCase();
+            e.markerDetail = {
+                ...e.markerDetail,
+                active: false,
+                data: {},
+            };
         });
     };
 

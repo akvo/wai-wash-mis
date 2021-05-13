@@ -14,6 +14,13 @@ const renderLogo = () => {
                     e.page = "home";
                     e.woreda = null;
                     e.kebele = null;
+                    e.firstFilter = "hh";
+                    e.secondFilter = "all";
+                    e.markerDetail = {
+                        ...e.markerDetail,
+                        active: false,
+                        data: {},
+                    };
                 })
             }
         >
@@ -69,12 +76,22 @@ const handleOnChangeWoreda = (key) => {
         e.kebele = null;
         e.page = "details";
         e.woreda = key;
+        e.markerDetail = {
+            ...e.markerDetail,
+            active: false,
+            data: {},
+        };
     });
 };
 
 const handleOnChangeKebele = (key) => {
     UIStore.update((e) => {
         e.kebele = key;
+        e.markerDetail = {
+            ...e.markerDetail,
+            active: false,
+            data: {},
+        };
     });
 };
 
