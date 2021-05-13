@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import ReactECharts from "echarts-for-react";
-import { Col, Menu, Row, Spin, Divider, Table } from "antd";
+import { Col, Menu, Row, Divider, Table } from "antd";
 
-import { HeaderDetail } from "../../components/header";
 import Map from "./maps";
 import { jmpColors } from "../../utils/jmp_color";
 
@@ -344,23 +343,6 @@ function HouseholdSchoolHealth({ geoUrl }) {
     return (
         <Row>
             <Col span="24">
-                <div>
-                    <Menu
-                        selectedKeys={[secondFilter]}
-                        onClick={(cur) =>
-                            UIStore.update((e) => {
-                                e.secondFilter = cur.key;
-                            })
-                        }
-                        mode="horizontal"
-                        style={{ borderBottom: 0 }}
-                    >
-                        <Menu.Item key="all">All</Menu.Item>
-                        <Menu.Item key="water">Water</Menu.Item>
-                        <Menu.Item key="sanitation">Sanitation</Menu.Item>
-                        <Menu.Item key="hygiene">Hygiene</Menu.Item>
-                    </Menu>
-                </div>
                 {geoUrl && chartOptions && (
                     <div key="maps" className="map-container">
                         <Map geoUrl={geoUrl} />

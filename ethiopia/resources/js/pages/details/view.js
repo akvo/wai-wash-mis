@@ -4,6 +4,7 @@ import { LoadingOutlined } from "@ant-design/icons";
 
 import { HeaderDetail } from "../../components/header";
 import HouseholdSchoolHealth from "./hh-school-health";
+import Clts from "./clts";
 
 import { UIStore } from "../../store";
 
@@ -13,7 +14,7 @@ const { Content } = Layout;
 
 function Detail() {
     const store = UIStore.useState();
-    const { firstFilter, state } = store;
+    const { firstFilter, secondFilter } = store;
     const [geoUrl, setGeoUrl] = useState();
 
     useEffect(() => {
@@ -72,10 +73,35 @@ function Detail() {
                 {geoUrl &&
                     ["hh", "school", "health"].includes(
                         firstFilter.toLocaleLowerCase()
+                    ) && (
+                        <div>
+                            <Menu
+                                selectedKeys={[secondFilter]}
+                                onClick={(cur) =>
+                                    UIStore.update((e) => {
+                                        e.secondFilter = cur.key;
+                                    })
+                                }
+                                mode="horizontal"
+                                style={{ borderBottom: 0 }}
+                            >
+                                <Menu.Item key="all">All</Menu.Item>
+                                <Menu.Item key="water">Water</Menu.Item>
+                                <Menu.Item key="sanitation">
+                                    Sanitation
+                                </Menu.Item>
+                                <Menu.Item key="hygiene">Hygiene</Menu.Item>
+                            </Menu>
+                        </div>
+                    )}
+
+                {geoUrl &&
+                    ["hh", "school", "health"].includes(
+                        firstFilter.toLocaleLowerCase()
                     ) && <HouseholdSchoolHealth geoUrl={geoUrl} />}
 
                 {geoUrl && firstFilter.toLocaleLowerCase() === "clts" && (
-                    <h1>CLTS Page</h1>
+                    <Clts geoUrl={geoUrl} />
                 )}
             </Content>
         </div>
