@@ -228,7 +228,7 @@ function Map({ geoUrl }) {
                             })
                         }
                     </Geographies>
-                    {firstFilter === "show" &&
+                    {["school", "clts"].includes(firstFilter) &&
                         filterData &&
                         filterData.map((item, index) => {
                             const { latitude, longitude } = latlong;
@@ -239,7 +239,7 @@ function Map({ geoUrl }) {
                             return (
                                 <Marker key={index} coordinates={coordinates}>
                                     <circle
-                                        r={3}
+                                        r={2}
                                         fill="#F00"
                                         stroke="#fff"
                                         strokeWidth={0.7}
