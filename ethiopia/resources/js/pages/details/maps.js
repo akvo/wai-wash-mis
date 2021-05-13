@@ -107,6 +107,11 @@ function Map({ geoUrl }) {
 
         UIStore.update((e) => {
             e.kebele = RK_NAME.toLowerCase();
+            e.markerDetail = {
+                ...e.markerDetail,
+                active: false,
+                data: {},
+            };
         });
     };
 

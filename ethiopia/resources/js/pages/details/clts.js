@@ -8,7 +8,6 @@ import { UIStore } from "../../store";
 
 import groupBy from "lodash/groupBy";
 import flatten from "lodash/flatten";
-import { filter } from "lodash";
 
 const generateChartOptions = (config, data, kebeleKey, firstFilter, kebele) => {
     const locations = Object.keys(groupBy(data, kebeleKey));
