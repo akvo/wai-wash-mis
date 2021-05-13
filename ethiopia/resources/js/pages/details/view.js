@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Layout, Menu, Affix, Spin } from "antd";
-import { LoadingOutlined, ReadOutlined } from "@ant-design/icons";
+import { LoadingOutlined } from "@ant-design/icons";
 
 import { HeaderDetail } from "../../components/header";
 import HouseholdSchoolHealth from "./hh-school-health";
@@ -13,7 +13,14 @@ const { Content } = Layout;
 
 function Detail() {
     const store = UIStore.useState();
-    const { firstFilter } = store;
+    const { firstFilter, state } = store;
+    const [geoUrl, setGeoUrl] = useState();
+
+    useEffect(() => {
+        fetch("/data/eth-filtered.topo.json")
+            .then((res) => res.json())
+            .then((res) => setGeoUrl(res));
+    }, []);
 
     const handleFirstFilterClick = (cur) => {
         UIStore.update((e) => {
@@ -26,8 +33,6 @@ function Detail() {
             };
         });
     };
-
-    console.log(firstFilter);
 
     return (
         <div id="details">
@@ -51,13 +56,27 @@ function Detail() {
                 </Menu>
             </Affix>
             <Content className="content-container">
-                {["clts"].includes(firstFilter.toLocaleLowerCase()) && (
-                    <h1>CLTS Page</h1>
+                {!geoUrl && (
+                    <div className="loading-container">
+                        <Spin
+                            indicator={
+                                <LoadingOutlined
+                                    style={{ fontSize: 24 }}
+                                    spin
+                                />
+                            }
+                        />
+                    </div>
                 )}
 
-                {["hh", "school", "health"].includes(
-                    firstFilter.toLocaleLowerCase()
-                ) && <HouseholdSchoolHealth />}
+                {geoUrl &&
+                    ["hh", "school", "health"].includes(
+                        firstFilter.toLocaleLowerCase()
+                    ) && <HouseholdSchoolHealth geoUrl={geoUrl} />}
+
+                {geoUrl && firstFilter.toLocaleLowerCase() === "clts" && (
+                    <h1>CLTS Page</h1>
+                )}
             </Content>
         </div>
     );

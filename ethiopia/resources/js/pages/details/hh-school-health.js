@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import ReactECharts from "echarts-for-react";
 import { Col, Menu, Row, Spin, Divider, Table } from "antd";
-import { LoadingOutlined, ReadOutlined } from "@ant-design/icons";
 
 import { HeaderDetail } from "../../components/header";
 import Map from "./maps";
@@ -265,19 +264,16 @@ const generateTable = (config, data, kebeleKey, kebele, firstFilter) => {
     return tmp;
 };
 
-function HouseholdSchoolHealth() {
+function HouseholdSchoolHealth({ geoUrl }) {
     const store = UIStore.useState();
     const { woreda, kebele, state, firstFilter, secondFilter } = store;
     const [chartOptions, setChartOptions] = useState();
-    const [geoUrl, setGeoUrl] = useState();
     const [table, setTable] = useState();
     const chartsRef = useRef([]);
 
     useEffect(() => {
-        fetch("/data/eth-filtered.topo.json")
-            .then((res) => res.json())
-            .then((res) => setGeoUrl(res));
-
+        setChartOptions(null);
+        setTable(null);
         const { data, config } = state;
         const woredaKey = config.locations.woreda;
         const kebeleKey = config.locations.kebele;
@@ -348,36 +344,23 @@ function HouseholdSchoolHealth() {
     return (
         <Row>
             <Col span="24">
-                {!geoUrl ? (
-                    <div className="loading-container">
-                        <Spin
-                            indicator={
-                                <LoadingOutlined
-                                    style={{ fontSize: 24 }}
-                                    spin
-                                />
-                            }
-                        />
-                    </div>
-                ) : (
-                    <div>
-                        <Menu
-                            selectedKeys={[secondFilter]}
-                            onClick={(cur) =>
-                                UIStore.update((e) => {
-                                    e.secondFilter = cur.key;
-                                })
-                            }
-                            mode="horizontal"
-                            style={{ borderBottom: 0 }}
-                        >
-                            <Menu.Item key="all">All</Menu.Item>
-                            <Menu.Item key="water">Water</Menu.Item>
-                            <Menu.Item key="sanitation">Sanitation</Menu.Item>
-                            <Menu.Item key="hygiene">Hygiene</Menu.Item>
-                        </Menu>
-                    </div>
-                )}
+                <div>
+                    <Menu
+                        selectedKeys={[secondFilter]}
+                        onClick={(cur) =>
+                            UIStore.update((e) => {
+                                e.secondFilter = cur.key;
+                            })
+                        }
+                        mode="horizontal"
+                        style={{ borderBottom: 0 }}
+                    >
+                        <Menu.Item key="all">All</Menu.Item>
+                        <Menu.Item key="water">Water</Menu.Item>
+                        <Menu.Item key="sanitation">Sanitation</Menu.Item>
+                        <Menu.Item key="hygiene">Hygiene</Menu.Item>
+                    </Menu>
+                </div>
                 {geoUrl && chartOptions && (
                     <div key="maps" className="map-container">
                         <Map geoUrl={geoUrl} />
