@@ -34,6 +34,7 @@ export const UIStore = new Store({
         config: [],
         charts: null,
         tables: null,
+        markerDetail: false,
     },
     page: "home",
     woreda: null,

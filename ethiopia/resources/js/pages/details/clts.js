@@ -8,6 +8,7 @@ import { UIStore } from "../../store";
 
 import groupBy from "lodash/groupBy";
 import flatten from "lodash/flatten";
+import { filter } from "lodash";
 
 const generateChartOptions = (config, data, kebeleKey, firstFilter, kebele) => {
     const locations = Object.keys(groupBy(data, kebeleKey));
@@ -112,6 +113,104 @@ const generateChartOptions = (config, data, kebeleKey, firstFilter, kebele) => {
     return options;
 };
 
+const generateTable = (config, data, kebeleKey, kebele, firstFilter) => {
+    const column = [
+        {
+            title: "Name",
+            dataIndex: "indicator",
+            key: "indicator",
+            render: (text, row, index) => {
+                if (!row.option && !row.value) {
+                    return {
+                        children: <b>{text}</b>,
+                        props: {
+                            colSpan: 2,
+                        },
+                    };
+                }
+                return <span style={{ marginLeft: "20px" }}>{row.option}</span>;
+            },
+        },
+        {
+            title: "Value",
+            dataIndex: "value",
+            key: "value",
+            render: (text, row, index) => {
+                if (!row.option && !row.value) {
+                    return {
+                        children: text,
+                        props: {
+                            colSpan: 0,
+                        },
+                    };
+                }
+                return text;
+            },
+        },
+    ];
+    const { table } = config;
+    const filterDataByKebele = data.filter(
+        (x) => x[kebeleKey].toLowerCase() === kebele.toLowerCase()
+    );
+    let tmp = [];
+    let tableData = table.filter((x) => x.type === "summary");
+    tableData = tableData.map((tb) => {
+        const indicators = [];
+        tb.indicators.forEach((ind) => {
+            let value = "-";
+            if (ind.action === "sum") {
+                value = filterDataByKebele
+                    .map((x) => x[ind.column])
+                    .reduce((acc, cur) => acc + cur);
+            }
+            if (ind.action === "percentage") {
+                value = filterDataByKebele.filter(
+                    (x) =>
+                        x[ind.column].toLowerCase() === ind.value.toLowerCase()
+                );
+                if (
+                    ind?.and &&
+                    ind?.and_value &&
+                    ind.and_value === "not null"
+                ) {
+                    value = value.filter((x) => {
+                        if (typeof x[ind.and] === "object") {
+                            return x[ind.and] !== null;
+                        }
+                        if (typeof x[ind.and] === "string") {
+                            return x[ind.and] !== "";
+                        }
+                        return x;
+                    });
+                }
+                value =
+                    value.length > 0
+                        ? (value.length / filterDataByKebele.length) * 100
+                        : 0;
+                value = Math.round((value + Number.EPSILON) * 100) / 100;
+                value = `${value}%`;
+            }
+            indicators.push({
+                indicator: ind.name,
+                option: ind.name,
+                value: value,
+            });
+            return;
+        });
+        const results = {
+            name: tb.name,
+            column: column,
+            data: flatten(indicators).map((x, i) => {
+                x.key = i;
+                return x;
+            }),
+        };
+        tmp.push(results);
+        return results;
+    });
+    return tmp;
+};
+
 function Clts({ geoUrl }) {
     const store = UIStore.useState();
     const { woreda, kebele, state, firstFilter, secondFilter } = store;
@@ -143,6 +242,33 @@ function Clts({ geoUrl }) {
             kebele
         );
         setChartOptions(options);
+
+        // generate table when selected
+        let tableConfig = null;
+        if (kebele) {
+            // filter data by kebele
+            if (kebele) {
+                filterData = filterData.filter(
+                    (x) => x[kebeleKey].toLowerCase() === kebele.toLowerCase()
+                );
+            }
+            tableConfig = generateTable(
+                config,
+                filterData,
+                kebeleKey,
+                kebele,
+                firstFilter
+            );
+            setTable(tableConfig);
+        }
+
+        UIStore.update((e) => {
+            e.state = {
+                ...state,
+                charts: options,
+                tables: tableConfig,
+            };
+        });
     }, [firstFilter, secondFilter, woreda, kebele]);
 
     const onChartsClick = (params, index) => {
@@ -179,6 +305,30 @@ function Clts({ geoUrl }) {
                                 ref={(ref) => {
                                     chartsRef.current[index] = ref;
                                 }}
+                            />
+                        </div>
+                    ))}
+                {kebele &&
+                    table &&
+                    table.map((tb, index) => (
+                        <div
+                            key={"div-" + tb.name + index}
+                            className="table-container"
+                        >
+                            <h4
+                                style={{
+                                    textTransform: "capitalize",
+                                }}
+                            >
+                                {tb.name}
+                            </h4>
+                            <Divider />
+                            <Table
+                                size="small"
+                                showHeader={false}
+                                pagination={false}
+                                dataSource={tb.data}
+                                columns={tb.column}
                             />
                         </div>
                     ))}
