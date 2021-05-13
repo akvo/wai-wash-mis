@@ -66,7 +66,17 @@ const renderKebeleOption = (kebele, kebeleList) => {
 const renderLoginBtn = () => {
     return (
         <div>
-            <Button type="secondary">Login</Button>
+            <Button
+                onClick={() =>
+                    window.open(
+                        "https://www.figma.com/proto/WaWFfzgSEwfbt3PVtSGYI5/WAI---ET-V5?page-id=605%3A1338&node-id=687%3A77&viewport=1039%2C1676%2C1&scaling=min-zoom",
+                        "blank"
+                    )
+                }
+                type="secondary"
+            >
+                Login
+            </Button>
         </div>
     );
 };

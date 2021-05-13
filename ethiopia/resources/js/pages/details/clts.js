@@ -213,7 +213,7 @@ const generateTable = (config, data, kebeleKey, kebele, firstFilter) => {
 };
 
 const generateDetailTable = (config, data) => {
-    const { table } = config;
+    const { table, marker } = config;
     let tableData = table.filter((x) => x.type === "detail");
     let tmp = [];
     tableData = tableData.map((tb) => {
@@ -239,8 +239,12 @@ const generateDetailTable = (config, data) => {
             });
             return;
         });
+        let com_name = null;
+        if (marker && marker?.name) {
+            com_name = data[marker.name];
+        }
         const results = {
-            name: tb.name,
+            name: com_name ? `${tb.name} of ${com_name}` : tb.name,
             column: column,
             data: flatten(indicators).map((x, i) => {
                 x.key = i;

@@ -31,12 +31,21 @@ const ToolTipContent = ({ data, geo }) => {
     );
 };
 
+const ToolTipMarker = ({ item, config }) => {
+    const { marker } = config;
+    return (
+        <div className="map-tooltip">
+            <h3>{marker ? item?.[marker?.name] : "Name"}</h3>
+        </div>
+    );
+};
+
 function Map({ geoUrl }) {
     const [position, setPosition] = useState({
         coordinates: defCenter,
         zoom: 1,
     });
-    const { state, woreda, kebele, config, firstFilter } = UIStore.useState();
+    const { state, woreda, kebele, firstFilter } = UIStore.useState();
     const woredaKey = state.config.locations.woreda;
     const kebeleKey = state.config.locations.kebele;
     const latlong = state.config.latlong;
@@ -260,6 +269,15 @@ function Map({ geoUrl }) {
                                         stroke="#fff"
                                         strokeWidth={0.7}
                                         onClick={() => onMarkerClick(item)}
+                                        onMouseEnter={() =>
+                                            setContent(
+                                                <ToolTipMarker
+                                                    item={item}
+                                                    config={state.config}
+                                                />
+                                            )
+                                        }
+                                        onMouseLeave={() => setContent("")}
                                         cursor="pointer"
                                     />
                                 </Marker>
