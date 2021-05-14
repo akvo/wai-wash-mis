@@ -55,6 +55,11 @@ const generateChartOptions = (config, data, kebeleKey, firstFilter, kebele) => {
             ],
             series: [],
         };
+        if (item?.value && item.value) {
+            option["legend"] = {
+                data: item.value,
+            };
+        }
         if (item.type === "stack") {
             const dataByTopic = item.value.map((val) => {
                 const topic = data.filter((x) => x[item.column] === val);
@@ -299,6 +304,62 @@ const generateTable = (config, data, kebeleKey, kebele, firstFilter) => {
         });
         const results = {
             name: tb.name,
+            column: column,
+            data: flatten(indicators).map((x, i) => {
+                x.key = i;
+                return x;
+            }),
+        };
+        tmp.push(results);
+        return results;
+    });
+    return tmp;
+};
+
+const generateDetailTable = (config, data) => {
+    const { table, marker } = config;
+    let tableData = table.filter((x) => x.type === "detail");
+    let tmp = [];
+    tableData = tableData.map((tb) => {
+        const indicators = [];
+        tb.indicators.forEach((ind) => {
+            let value = "-";
+            if (
+                ind.action === "select" &&
+                !ind.value &&
+                ind.type === "number"
+            ) {
+                value = data[ind.column] === 0 ? value : data[ind.column];
+            }
+            if (
+                ind.action === "select" &&
+                !ind.value &&
+                ind.type === "string"
+            ) {
+                value = data[ind.column] === "" ? value : data[ind.column];
+            }
+            if (ind.type === "date" && value !== "") {
+                value = new Date(value);
+                value = value.toLocaleString("en-US", {
+                    weekday: "short",
+                    year: "numeric",
+                    month: "2-digit",
+                    day: "numeric",
+                });
+            }
+            indicators.push({
+                indicator: ind.name,
+                option: ind.name,
+                value: value,
+            });
+            return;
+        });
+        let com_name = null;
+        if (marker && marker?.name) {
+            com_name = data[marker.name];
+        }
+        const results = {
+            name: com_name ? `${tb.name} - ${com_name}` : tb.name,
             column: column,
             data: flatten(indicators).map((x, i) => {
                 x.key = i;
