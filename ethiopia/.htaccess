@@ -1,7 +1,7 @@
 RewriteEngine on
-RewriteCond %{HTTPS_HOST} ^wai-mis.tc.akvo.org/ethiopia$ [NC,OR]
-RewriteCond %{REQUEST_URI} !ethiopia/public/
-RewriteRule (.*) /ethiopia/public/$1 [L]
+RewriteCond %{HTTPS_HOST} ^eth-wai-mis.tc.akvo.org$ [NC,OR]
+RewriteCond %{REQUEST_URI} !public/
+RewriteRule (.*) /public/$1 [L]
 
 
 Options -Indexes
