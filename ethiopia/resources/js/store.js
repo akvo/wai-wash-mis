@@ -12,6 +12,9 @@ import healthConfig from "./data/eth_health_config.json";
 import cltsData from "./data/eth_clts_data.json";
 import cltsConfig from "./data/eth_clts_config.json";
 
+import wpData from "./data/eth_wp_data.json";
+import wpConfig from "./data/eth_wp_config.json";
+
 export const UIStore = new Store({
     hh: {
         data: hhData,
@@ -28,6 +31,10 @@ export const UIStore = new Store({
     clts: {
         data: cltsData,
         config: cltsConfig,
+    },
+    wp: {
+        data: wpData,
+        config: wpConfig,
     },
     state: {
         data: [],

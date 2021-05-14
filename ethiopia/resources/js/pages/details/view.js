@@ -5,6 +5,7 @@ import { LoadingOutlined } from "@ant-design/icons";
 import { HeaderDetail } from "../../components/header";
 import HouseholdSchoolHealth from "./hh-school-health";
 import Clts from "./clts";
+import WaterPoint from "./wp";
 
 import { UIStore } from "../../store";
 
@@ -59,6 +60,7 @@ function Detail() {
                     <Menu.Item key="clts">
                         Community Led Total Sanitation
                     </Menu.Item>
+                    <Menu.Item key="wp">Water Points</Menu.Item>
                 </Menu>
             </Affix>
             <Content className="content-container">
@@ -112,6 +114,10 @@ function Detail() {
 
                 {geoUrl && firstFilter.toLocaleLowerCase() === "clts" && (
                     <Clts geoUrl={geoUrl} />
+                )}
+
+                {geoUrl && firstFilter.toLocaleLowerCase() === "wp" && (
+                    <WaterPoint geoUrl={geoUrl} />
                 )}
             </Content>
         </div>

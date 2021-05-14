@@ -160,9 +160,11 @@ const generateTable = (config, data, kebeleKey, kebele, firstFilter) => {
         tb.indicators.forEach((ind) => {
             let value = "-";
             if (ind.action === "sum") {
-                value = filterDataByKebele
-                    .map((x) => x[ind.column])
-                    .reduce((acc, cur) => acc + cur);
+                value = filterDataByKebele.map((x) => x[ind.column]);
+                value =
+                    value.length === 0
+                        ? 0
+                        : value.reduce((acc, cur) => acc + cur);
             }
             if (ind.action === "percentage") {
                 value = filterDataByKebele.filter(

@@ -129,7 +129,7 @@ const generateChartOptions = (config, data, kebeleKey, firstFilter, kebele) => {
             const series = {
                 name: topic.name,
                 type: "bar",
-                stack: "test",
+                stack: "data",
                 data: dataByLocation,
                 itemStyle: {
                     color: itemColor?.color,
@@ -141,6 +141,7 @@ const generateChartOptions = (config, data, kebeleKey, firstFilter, kebele) => {
                 textStyle: { fontSize: 14 },
             }));
             option["series"] = [...option.series, series];
+            return seriesData;
         });
         return { name: item.name, option: option };
     });

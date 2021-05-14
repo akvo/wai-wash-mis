@@ -253,14 +253,17 @@ function Map({ geoUrl }) {
                             })
                         }
                     </Geographies>
-                    {["school", "clts"].includes(firstFilter) &&
+                    {["school", "clts", "wp"].includes(firstFilter) &&
                         filterData &&
                         filterData.map((item, index) => {
-                            const { latitude, longitude } = latlong;
-                            const coordinates = [
-                                item[longitude],
-                                item[latitude],
-                            ];
+                            const { latitude, longitude, lat, lot } = latlong;
+                            let coordinates = [];
+                            if (latitude && longitude) {
+                                coordinates = [item[longitude], item[latitude]];
+                            }
+                            if (lat && lot) {
+                                coordinates = [item[lot], item[lat]];
+                            }
                             return (
                                 <Marker key={index} coordinates={coordinates}>
                                     <circle
