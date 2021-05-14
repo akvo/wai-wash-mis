@@ -17,7 +17,7 @@ if [[ "${CI_PULL_REQUEST}" == "true" ]]; then
     exit 0
 fi
 
-base_folder="www/wai-mis.tc.akvo.org/public_html"
+base_folder="www/wai-mis.tc.akvo.org/public_html/ethiopia"
 
 rsync \
     --archive \
@@ -42,31 +42,13 @@ remote_exec \
 remote_exec \
     "find ${base_folder}/ -type d -print0 | xargs -0 -n1 chmod 755"
 
-# echo "Copy the config..."
-# ssh -i "${SITES_SSH_KEY}" -o BatchMode=yes \
-#     -p 18765 \
-#     -o UserKnownHostsFile=/dev/null \
-#     -o StrictHostKeyChecking=no \
-#     u7-nnfq7m4dqfyx@35.214.170.100 "cp ~/env/${FOLDER}.env.prod ${base_folder}/.env"
+remote_exec \
+    "cp ~/env/wai-mis-ethiopia.env.prod ${base_folder}/.env"
 
-# echo "Clearing cache..."
+remote_exec \
+    "cd ${base_folder}/ && /usr/local/bin/php74 artisan cache:clear"
 
-# ssh -i "${SITES_SSH_KEY}" -o BatchMode=yes \
-#     -p 18765 \
-#     -o UserKnownHostsFile=/dev/null \
-#     -o StrictHostKeyChecking=no \
-#     u7-nnfq7m4dqfyx@35.214.170.100 "cd ${base_folder}/ && /usr/local/bin/php73 artisan cache:clear"
-
-# ssh -i "${SITES_SSH_KEY}" -o BatchMode=yes \
-#     -p 18765 \
-#     -o UserKnownHostsFile=/dev/null \
-#     -o StrictHostKeyChecking=no \
-#     u7-nnfq7m4dqfyx@35.214.170.100 "cd ${base_folder}/ && /usr/local/bin/php73 artisan l5-swagger:generate"
-
-# ssh -i "${SITES_SSH_KEY}" -o BatchMode=yes \
-#     -p 18765 \
-#     -o UserKnownHostsFile=/dev/null \
-#     -o StrictHostKeyChecking=no \
-#     u7-nnfq7m4dqfyx@35.214.170.100 "cd www/tc.akvo.org/public_html/${FOLDER}/ && /usr/local/bin/composer dump-autoload"
+remote_exec \
+    "cd ${base_folder}/ && /usr/local/bin/composer dump-autoload"
 
 echo "Done"
