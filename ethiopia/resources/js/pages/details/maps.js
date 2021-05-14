@@ -31,11 +31,43 @@ const ToolTipContent = ({ data, geo }) => {
     );
 };
 
-const ToolTipMarker = ({ item, config }) => {
+const ToolTipMarker = ({ item, config, firstFilter }) => {
     const { marker } = config;
     return (
         <div className="map-tooltip">
             <h3>{marker ? item?.[marker?.name] : "Name"}</h3>
+            {firstFilter === "wp" && (
+                <ul>
+                    {marker?.detail &&
+                        marker.detail.map((det) => {
+                            let value = "-";
+                            if (
+                                det.action === "select" &&
+                                det.type === "string"
+                            ) {
+                                value =
+                                    item[det.column] === ""
+                                        ? value
+                                        : item[det.column];
+                            }
+                            if (
+                                det.action === "select" &&
+                                det.type === "number"
+                            ) {
+                                value =
+                                    item[det.column] === 0
+                                        ? value
+                                        : item[det.column];
+                            }
+                            return (
+                                <li key={det.name}>
+                                    <span>{det.name}</span>
+                                    <b>{value}</b>
+                                </li>
+                            );
+                        })}
+                </ul>
+            )}
         </div>
     );
 };
@@ -49,6 +81,7 @@ function Map({ geoUrl }) {
     const woredaKey = state.config.locations.woreda;
     const kebeleKey = state.config.locations.kebele;
     const latlong = state.config.latlong;
+    const marker = state.config?.marker;
     const [filterData, setFilterData] = useState();
     const [content, setContent] = useState("");
 
@@ -264,19 +297,44 @@ function Map({ geoUrl }) {
                             if (lat && lot) {
                                 coordinates = [item[lot], item[lat]];
                             }
+                            let fill = "#F00";
+                            if (firstFilter === "wp") {
+                                const { color } = marker;
+                                color.forEach((c) => {
+                                    if (
+                                        c.action === "select" &&
+                                        c.type === "string"
+                                    ) {
+                                        const value = c.value
+                                            ? c.value.toLowerCase()
+                                            : "";
+                                        if (
+                                            item[c.column].toLowerCase() ===
+                                            value
+                                        ) {
+                                            fill = c.color;
+                                        }
+                                    }
+                                });
+                            }
                             return (
                                 <Marker key={index} coordinates={coordinates}>
                                     <circle
-                                        r={2}
-                                        fill="#F00"
+                                        r={
+                                            position.zoom < 2
+                                                ? 1
+                                                : position.zoom * 0.5
+                                        }
+                                        fill={fill}
                                         stroke="#fff"
-                                        strokeWidth={0.7}
+                                        strokeWidth={0.3}
                                         onClick={() => onMarkerClick(item)}
                                         onMouseEnter={() =>
                                             setContent(
                                                 <ToolTipMarker
                                                     item={item}
                                                     config={state.config}
+                                                    firstFilter={firstFilter}
                                                 />
                                             )
                                         }

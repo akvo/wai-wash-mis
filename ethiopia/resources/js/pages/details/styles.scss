@@ -47,28 +47,25 @@
 
     .map-tooltip {
         padding: 0 10px;
+        max-width: 400px;
 
         h3 {
-            font-size: 14px;
+            font-size: 15px;
             font-weight: 600;
             color: #005c93;
-            max-width: 170px;
-            width: 170px;
+            max-width: 200px;
+            width: 200px;
             white-space: pre-wrap;
         }
 
-        h4 {
-            font-size: 14px;
-            font-weight: 600;
-            color: #222;
-            max-width: 170px;
-            width: 170px;
-            white-space: pre-wrap;
+        ul {
+            padding: 0;
+            margin: 0;
         }
 
         li {
             display: flex;
-            max-width: 170px;
+            justify-content: space-between;
 
             &:not(:last-child) {
                 border-bottom: 1px solid #e7f1f7;
@@ -81,12 +78,13 @@
             }
 
             span {
-                margin-right: 10px;
                 color: #7db0cb;
+                margin-right: 15px;
+                font-weight: 500;
             }
 
             b {
-                margin-left: auto;
+                text-align: right;
                 color: #005c93;
             }
         }
