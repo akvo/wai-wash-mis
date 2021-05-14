@@ -25,6 +25,8 @@ rsync \
     --progress \
     --exclude=ci \
     --exclude=node_modules \
+    --exclude=.docker\
+    --exclude=tests \
     --rsh="ssh -i ${SITES_SSH_KEY} -o BatchMode=yes -p 18765 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no" \
     . "u7-nnfq7m4dqfyx@35.214.170.100:/home/u7-nnfq7m4dqfyx/${base_folder}"
 
