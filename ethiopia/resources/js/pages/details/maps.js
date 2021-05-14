@@ -22,6 +22,7 @@ import { scaleQuantize } from "d3-scale";
 const mapMaxZoom = 4;
 const defCenter = ["38.69590", "7.34350"];
 const colorRange = ["#bbedda", "#a7e1cb", "#92d5bd", "#7dcaaf", "#67bea1"];
+const showMarkerOnFirstFilterValues = ["school", "clts", "wp"];
 
 const ToolTipContent = ({ data, geo }) => {
     return (
@@ -39,29 +40,24 @@ const ToolTipMarker = ({ item, config, firstFilter }) => {
             {firstFilter === "wp" && (
                 <ul>
                     {marker?.detail &&
-                        marker.detail.map((det) => {
+                        marker.detail.map(({ name, column, action, type }) => {
                             let value = "-";
-                            if (
-                                det.action === "select" &&
-                                det.type === "string"
-                            ) {
+                            const nullValue =
+                                type === "string"
+                                    ? ""
+                                    : type === "number"
+                                    ? 0
+                                    : null;
+
+                            if (action === "select") {
                                 value =
-                                    item[det.column] === ""
+                                    item[column] === nullValue
                                         ? value
-                                        : item[det.column];
-                            }
-                            if (
-                                det.action === "select" &&
-                                det.type === "number"
-                            ) {
-                                value =
-                                    item[det.column] === 0
-                                        ? value
-                                        : item[det.column];
+                                        : item[column];
                             }
                             return (
-                                <li key={det.name}>
-                                    <span>{det.name}</span>
+                                <li key={name}>
+                                    <span>{name}</span>
                                     <b>{value}</b>
                                 </li>
                             );
@@ -286,7 +282,7 @@ function Map({ geoUrl }) {
                             })
                         }
                     </Geographies>
-                    {["school", "clts", "wp"].includes(firstFilter) &&
+                    {showMarkerOnFirstFilterValues.includes(firstFilter) &&
                         filterData &&
                         filterData.map((item, index) => {
                             const { latitude, longitude, lat, lot } = latlong;
@@ -299,23 +295,37 @@ function Map({ geoUrl }) {
                             }
                             let fill = "#F00";
                             if (firstFilter === "wp") {
-                                const { color } = marker;
-                                color.forEach((c) => {
-                                    if (
-                                        c.action === "select" &&
-                                        c.type === "string"
-                                    ) {
-                                        const value = c.value
-                                            ? c.value.toLowerCase()
-                                            : "";
-                                        if (
-                                            item[c.column].toLowerCase() ===
-                                            value
-                                        ) {
-                                            fill = c.color;
+                                const colors = marker?.color;
+                                colors &&
+                                    colors.forEach(
+                                        ({
+                                            action,
+                                            type,
+                                            column,
+                                            value,
+                                            color,
+                                        }) => {
+                                            const nullValue =
+                                                type === "string"
+                                                    ? ""
+                                                    : type === "number"
+                                                    ? 0
+                                                    : null;
+                                            if (action === "select") {
+                                                const matchValue = value
+                                                    ? value.toLowerCase()
+                                                    : nullValue;
+                                                if (
+                                                    item[
+                                                        column
+                                                    ].toLowerCase() ===
+                                                    matchValue
+                                                ) {
+                                                    fill = color;
+                                                }
+                                            }
                                         }
-                                    }
-                                });
+                                    );
                             }
                             return (
                                 <Marker key={index} coordinates={coordinates}>
@@ -346,7 +356,7 @@ function Map({ geoUrl }) {
                         })}
                 </ZoomableGroup>
             </ComposableMap>
-            <ReactTooltip type="light" className="opaque">
+            <ReactTooltip type="light" className="tooltip-container">
                 {content}
             </ReactTooltip>
         </div>

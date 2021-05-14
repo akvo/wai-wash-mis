@@ -45,12 +45,16 @@
         }
     }
 
+    .tooltip-container {
+        opacity: 0.9;
+    }
+
     .map-tooltip {
         padding: 0 10px;
         max-width: 400px;
 
         h3 {
-            font-size: 15px;
+            font-size: 16px;
             font-weight: 600;
             color: #005c93;
             max-width: 200px;
@@ -78,9 +82,9 @@
             }
 
             span {
-                color: #7db0cb;
+                color: #242525;
                 margin-right: 15px;
-                font-weight: 500;
+                font-weight: 600;
             }
 
             b {
