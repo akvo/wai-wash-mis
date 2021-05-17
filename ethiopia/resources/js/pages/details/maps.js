@@ -331,8 +331,8 @@ function Map({ geoUrl }) {
                                 <Marker key={index} coordinates={coordinates}>
                                     <circle
                                         r={
-                                            position.zoom < 2
-                                                ? 1
+                                            position.zoom < 3.5
+                                                ? 2
                                                 : position.zoom * 0.5
                                         }
                                         fill={fill}
