@@ -82,11 +82,6 @@ export const generateChartOptions = (
                     fontSize: 14,
                 },
             },
-            dataZoom: [
-                {
-                    type: "inside",
-                },
-            ],
             series: [],
         };
         if (item?.value && item.value && item.type === "stack") {

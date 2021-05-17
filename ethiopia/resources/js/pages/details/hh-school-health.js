@@ -54,11 +54,6 @@ const generateChartOptions = (config, data, kebeleKey, firstFilter, kebele) => {
                     fontSize: 14,
                 },
             },
-            dataZoom: [
-                {
-                    type: "inside",
-                },
-            ],
             series: [],
         };
 
