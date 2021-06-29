@@ -13,8 +13,14 @@ import { UIStore } from "../../store";
 
 function WaterPoint({ geoUrl }) {
     const store = UIStore.useState();
-    const { woreda, kebele, state, firstFilter, secondFilter, markerDetail } =
-        store;
+    const {
+        woreda,
+        kebele,
+        state,
+        firstFilter,
+        secondFilter,
+        markerDetail,
+    } = store;
     const [chartOptions, setChartOptions] = useState();
     const [table, setTable] = useState();
     const chartsRef = useRef([]);

@@ -1,1 +1,77 @@
-{"A": "Identifier", "B": "District", "C": "Woreda", "D": "Kebele", "E": "Parish", "F": "Village", "G": "Latitude", "H": "Longitude", "I": "Name of Household", "J": "What is the total number of household members, including yourself?", "K": "Water Service Level", "L": "Main source of drinking water", "M": "Main source of water for other purposes", "N": "Specific Location of Water Collection", "O": "Time to Collect Water", "P": "Times in Last Month When Drinking Water Quantity Was Insufficient", "Q": "Fecal and Chemical Levels Acceptable", "R": "Sanitation Service Level", "S": "Type of Toilet Facility", "T": "Facility is shared with others outside of the household", "U": "Location of sanitation facility", "V": "Emptying of on-site sanitation facilities", "W": "Disposal of excreta from onite sanitation facilities", "X": "Hygiene", "Y": "Type of Handwashing Facility Used Most Often", "Z": "Water Available at Handwashing Facility", "AA": "Soap Available", "charts": [{"key": "K", "name": "Water Service Level", "value": ["Safely Managed", "Basic", "Limited", "Unimproved", "Surface Water"]}, {"key": "R", "name": "Sanitation Service Level", "value": ["Safely Managed", "Basic", "Limited", "Unimproved", "Open Defecation"]}, {"key": "X", "name": "Hygiene", "value": ["Safely Managed", "Basic", "Limited", "No Facility"]}], "locations": {"woreda": "C", "kebele": "D"}, "latlong": {"latitude": "G", "longitude": "H"}, "table": [{"key": "K", "name": "water indicators", "indicators": ["L", "M", "N", "O", "P", "Q"]}, {"key": "R", "name": "sanitation indicators", "indicators": ["S", "T", "U", "V", "W"]}, {"key": "X", "name": "hygiene indicators", "indicators": ["Y", "Z", "AA"]}]}
+{
+    "A": "Identifier",
+    "B": "District",
+    "C": "Woreda",
+    "D": "Kebele",
+    "E": "Parish",
+    "F": "Village",
+    "G": "Latitude",
+    "H": "Longitude",
+    "I": "Name of Household",
+    "J": "What is the total number of household members, including yourself?",
+    "K": "Water Service Level",
+    "L": "Main source of drinking water",
+    "M": "Main source of water for other purposes",
+    "N": "Specific Location of Water Collection",
+    "O": "Time to Collect Water",
+    "P": "Times in Last Month When Drinking Water Quantity Was Insufficient",
+    "Q": "Fecal and Chemical Levels Acceptable",
+    "R": "Sanitation Service Level",
+    "S": "Type of Toilet Facility",
+    "T": "Facility is shared with others outside of the household",
+    "U": "Location of sanitation facility",
+    "V": "Emptying of on-site sanitation facilities",
+    "W": "Disposal of excreta from onite sanitation facilities",
+    "X": "Hygiene",
+    "Y": "Type of Handwashing Facility Used Most Often",
+    "Z": "Water Available at Handwashing Facility",
+    "AA": "Soap Available",
+    "charts": [
+        {
+            "key": "K",
+            "name": "Water Service Level",
+            "value": [
+                "Safely Managed",
+                "Basic",
+                "Limited",
+                "Unimproved",
+                "Surface Water"
+            ]
+        },
+        {
+            "key": "R",
+            "name": "Sanitation Service Level",
+            "value": [
+                "Safely Managed",
+                "Basic",
+                "Limited",
+                "Unimproved",
+                "Open Defecation"
+            ]
+        },
+        {
+            "key": "X",
+            "name": "Hygiene",
+            "value": ["Safely Managed", "Basic", "Limited", "No Facility"]
+        }
+    ],
+    "locations": { "woreda": "C", "kebele": "D" },
+    "latlong": { "latitude": "G", "longitude": "H" },
+    "table": [
+        {
+            "key": "K",
+            "name": "water indicators",
+            "indicators": ["L", "M", "N", "O", "P", "Q"]
+        },
+        {
+            "key": "R",
+            "name": "sanitation indicators",
+            "indicators": ["S", "T", "U", "V", "W"]
+        },
+        {
+            "key": "X",
+            "name": "hygiene indicators",
+            "indicators": ["Y", "Z", "AA"]
+        }
+    ]
+}

@@ -28,7 +28,7 @@ const showMarkerOnFirstFilterValues = ["school", "clts", "wp"];
 const ToolTipContent = ({ data, geo }) => {
     return (
         <div className="map-tooltip">
-            <h3>{geo.RK_NAME}</h3>
+            <h3>{geo.ADM4_EN}</h3>
         </div>
     );
 };
@@ -85,8 +85,8 @@ function Map({ geoUrl }) {
     useEffect(() => {
         const filterData =
             state?.data &&
-            state.data.filter(
-                (x) => x[woredaKey].toLowerCase() === woreda.toLowerCase()
+            state?.data.filter(
+                (x) => x[woredaKey].toLowerCase() === woreda?.toLowerCase()
             );
         setFilterData(filterData);
     }, [woreda]);
@@ -109,7 +109,7 @@ function Map({ geoUrl }) {
     };
 
     const onMapClick = (geo) => {
-        const { RK_NAME } = geo.properties;
+        const { ADM4_EN } = geo.properties;
         const coordinates = geo.geometry.coordinates[0];
 
         // calculate center position
@@ -147,7 +147,7 @@ function Map({ geoUrl }) {
         setPosition({ coordinates: center, zoom: 3 });
 
         UIStore.update((e) => {
-            e.kebele = RK_NAME.toLowerCase();
+            e.kebele = ADM4_EN.toLowerCase();
             e.markerDetail = {
                 ...e.markerDetail,
                 active: false,
@@ -224,7 +224,7 @@ function Map({ geoUrl }) {
                     <Geographies geography={geoUrl}>
                         {({ geographies }) =>
                             geographies.map((geo) => {
-                                const { W_NAME, RK_NAME } = geo.properties;
+                                const { ADM4_EN } = geo.properties;
                                 const kebeleData =
                                     filterData &&
                                     filterData.filter(
@@ -233,14 +233,14 @@ function Map({ geoUrl }) {
                                             x[kebeleKey]
                                                 .toString()
                                                 .toLowerCase() ===
-                                                RK_NAME.toLowerCase()
+                                                ADM4_EN.toLowerCase()
                                     );
                                 const curr =
                                     kebeleData && kebeleData.length > 0;
                                 const active =
                                     kebele &&
                                     kebele.toString().toLowerCase() ===
-                                        RK_NAME.toLowerCase();
+                                        ADM4_EN.toLowerCase();
                                 return (
                                     <Geography
                                         key={geo.rsmKey}
