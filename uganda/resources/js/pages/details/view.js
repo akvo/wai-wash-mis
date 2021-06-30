@@ -3,7 +3,8 @@ import { Layout, Menu, Affix, Spin } from "antd";
 import { LoadingOutlined } from "@ant-design/icons";
 
 import { HeaderDetail } from "../../components/header";
-import HouseholdSchoolHealth from "./hh-school-health";
+import HouseHold from "./household";
+import HealthFacilities from "./health-facilities";
 import Clts from "./clts";
 import WaterPoint from "./wp";
 
@@ -84,7 +85,7 @@ function Detail() {
             <Content className="content-container">
                 {!geoUrl && <ContentLoading />}
                 {geoUrl &&
-                    ["hh", "school", "health"].includes(
+                    ["hh", "health"].includes(
                         firstFilter.toLocaleLowerCase()
                     ) && (
                         <div>
@@ -104,10 +105,13 @@ function Detail() {
                         </div>
                     )}
 
-                {geoUrl &&
-                    ["hh", "school", "health"].includes(
-                        firstFilter.toLocaleLowerCase()
-                    ) && <HouseholdSchoolHealth geoUrl={geoUrl} />}
+                {geoUrl && firstFilter.toLocaleLowerCase() === "hh" && (
+                    <HouseHold geoUrl={geoUrl} />
+                )}
+
+                {geoUrl && firstFilter.toLocaleLowerCase() === "health" && (
+                    <HealthFacilities geoUrl={geoUrl} />
+                )}
 
                 {geoUrl && firstFilter.toLocaleLowerCase() === "clts" && (
                     <Clts geoUrl={geoUrl} />
