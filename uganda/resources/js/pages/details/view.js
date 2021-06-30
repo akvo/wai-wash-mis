@@ -12,6 +12,11 @@ import { UIStore } from "../../store";
 import "./styles.scss";
 
 const { Content } = Layout;
+const ContentLoading = () => (
+    <div className="loading-container">
+        <Spin indicator={<LoadingOutlined style={{ fontSize: 24 }} spin />} />
+    </div>
+);
 
 function Detail() {
     const store = UIStore.useState();
@@ -41,6 +46,17 @@ function Detail() {
         });
     };
 
+    const handleMenu = (cur) => {
+        UIStore.update((e) => {
+            e.secondFilter = cur.key;
+            e.markerDetail = {
+                ...e.markerDetail,
+                active: false,
+                data: {},
+            };
+        });
+    };
+
     return (
         <div id="details">
             <HeaderDetail />
@@ -50,33 +66,23 @@ function Detail() {
                     onClick={(cur) => handleFirstFilterClick(cur)}
                     mode="horizontal"
                     className="first-filter"
-                    style={{
-                        backgroundColor: "#F9F9F9",
-                    }}
+                    style={{ backgroundColor: "#F9F9F9" }}
                 >
                     <Menu.Item key="hh">Households</Menu.Item>
+                    {/*
                     <Menu.Item key="school">Schools</Menu.Item>
+                    */}
                     <Menu.Item key="health">Health Facilities</Menu.Item>
+                    {/*
                     <Menu.Item key="clts">
                         Community Led Total Sanitation
                     </Menu.Item>
+                    */}
                     <Menu.Item key="wp">Water Points</Menu.Item>
                 </Menu>
             </Affix>
             <Content className="content-container">
-                {!geoUrl && (
-                    <div className="loading-container">
-                        <Spin
-                            indicator={
-                                <LoadingOutlined
-                                    style={{ fontSize: 24 }}
-                                    spin
-                                />
-                            }
-                        />
-                    </div>
-                )}
-
+                {!geoUrl && <ContentLoading />}
                 {geoUrl &&
                     ["hh", "school", "health"].includes(
                         firstFilter.toLocaleLowerCase()
@@ -84,16 +90,7 @@ function Detail() {
                         <div>
                             <Menu
                                 selectedKeys={[secondFilter]}
-                                onClick={(cur) =>
-                                    UIStore.update((e) => {
-                                        e.secondFilter = cur.key;
-                                        e.markerDetail = {
-                                            ...e.markerDetail,
-                                            active: false,
-                                            data: {},
-                                        };
-                                    })
-                                }
+                                onClick={handleMenu}
                                 mode="horizontal"
                                 style={{ borderBottom: 0 }}
                             >

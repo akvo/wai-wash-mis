@@ -3,26 +3,19 @@ import { Store } from "pullstate";
 import hhData from "./data/ug_hh_data.json";
 import hhConfig from "./data/ug_hh_config.json";
 
-// import schoolData from "./data/eth_school_data.json";
-// import schoolConfig from "./data/eth_school_config.json";
+import schoolData from "./data/ug_school_data.json";
+import schoolConfig from "./data/ug_school_config.json";
 
-// import healthData from "./data/eth_health_data.json";
-// import healthConfig from "./data/eth_health_config.json";
+import healthData from "./data/ug_health_data.json";
+import healthConfig from "./data/ug_health_config.json";
 
-// import cltsData from "./data/eth_clts_data.json";
-// import cltsConfig from "./data/eth_clts_config.json";
+// import cltsData from "./data/ug_clts_data.json";
+// import cltsConfig from "./data/ug_clts_config.json";
 
-// import wpData from "./data/eth_wp_data.json";
-// import wpConfig from "./data/eth_wp_config.json";
+import wpData from "./data/ug_wp_data.json";
+import wpConfig from "./data/ug_wp_config.json";
 
-let schoolData,
-    schoolConfig,
-    healthData,
-    healthConfig,
-    cltsData,
-    cltsConfig,
-    wpData,
-    wpConfig;
+let cltsData, cltsConfig;
 
 export const UIStore = new Store({
     hh: {
@@ -52,7 +45,7 @@ export const UIStore = new Store({
         tables: null,
     },
     page: "detail",
-    woreda: null,
+    woreda: "Agago",
     kebele: null,
     firstFilter: "hh",
     secondFilter: "all",

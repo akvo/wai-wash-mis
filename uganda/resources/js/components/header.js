@@ -35,7 +35,7 @@ const renderWoredaOption = (woreda, woredaList) => {
         <Select
             style={{ width: 220 }}
             placeholder="Select Woreda"
-            value={woreda}
+            defaultValue="Agago"
             onChange={handleOnChangeWoreda}
         >
             {woredaList &&
@@ -50,7 +50,7 @@ const renderKebeleOption = (kebele, kebeleList) => {
     return (
         <Select
             style={{ width: 220 }}
-            placeholder="All Kebeles"
+            placeholder="Select Sub-County"
             allowClear={true}
             value={kebele}
             onChange={handleOnChangeKebele}
@@ -129,16 +129,15 @@ export function HeaderDetail() {
     const woreda = UIStore.useState((e) => e.woreda);
     const kebele = UIStore.useState((e) => e.kebele);
     const woredaList = UIStore.useState((e) => e.woredaList);
-    const kebeleList = UIStore.useState((e) => e.kebeleList);
+    const kebeleList = UIStore.useState((e) => e.kebeleList).filter(
+        (x) => x.length
+    );
 
     return (
         <Header className="header-container header-fixed">
             <div className="header-content-wrapper">
                 {renderLogo()}
-                <div>
-                    {renderWoredaOption(woreda, woredaList)}
-                    {renderKebeleOption(kebele, kebeleList)}
-                </div>
+                <div>{renderKebeleOption(kebele, kebeleList)}</div>
                 {renderLoginBtn()}
             </div>
         </Header>

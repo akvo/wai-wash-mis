@@ -322,9 +322,9 @@ function Map({ geoUrl }) {
                                                     ? value.toLowerCase()
                                                     : nullValue;
                                                 if (
-                                                    item[
+                                                    item?.[
                                                         column
-                                                    ].toLowerCase() ===
+                                                    ]?.toLowerCase() ===
                                                     matchValue
                                                 ) {
                                                     fill = color;
