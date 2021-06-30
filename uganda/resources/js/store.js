@@ -3,8 +3,8 @@ import { Store } from "pullstate";
 import hhData from "./data/ug_hh_data.json";
 import hhConfig from "./data/ug_hh_config.json";
 
-import schoolData from "./data/ug_school_data.json";
-import schoolConfig from "./data/ug_school_config.json";
+// import schoolData from "./data/ug_school_data.json";
+// import schoolConfig from "./data/ug_school_config.json";
 
 import healthData from "./data/ug_health_data.json";
 import healthConfig from "./data/ug_health_config.json";
@@ -15,7 +15,7 @@ import healthConfig from "./data/ug_health_config.json";
 import wpData from "./data/ug_wp_data.json";
 import wpConfig from "./data/ug_wp_config.json";
 
-let cltsData, cltsConfig;
+let schoolData, schoolConfig, cltsData, cltsConfig;
 
 export const UIStore = new Store({
     hh: {

@@ -120,4 +120,9 @@ export const jmpColors = {
     hh: hh,
     school: schoolAndHealth,
     health: schoolAndHealth,
+    facilities: {
+        basic: "#67b769",
+        limited: "#F9CA29",
+        noService: "#dc3545",
+    },
 };

@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import ReactECharts from "echarts-for-react";
 import { Col, Menu, Row, Divider, Table } from "antd";
 
-import Map from "./maps";
+import Map from "../../components/maps";
 import {
     generateChartOptions,
     generateTable,
