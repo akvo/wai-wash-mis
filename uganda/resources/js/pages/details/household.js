@@ -12,6 +12,7 @@ import groupBy from "lodash/groupBy";
 import sortBy from "lodash/sortBy";
 import sumBy from "lodash/sumBy";
 import camelCase from "lodash/camelCase";
+import reverse from "lodash/reverse";
 
 const indicatorRank = {
     safelyManaged: 15,
@@ -130,7 +131,7 @@ const generateChartOptions = (config, data, kebeleKey, firstFilter, kebele) => {
                 const val = sumBy(collectedRank[x], (o) => o.rank);
                 return { name: x, rank: val };
             });
-            collectedRank = sortBy(collectedRank, "rank");
+            collectedRank = reverse(sortBy(collectedRank, "rank"));
             option["yAxis"]["data"] = collectedRank.map((x) => ({
                 value: x.name,
                 textStyle: { fontSize: 14 },
