@@ -9,9 +9,19 @@ import { jmpColors } from "../../utils/jmp_color";
 import { UIStore } from "../../store";
 
 import groupBy from "lodash/groupBy";
+import sortBy from "lodash/sortBy";
+import sumBy from "lodash/sumBy";
+import camelCase from "lodash/camelCase";
 
-const bestIndicators = ["safely managed", "advanced"];
-const goodIndicators = ["safely managed", "advanced", "basic"];
+const indicatorRank = {
+    safelyManaged: 15,
+    basic: 10,
+    limited: 1,
+    unimproved: -1,
+    surfaceWater: -2,
+    openDefecation: -2,
+    noFacility: -2,
+};
 
 const generateChartOptions = (config, data, kebeleKey, firstFilter, kebele) => {
     data = data.filter((x) => x[kebeleKey] !== "");
@@ -66,6 +76,7 @@ const generateChartOptions = (config, data, kebeleKey, firstFilter, kebele) => {
                 values: topic,
             };
         });
+        let rankedTopic = [];
         const seriesData = dataByTopic.map((topic) => {
             const dataByLocation = locations.map((loc) => {
                 const val = topic.values.filter((x) => x[kebeleKey] === loc);
@@ -90,6 +101,7 @@ const generateChartOptions = (config, data, kebeleKey, firstFilter, kebele) => {
                 }
                 return res;
             });
+
             const itemColor = itemColors.find(
                 (c) => c.name.toLowerCase() === topic.name.toLowerCase()
             );
@@ -102,14 +114,43 @@ const generateChartOptions = (config, data, kebeleKey, firstFilter, kebele) => {
                     color: itemColor?.color,
                 },
             };
-            // #::TODO Replace yAxis with sorted value
-            option["yAxis"]["data"] = dataByLocation.map((x) => ({
+
+            const topicRank = indicatorRank[camelCase(topic.name)];
+            if (topicRank) {
+                sortBy(dataByLocation, "value").forEach((x, i) => {
+                    rankedTopic.push({
+                        name: x.name,
+                        rank: topicRank * x.value,
+                    });
+                });
+            }
+
+            let collectedRank = groupBy(rankedTopic, "name");
+            collectedRank = Object.keys(collectedRank).map((x) => {
+                const val = sumBy(collectedRank[x], (o) => o.rank);
+                return { name: x, rank: val };
+            });
+            collectedRank = sortBy(collectedRank, "rank");
+            option["yAxis"]["data"] = collectedRank.map((x) => ({
                 value: x.name,
                 textStyle: { fontSize: 14 },
             }));
+
             option["series"] = [...option.series, series];
             return seriesData;
         });
+
+        const sortedLocation = option.yAxis.data.map((x) => x.value);
+        option["series"] = option.series.map((x) => {
+            let sortedValue = sortedLocation.map((l) => {
+                return x.data.find((d) => d.name === l);
+            });
+            return {
+                ...x,
+                data: sortedValue,
+            };
+        });
+
         return { name: item.name, option: option };
     });
     return options;
