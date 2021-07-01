@@ -1,12 +1,15 @@
 #details {
     .first-filter {
         padding: 0 175px;
-        margin-top: 64px;
+        top: 64px;
+        position: fixed;
+        width: 100%;
+        z-index: 3;
     }
 
     .content-container {
         background-color: #fff;
-        padding: 20px 175px;
+        padding: 115px 175px 20px;
         min-height: 100vh;
     }
 

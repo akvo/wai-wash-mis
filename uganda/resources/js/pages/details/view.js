@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Layout, Menu, Affix, Spin } from "antd";
+import { Layout, Menu, Spin } from "antd";
 import { LoadingOutlined } from "@ant-design/icons";
 
 import { HeaderDetail } from "../../components/header";
@@ -60,19 +60,17 @@ function Detail() {
     return (
         <div id="details">
             <HeaderDetail />
-            <Affix offsetTop={0} style={{ zIndex: -1 }}>
-                <Menu
-                    selectedKeys={[firstFilter]}
-                    onClick={(cur) => handleFirstFilterClick(cur)}
-                    mode="horizontal"
-                    className="first-filter"
-                    style={{ backgroundColor: "#F9F9F9" }}
-                >
-                    <Menu.Item key="hh">Households</Menu.Item>
-                    <Menu.Item key="health">Health Facilities</Menu.Item>
-                    <Menu.Item key="wp">Water Points</Menu.Item>
-                </Menu>
-            </Affix>
+            <Menu
+                selectedKeys={[firstFilter]}
+                onClick={(cur) => handleFirstFilterClick(cur)}
+                mode="horizontal"
+                className="first-filter"
+                style={{ backgroundColor: "#F9F9F9" }}
+            >
+                <Menu.Item key="hh">Households</Menu.Item>
+                <Menu.Item key="health">Health Facilities</Menu.Item>
+                <Menu.Item key="wp">Water Points</Menu.Item>
+            </Menu>
             <Content className="content-container">
                 {!geoUrl && <ContentLoading />}
                 {geoUrl && ["hh"].includes(firstFilter.toLocaleLowerCase()) && (

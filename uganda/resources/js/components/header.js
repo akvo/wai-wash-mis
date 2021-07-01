@@ -126,7 +126,7 @@ export function HeaderHome() {
     );
 }
 
-export function HeaderDetail() {
+export const HeaderDetail = () => {
     const woreda = UIStore.useState((e) => e.woreda);
     const kebele = UIStore.useState((e) => e.kebele);
     const woredaList = UIStore.useState((e) => e.woredaList);
@@ -153,4 +153,4 @@ export function HeaderDetail() {
             </div>
         </Header>
     );
-}
+};
