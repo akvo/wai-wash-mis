@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Col, Menu, Row, Divider, Table, Tag } from "antd";
+import { Col, Menu, Row, Divider, Table, Tag, Modal } from "antd";
 import DetailPoint from "../../components/detail-point";
 import camelCase from "lodash/camelCase";
 import sortBy from "lodash/sortBy";
@@ -125,17 +125,33 @@ function WaterPoint({ geoUrl }) {
                 <div className="table-container">
                     <h4>Non Functional Facilities</h4>
                     <Divider />
-                    <DetailPoint
-                        markerDetail={markerDetail}
-                        config={config}
-                        name={mainConfig.key}
-                    />
                     <Table
                         dataSource={firstDataSource}
                         columns={firstColumns}
                         bordered={true}
                     />
                 </div>
+                <Modal
+                    style={{ top: 20 }}
+                    width={800}
+                    visible={markerDetail.active}
+                    footer={null}
+                    onCancel={() =>
+                        UIStore.update((e) => {
+                            e.markerDetail = {
+                                ...e.markerDetail,
+                                active: false,
+                                data: {},
+                            };
+                        })
+                    }
+                >
+                    <DetailPoint
+                        markerDetail={markerDetail}
+                        config={config}
+                        name={mainConfig.key}
+                    />
+                </Modal>
             </Col>
         </Row>
     );
