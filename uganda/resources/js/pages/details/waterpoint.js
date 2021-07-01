@@ -128,6 +128,7 @@ function WaterPoint({ geoUrl }) {
                     <Table
                         dataSource={firstDataSource}
                         columns={firstColumns}
+                        size="small"
                         bordered={true}
                     />
                 </div>

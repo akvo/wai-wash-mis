@@ -115,6 +115,7 @@ const HealthFacilities = ({ geoUrl }) => {
                         />
                     </Drawer>
                     <Table
+                        size="small"
                         dataSource={firstDataSource}
                         columns={firstColumns}
                         pagination={false}

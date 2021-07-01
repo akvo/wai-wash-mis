@@ -41,6 +41,7 @@ const DetailPoint = ({ markerDetail, config, name }) => {
                 <Divider />
                 <Table
                     dataSource={dataSource}
+                    size="small"
                     columns={columns}
                     pagination={false}
                     bordered={true}
