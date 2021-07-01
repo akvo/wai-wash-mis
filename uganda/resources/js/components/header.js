@@ -54,6 +54,7 @@ const renderKebeleOption = (kebele, kebeleList) => {
             allowClear={true}
             value={kebele}
             onChange={handleOnChangeKebele}
+            getPopupContainer={(trigger) => trigger.parentNode}
         >
             {kebeleList &&
                 kebeleList.map((x) => (
@@ -134,10 +135,20 @@ export function HeaderDetail() {
     );
 
     return (
-        <Header className="header-container header-fixed">
+        <Header
+            className="header-container header-fixed"
+            style={{ zIndex: 100 }}
+        >
             <div className="header-content-wrapper">
                 {renderLogo()}
-                <div>{renderKebeleOption(kebele, kebeleList)}</div>
+                <div>
+                    {renderKebeleOption(kebele, kebeleList)}
+                    {kebele && (
+                        <Button onClick={() => handleOnChangeKebele(null)}>
+                            Remove Filter
+                        </Button>
+                    )}
+                </div>
                 {renderLoginBtn()}
             </div>
         </Header>

@@ -60,7 +60,7 @@ function Detail() {
     return (
         <div id="details">
             <HeaderDetail />
-            <Affix offsetTop={0}>
+            <Affix offsetTop={0} style={{ zIndex: -1 }}>
                 <Menu
                     selectedKeys={[firstFilter]}
                     onClick={(cur) => handleFirstFilterClick(cur)}

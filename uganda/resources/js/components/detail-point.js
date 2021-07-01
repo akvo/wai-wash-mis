@@ -45,7 +45,6 @@ const DetailPoint = ({ markerDetail, config, name }) => {
                     pagination={false}
                     bordered={true}
                 />
-                <Divider />
             </>
         );
     }
