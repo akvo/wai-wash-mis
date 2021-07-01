@@ -36,7 +36,7 @@ const DetailPoint = ({ markerDetail, config, name }) => {
         });
 
         return (
-            <>
+            <div className="detail-point">
                 <h4>{name}</h4>
                 <Divider />
                 <Table
@@ -45,7 +45,7 @@ const DetailPoint = ({ markerDetail, config, name }) => {
                     pagination={false}
                     bordered={true}
                 />
-            </>
+            </div>
         );
     }
     return "";

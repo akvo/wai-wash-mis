@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Col, Menu, Row, Divider, Table, Tag, Modal } from "antd";
+import { Col, Menu, Row, Divider, Table, Tag, Drawer } from "antd";
 import DetailPoint from "../../components/detail-point";
 import camelCase from "lodash/camelCase";
 import sortBy from "lodash/sortBy";
@@ -131,12 +131,11 @@ function WaterPoint({ geoUrl }) {
                         bordered={true}
                     />
                 </div>
-                <Modal
-                    style={{ top: 20 }}
-                    width={800}
+                <Drawer
+                    width={640}
+                    placement="right"
                     visible={markerDetail.active}
-                    footer={null}
-                    onCancel={() =>
+                    onClose={() =>
                         UIStore.update((e) => {
                             e.markerDetail = {
                                 ...e.markerDetail,
@@ -151,7 +150,7 @@ function WaterPoint({ geoUrl }) {
                         config={config}
                         name={mainConfig.key}
                     />
-                </Modal>
+                </Drawer>
             </Col>
         </Row>
     );

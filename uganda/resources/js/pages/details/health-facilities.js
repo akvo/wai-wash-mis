@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Col, Row, Table, Tag, Divider, Modal } from "antd";
+import { Col, Row, Table, Tag, Divider, Drawer } from "antd";
 import Map from "../../components/maps";
 import DetailPoint from "../../components/detail-point";
 import { jmpColors } from "../../utils/jmp_color";
@@ -94,12 +94,11 @@ const HealthFacilities = ({ geoUrl }) => {
                     </div>
                 )}
                 <div className="table-container">
-                    <Modal
-                        style={{ top: 20 }}
-                        width={800}
+                    <Drawer
+                        width={640}
+                        placement="right"
                         visible={markerDetail.active}
-                        footer={null}
-                        onCancel={() =>
+                        onClose={() =>
                             UIStore.update((e) => {
                                 e.markerDetail = {
                                     ...e.markerDetail,
@@ -114,7 +113,7 @@ const HealthFacilities = ({ geoUrl }) => {
                             config={config}
                             name={mainConfig.key}
                         />
-                    </Modal>
+                    </Drawer>
                     <Table
                         dataSource={firstDataSource}
                         columns={firstColumns}
