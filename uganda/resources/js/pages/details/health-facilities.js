@@ -31,14 +31,15 @@ const HealthFacilities = ({ geoUrl }) => {
         let values = 0;
         mainConfig.indicators.forEach((i) => {
             const indicator = camelCase(i.name);
-            if (x[i.key] === "Basic") {
-                values += 1;
+            const ivalues = x[i.key]?.replaceAll(" ", "").toLowerCase();
+            if (ivalues === "basic") {
+                values = values + 1;
             }
-            if (x[i.key] === "Limited") {
-                values += 3;
+            if (ivalues === "limited") {
+                values = values + 3;
             }
-            if (x[i.key] === "No Service") {
-                values += 10;
+            if (ivalues === "noservice") {
+                values = values + 10;
             }
             res = {
                 ...res,
@@ -48,7 +49,7 @@ const HealthFacilities = ({ geoUrl }) => {
         return { ...res, value: values };
     });
 
-    firstDataSource = sortBy(firstDataSource, ["value"]);
+    firstDataSource = sortBy(firstDataSource, "value");
 
     const indicators = mainConfig.indicators.map((x) => ({
         title: x.name,
@@ -78,7 +79,7 @@ const HealthFacilities = ({ geoUrl }) => {
         {
             title: mainConfig.name,
             dataIndex: "name",
-            width: "30%",
+            width: "20%",
             key: "name",
         },
         ...indicators,

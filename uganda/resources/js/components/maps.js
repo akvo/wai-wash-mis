@@ -76,7 +76,13 @@ function Map({ geoUrl }) {
         coordinates: defCenter,
         zoom: 1,
     });
-    const { state, woreda, kebele, firstFilter } = UIStore.useState();
+    const {
+        state,
+        woreda,
+        kebele,
+        firstFilter,
+        markerDetail,
+    } = UIStore.useState();
     const woredaKey = state?.config?.locations?.woreda;
     const kebeleKey = state?.config?.locations?.kebele;
     const latlong = state?.config?.latlong;
@@ -334,15 +340,26 @@ function Map({ geoUrl }) {
                                         }
                                     );
                             }
+                            let markerSize =
+                                position.zoom < 3.5 ? 2 : position.zoom * 0.5;
+                            let highlighted = false;
+                            if (markerDetail.active) {
+                                highlighted = item.A === markerDetail.data.A;
+                                markerSize = highlighted
+                                    ? markerSize * 2
+                                    : markerSize;
+                            }
                             return (
                                 <Marker key={index} coordinates={coordinates}>
                                     <circle
-                                        r={
-                                            position.zoom < 3.5
-                                                ? 2
-                                                : position.zoom * 0.5
+                                        r={markerSize}
+                                        fill={
+                                            markerDetail.active
+                                                ? highlighted
+                                                    ? fill
+                                                    : "#ddd"
+                                                : fill
                                         }
-                                        fill={fill}
                                         stroke="#fff"
                                         strokeWidth={0.3}
                                         onClick={() => onMarkerClick(item)}
