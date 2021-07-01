@@ -250,7 +250,7 @@ function Map({ geoUrl }) {
                                                 outline: "none",
                                             },
                                             hover: {
-                                                fill: "#F53",
+                                                fill: "#FCF176",
                                                 outline: "none",
                                             },
                                             pressed: {
@@ -311,12 +311,15 @@ function Map({ geoUrl }) {
                             let markerSize =
                                 position.zoom < 3.5 ? 2 : position.zoom * 0.5;
                             let highlighted = false;
+                            let selected = false;
+                            selected = content?.props?.item?.A === item.A;
                             if (markerDetail.active) {
                                 highlighted = item.A === markerDetail.data.A;
-                                markerSize = highlighted
+                            }
+                            markerSize =
+                                highlighted || selected
                                     ? markerSize * 2
                                     : markerSize;
-                            }
                             return (
                                 <Marker key={index} coordinates={coordinates}>
                                     <circle
@@ -348,7 +351,12 @@ function Map({ geoUrl }) {
                         })}
                 </ZoomableGroup>
             </ComposableMap>
-            <ReactTooltip type="light" className="tooltip-container">
+            <ReactTooltip
+                border={true}
+                type="light"
+                className="tooltip-container"
+                borderColor="#ddd"
+            >
                 {content}
             </ReactTooltip>
         </div>
