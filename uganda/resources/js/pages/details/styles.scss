@@ -21,7 +21,7 @@
     .table-container {
         padding: 20px 0;
         margin: 25px 0;
-        border: 1px solid black;
+        border: 1px solid #f0f0f0;
     }
 
     .chart-container,
@@ -37,6 +37,7 @@
     .map-buttons {
         position: absolute;
         right: 20px;
+
         button {
             display: flex;
             margin-bottom: 5px;

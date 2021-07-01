@@ -23,7 +23,7 @@ import { filter } from "lodash";
 const mapMaxZoom = 4;
 const defCenter = ["33.3486", "2.9251"];
 const colorRange = ["#bbedda", "#a7e1cb", "#92d5bd", "#7dcaaf", "#67bea1"];
-const showMarkerOnFirstFilterValues = ["school", "clts", "wp"];
+const showMarkerOnFirstFilterValues = ["wp", "health"];
 
 const ToolTipContent = ({ data, geo }) => {
     return (
@@ -37,7 +37,9 @@ const ToolTipMarker = ({ item, config, firstFilter }) => {
     const { marker } = config;
     return (
         <div className="map-tooltip">
-            <h3>{marker ? item?.[marker?.name] : "Name"}</h3>
+            <h3 style={{ textTransform: "capitalize" }}>
+                {marker ? item?.[marker?.name] : "Name"}
+            </h3>
             {firstFilter === "wp" && (
                 <ul>
                     {marker?.detail &&
@@ -145,7 +147,6 @@ function Map({ geoUrl }) {
             ];
         }
         setPosition({ coordinates: center, zoom: 3 });
-
         UIStore.update((e) => {
             e.kebele = ADM4_EN.toLowerCase();
             e.markerDetail = {
