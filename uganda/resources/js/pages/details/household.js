@@ -14,14 +14,18 @@ const bestIndicators = ["safely managed", "advanced"];
 const goodIndicators = ["safely managed", "advanced", "basic"];
 
 const generateChartOptions = (config, data, kebeleKey, firstFilter, kebele) => {
+    data = data.filter((x) => x[kebeleKey] !== "");
     const locations = Object.keys(groupBy(data, kebeleKey));
     const options = config?.charts.map((item) => {
+        data = data.filter((x) => item.value.includes(x[item.key]));
         let option = {
             tooltip: {
                 trigger: "axis",
+                position: ["80%", "25%"],
                 axisPointer: {
                     type: "shadow",
                 },
+                extraCssText: "text-align:left;",
             },
             legend: {
                 data: item.value,
@@ -41,9 +45,9 @@ const generateChartOptions = (config, data, kebeleKey, firstFilter, kebele) => {
             },
             xAxis: {
                 type: "value",
-                name: `% of Households`,
                 nameLocation: "middle",
                 nameGap: 45,
+                max: 100,
                 nameTextStyle: {
                     fontWeight: "bold",
                     fontSize: 14,
@@ -63,56 +67,29 @@ const generateChartOptions = (config, data, kebeleKey, firstFilter, kebele) => {
             };
         });
         const seriesData = dataByTopic.map((topic) => {
-            const dataByLocation = locations
-                .map((loc) => {
-                    const val = topic.values.filter(
-                        (x) => x[kebeleKey] === loc
-                    );
-                    const totalDataKebele = data.filter(
-                        (x) => x[kebeleKey] === loc
-                    );
-                    const value =
-                        val.length !== 0
-                            ? (val.length / totalDataKebele.length) * 100
-                            : 0;
-                    let res = {
-                        name: loc,
-                        value: Math.round((value + Number.EPSILON) * 100) / 100,
-                    };
-                    if (kebele && kebele !== loc.toLowerCase()) {
-                        res = {
-                            ...res,
-                            itemStyle: {
-                                opacity: 0.25,
-                            },
-                        };
-                    }
-                    // #::TODO add sum value of 2 good indicator and sort the charts according to that
-                    const sortBy = dataByTopic
-                        .map((d) => {
-                            if (goodIndicators.includes(d.name.toLowerCase())) {
-                                const k = d.values.filter(
-                                    (x) => x[kebeleKey] === loc
-                                );
-                                return k.length;
-                            }
-                            // put also best value to pretend the value with same total and have best indicator is better
-                            if (bestIndicators.includes(d.name.toLowerCase())) {
-                                const bk = d.values.filter(
-                                    (x) => x[kebeleKey] === loc
-                                );
-                                return bk.length;
-                            }
-                            return 0;
-                        })
-                        .reduce((acc, cur) => acc + cur);
+            const dataByLocation = locations.map((loc) => {
+                const val = topic.values.filter((x) => x[kebeleKey] === loc);
+                const totalDataKebele = data.filter(
+                    (x) => x[kebeleKey] === loc
+                );
+                const value =
+                    val.length !== 0
+                        ? (val.length / totalDataKebele.length) * 100
+                        : 0;
+                let res = {
+                    name: loc,
+                    value: Math.round((value + Number.EPSILON) * 100) / 100,
+                };
+                if (kebele && kebele !== loc.toLowerCase()) {
                     res = {
                         ...res,
-                        sortBy: sortBy,
+                        itemStyle: {
+                            opacity: 0.25,
+                        },
                     };
-                    return res;
-                })
-                .sort((a, b) => a.sortBy - b.sortBy);
+                }
+                return res;
+            });
             const itemColor = itemColors.find(
                 (c) => c.name.toLowerCase() === topic.name.toLowerCase()
             );
