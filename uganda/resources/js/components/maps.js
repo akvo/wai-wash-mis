@@ -118,41 +118,6 @@ function Map({ geoUrl }) {
 
     const onMapClick = (geo) => {
         const { ADM4_EN } = geo.properties;
-        const coordinates = geo.geometry.coordinates[0];
-
-        // calculate center position
-        let center = position.coordinates;
-        if (coordinates.length === 1) {
-            center = [coordinates[0][0], coordinates[0][1]];
-        } else {
-            let x = 0;
-            let y = 0;
-            let z = 0;
-
-            coordinates.forEach((pos) => {
-                let latitude = (pos[0] * Math.PI) / 180;
-                let longitude = (pos[1] * Math.PI) / 180;
-                x += Math.cos(latitude) * Math.cos(longitude);
-                y += Math.cos(latitude) * Math.sin(longitude);
-                z += Math.sin(latitude);
-            });
-
-            let total = coordinates.length;
-
-            x = x / total;
-            y = y / total;
-            z = z / total;
-
-            let centralLongitude = Math.atan2(y, x);
-            let centralSquareRoot = Math.sqrt(x * x + y * y);
-            let centralLatitude = Math.atan2(z, centralSquareRoot);
-
-            center = [
-                (centralLatitude * 180) / Math.PI,
-                (centralLongitude * 180) / Math.PI,
-            ];
-        }
-        setPosition({ coordinates: center, zoom: 3 });
         UIStore.update((e) => {
             e.kebele = ADM4_EN.toLowerCase();
             e.markerDetail = {
@@ -221,6 +186,9 @@ function Map({ geoUrl }) {
                 projectionConfig={{ scale: 25000 }}
             >
                 <ZoomableGroup
+                    filterZoomEvent={(evt) => {
+                        return evt.type === "wheel" ? false : true;
+                    }}
                     maxZoom={mapMaxZoom}
                     zoom={position.zoom}
                     center={position.coordinates}
