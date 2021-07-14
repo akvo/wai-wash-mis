@@ -1,8 +1,9 @@
 import React from "react";
 import capitalize from "lodash/capitalize";
-import { Table, Divider, Collapse } from "antd";
+import { Table, Divider, Collapse, Typography } from "antd";
 
 const { Panel } = Collapse;
+const { Text } = Typography;
 
 const DetailPointWaterPoint = ({
     markerDetail,
@@ -29,8 +30,11 @@ const DetailPointWaterPoint = ({
     ];
 
     const renderMoreDetail = (data, config, columns) => {
+        if (data.length === 0) {
+            return <Text type="secondary">No Data</Text>
+        }
         return (
-            <Collapse>
+            <Collapse accordion>
                 {
                     data.map((r, ri) => {
                         let source = [];
@@ -80,7 +84,7 @@ const DetailPointWaterPoint = ({
             <div className="detail-point">
                 <h4>{name}</h4>
                 <Divider />
-                <Collapse>
+                <Collapse accordion>
                     <Panel header="Water Supply System" key="1">
                         <Table
                             dataSource={dataSource}
