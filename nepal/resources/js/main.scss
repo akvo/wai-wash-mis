@@ -1,0 +1,55 @@
+@import "~antd/dist/antd.css";
+
+.ant-layout {
+    min-height: 100vh;
+}
+
+.trigger {
+    padding: 0 24px;
+    font-size: 18px;
+    line-height: 64px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.trigger:hover {
+    color: #1890ff;
+}
+
+.logo {
+    height: 32px;
+    margin: 16px;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.site-layout {
+    background-color: #fff;
+}
+
+.header-container {
+    padding: 10px 25px;
+    background-color: #fff;
+}
+
+.header-fixed {
+    background-color: #f9f9f9;
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+}
+
+.header-content-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-logo-wrapper {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    .brand {
+        font-size: 16px;
+        font-weight: 500;
+    }
+}

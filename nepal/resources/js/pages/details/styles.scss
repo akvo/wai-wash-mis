@@ -1,0 +1,102 @@
+#details {
+    .first-filter {
+        padding: 0 175px;
+        top: 64px;
+        position: fixed;
+        width: 100%;
+        z-index: 3;
+    }
+
+    .content-container {
+        background-color: #fff;
+        padding: 115px 175px 20px;
+        min-height: 100vh;
+    }
+
+    .loading-container {
+        padding-top: 175px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .map-container,
+    .chart-container,
+    .table-container {
+        padding: 20px 0;
+        margin: 25px 0;
+        border: 1px solid #f0f0f0;
+    }
+
+    .chart-container,
+    .table-container {
+        text-align: center;
+    }
+
+    .table-container {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .map-buttons {
+        position: absolute;
+        right: 20px;
+
+        button {
+            display: flex;
+            margin-bottom: 5px;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+    .map-tooltip {
+        padding: 5px;
+        max-width: 400px;
+
+        h3 {
+            padding: 0px;
+            margin: 0px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #005c93;
+            max-width: 200px;
+            width: 200px;
+            white-space: pre-wrap;
+        }
+
+        ul {
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            display: flex;
+            justify-content: space-between;
+
+            &:not(:last-child) {
+                border-bottom: 1px solid #e7f1f7;
+                padding-bottom: 3px;
+                margin-bottom: 3px;
+            }
+
+            & > div {
+                display: flex;
+            }
+
+            span {
+                color: #242525;
+                margin-right: 15px;
+                font-weight: 600;
+            }
+
+            b {
+                text-align: right;
+                color: #005c93;
+            }
+        }
+    }
+
+    td.ant-table-cell.value-column {
+        width: 18%;
+    }
+}
