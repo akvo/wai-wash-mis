@@ -2,5 +2,5 @@
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
     "/images/wai-logo.png": "/images/wai-logo.png",
-    "/data/ug-filtered.topo.json": "/data/ug-filtered.topo.json"
+    "/data/nep-filtered.topo.json": "/data/nep-filtered.topo.json"
 }

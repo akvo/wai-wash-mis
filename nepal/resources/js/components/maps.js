@@ -18,12 +18,11 @@ import { UIStore } from "../store";
 
 import groupBy from "lodash/groupBy";
 import { scaleQuantize } from "d3-scale";
-import { filter } from "lodash";
 
 const mapMaxZoom = 4;
-const defCenter = ["81.5243", "28.5405"];
+const defCenter = ["81.6385", "28.1622"];
 const colorRange = ["#bbedda", "#a7e1cb", "#92d5bd", "#7dcaaf", "#67bea1"];
-const showMarkerOnFirstFilterValues = ["wp", "health"];
+const showMarkerOnFirstFilterValues = ["wp", "health", "school"];
 
 const ToolTipContent = ({ data, geo }) => {
     return (
@@ -117,9 +116,9 @@ function Map({ geoUrl }) {
     };
 
     const onMapClick = (geo) => {
-        const { ADM4_EN } = geo.properties;
+        const name = geo.properties?.UNIT_NAME;
         UIStore.update((e) => {
-            e.level2 = ADM4_EN.toLowerCase();
+            e.level2 = name && name.toLowerCase();
             e.markerDetail = {
                 ...e.markerDetail,
                 active: false,
@@ -199,23 +198,23 @@ function Map({ geoUrl }) {
                     <Geographies geography={geoUrl}>
                         {({ geographies }) =>
                             geographies.map((geo) => {
-                                const { ADM4_EN } = geo.properties;
+                                const name = geo.properties?.UNIT_NAME;
                                 const level2Data =
-                                    filterData &&
+                                    name && filterData &&
                                     filterData.filter(
                                         (x) =>
                                             x?.[level2Key] &&
                                             x[level2Key]
                                                 .toString()
                                                 .toLowerCase() ===
-                                                ADM4_EN.toLowerCase()
+                                                name.toLowerCase()
                                     );
                                 const curr =
                                     level2Data && level2Data.length > 0;
                                 const active =
                                     level2 &&
                                     level2.toString().toLowerCase() ===
-                                        ADM4_EN.toLowerCase();
+                                        name.toLowerCase();
                                 return (
                                     <Geography
                                         key={geo.rsmKey}

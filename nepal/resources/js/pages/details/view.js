@@ -71,7 +71,7 @@ function Detail() {
                 <Menu.Item key="hh">Households</Menu.Item>
                 <Menu.Item key="school">Schools</Menu.Item>
                 <Menu.Item key="health">Health Facilities</Menu.Item>
-                <Menu.Item key="wp">Water Points</Menu.Item>
+                {/* <Menu.Item key="wp">Water Points</Menu.Item> */}
             </Menu>
             <Content className="content-container">
                 {!geoUrl && <ContentLoading />}

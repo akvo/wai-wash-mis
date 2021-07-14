@@ -88,11 +88,11 @@ const HealthFacilities = ({ geoUrl }) => {
     return (
         <Row>
             <Col span="24">
-                {/* {geoUrl && (
+                {geoUrl && (
                     <div key="maps" className="map-container">
                         <Map geoUrl={geoUrl} />
                     </div>
-                )} */}
+                )}
                 <div className="table-container">
                     <Drawer
                         width={640}

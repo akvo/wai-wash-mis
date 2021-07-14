@@ -208,11 +208,11 @@ const HouseHold = ({ geoUrl }) => {
     return (
         <Row>
             <Col span="24">
-                {/* {geoUrl && (
+                {geoUrl && (
                     <div key="maps" className="map-container">
                         <Map geoUrl={geoUrl} />
                     </div>
-                )} */}
+                )}
                 {geoUrl &&
                     chartOptions &&
                     chartOptions.map((opt, index) => (
