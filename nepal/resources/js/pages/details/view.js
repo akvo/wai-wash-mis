@@ -25,7 +25,7 @@ function Detail() {
     const [geoUrl, setGeoUrl] = useState();
 
     useEffect(() => {
-        fetch("/data/nep-filtered.topo.json")
+        fetch("/data/nep-filtered2.topo.json")
             .then((res) => res.json())
             .then((res) => setGeoUrl(res));
     }, []);

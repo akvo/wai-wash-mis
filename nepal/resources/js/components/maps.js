@@ -182,7 +182,7 @@ function Map({ geoUrl }) {
                 data-tip=""
                 projection="geoEquirectangular"
                 height={350}
-                projectionConfig={{ scale: 25000 }}
+                projectionConfig={{ scale: 100 }}
             >
                 <ZoomableGroup
                     filterZoomEvent={(evt) => {
