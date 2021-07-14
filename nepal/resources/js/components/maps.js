@@ -92,13 +92,21 @@ function Map({ geoUrl }) {
     const [content, setContent] = useState("");
 
     useEffect(() => {
-        const filterData =
+        let filterData =
             state?.data &&
             state?.data.filter(
                 (x) => x[level1Key].toLowerCase() === level1?.toLowerCase()
             );
+        if (level2) {
+            filterData = filterData.filter(
+                (x) => x[level2Key].toLowerCase() === level2?.toLowerCase()
+            );
+        }
+        if (level3) {
+            filterData = filterData.filter((x) => x[level3Key] === level3);
+        }
         setFilterData(filterData);
-    }, [level1]);
+    }, [level1, level2, level3]);
 
     const domain = filterData
         ? Object.values(groupBy(filterData, level2Key)).reduce(
