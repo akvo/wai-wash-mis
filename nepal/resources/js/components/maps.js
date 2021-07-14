@@ -20,14 +20,14 @@ import groupBy from "lodash/groupBy";
 import { scaleQuantize } from "d3-scale";
 
 const mapMaxZoom = 4;
-const defCenter = ["81.6385", "28.1622"];
+const defCenter = ["81.604705", "28.6483666666666"];
 const colorRange = ["#bbedda", "#a7e1cb", "#92d5bd", "#7dcaaf", "#67bea1"];
 const showMarkerOnFirstFilterValues = ["wp", "health", "school"];
 
 const ToolTipContent = ({ data, geo }) => {
     return (
         <div className="map-tooltip">
-            <h3>{geo.ADM4_EN}</h3>
+            <h3>{geo.UNIT_NAME}</h3>
         </div>
     );
 };
@@ -182,7 +182,7 @@ function Map({ geoUrl }) {
                 data-tip=""
                 projection="geoEquirectangular"
                 height={350}
-                projectionConfig={{ scale: 100 }}
+                projectionConfig={{ scale: 12500 }}
             >
                 <ZoomableGroup
                     filterZoomEvent={(evt) => {

@@ -10,18 +10,27 @@ import { UIStore } from "../../store";
 
 const HealthFacilities = ({ geoUrl }) => {
     const store = UIStore.useState();
-    const { level2, health, markerDetail } = store;
-    const { data, config, locations } = health;
+    const { level3, level2, level1, health, markerDetail } = store;
+    const { data, config } = health;
     const { main: mainConfig } = config;
 
-    let firstDataSource = level2
-        ? data.map((x) => {
-              if (level2 === x?.[config.locations.level2]?.toLowerCase()) {
-                  return { ...x, opacity: "100%" };
-              }
-              return { ...x, opacity: "20%" };
-          })
-        : data.map((x) => ({ ...x, opacity: "100%" }));
+    let firstDataSource = data.filter((x) => level1 === x?.[config.locations.level1]?.toLowerCase());
+    if (level2) {
+        firstDataSource = firstDataSource.map((x) => {
+            if (level2 === x?.[config.locations.level2]?.toLowerCase()) {
+                return { ...x, opacity: "100%" };
+            }
+            return { ...x, opacity: "20%" };
+        });
+    }
+    if (level3) {
+        firstDataSource = firstDataSource.map((x) => {
+            if (level2 === x?.[config.locations.level2]?.toLowerCase() && level3 === x?.[config.locations.level3]) {
+                return { ...x, opacity: "100%" };
+            }
+            return { ...x, opacity: "20%" };
+        });
+    }
     firstDataSource = firstDataSource.map((x, i) => {
         let res = {
             key: i,

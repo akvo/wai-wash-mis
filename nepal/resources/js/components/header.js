@@ -113,6 +113,7 @@ const renderLoginBtn = () => {
 
 const handleOnChangeLevel1 = (key) => {
     UIStore.update((e) => {
+        e.level3 = null;
         e.level2 = null;
         e.page = "details";
         e.level1 = key;
