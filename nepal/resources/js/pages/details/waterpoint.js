@@ -1,27 +1,37 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Col, Menu, Row, Divider, Table, Tag, Drawer } from "antd";
-import DetailPoint from "../../components/detail-point";
+import { Col, Row, Divider, Table, Tag, Drawer } from "antd";
+import DetailPointWaterPoint from "../../components/detail-point-wp";
 import camelCase from "lodash/camelCase";
 import sortBy from "lodash/sortBy";
 import reverse from "lodash/reverse";
 
 import Map from "../../components/maps";
 
+import reservoirData from "../../data/nep_wp_reservoir_data.json";
+import reservoirConfig from "../../data/nep_wp_reservoir_config.json";
+import tapsData from "../../data/nep_wp_taps_data.json";
+import tapsConfig from "../../data/nep_wp_taps_config.json";
+
 import { UIStore } from "../../store";
 
 function WaterPoint({ geoUrl }) {
     const store = UIStore.useState();
-    const { kebele, wp, markerDetail } = store;
-    const { data, config, locations } = wp;
+    const { level2, wp, markerDetail } = store;
+    const { data, config } = wp;
     const { main: mainConfig } = config;
 
+    let taps = tapsData.filter((x) => Number(markerDetail.data?.[config.primary_key]) === Number(x?.[tapsConfig.foreign_key]));
+    let reservoir = reservoirData.filter((x) => Number(markerDetail.data?.[config.primary_key]) === Number(x?.[reservoirConfig.foreign_key]));
+
+    // ! Notrendered
+    /** ! Notrendered
     let firstDataSource = data.filter(
         (x) => x[mainConfig.select.key] === mainConfig.select.value
     );
 
-    firstDataSource = kebele
+    firstDataSource = level2
         ? firstDataSource.map((x) => {
-              if (kebele === x?.[config.locations.kebele]?.toLowerCase()) {
+              if (level2 === x?.[config.locations.level2]?.toLowerCase()) {
                   return { ...x, hidden: false };
               }
               return { ...x, hidden: true };
@@ -31,7 +41,7 @@ function WaterPoint({ geoUrl }) {
     firstDataSource = firstDataSource.map((x, i) => {
         let res = {
             key: i,
-            name: `${x[mainConfig.key]}, ${x[config.locations.kebele]}`,
+            name: `${x[mainConfig.key]}, ${x[config.locations.level2]}`,
             opacity: x.opacity,
         };
         let values = 0;
@@ -113,6 +123,7 @@ function WaterPoint({ geoUrl }) {
         },
         ...indicators,
     ];
+     */
 
     return (
         <Row>
@@ -122,7 +133,7 @@ function WaterPoint({ geoUrl }) {
                         <Map geoUrl={geoUrl} />
                     </div>
                 )}
-                <div className="table-container">
+                {/* <div className="table-container">
                     <h4>Non Functional Facilities</h4>
                     <Divider />
                     <Table
@@ -131,7 +142,7 @@ function WaterPoint({ geoUrl }) {
                         size="small"
                         bordered={true}
                     />
-                </div>
+                </div> */}
                 <Drawer
                     width={640}
                     placement="right"
@@ -146,10 +157,14 @@ function WaterPoint({ geoUrl }) {
                         })
                     }
                 >
-                    <DetailPoint
+                    <DetailPointWaterPoint
                         markerDetail={markerDetail}
                         config={config}
-                        name={mainConfig.key}
+                        name={config.marker.name}
+                        reservoir={reservoir}
+                        reservoirConfig={reservoirConfig}
+                        taps={taps}
+                        tapsConfig={tapsConfig}
                     />
                 </Drawer>
             </Col>

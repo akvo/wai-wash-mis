@@ -12,8 +12,8 @@ import healthConfig from "./data/nep_health_config.json";
 // import cltsData from "./data/ug_clts_data.json";
 // import cltsConfig from "./data/ug_clts_config.json";
 
-import wpData from "./data/ug_wp_data.json";
-import wpConfig from "./data/ug_wp_config.json";
+import wpData from "./data/nep_wp_data.json";
+import wpConfig from "./data/nep_wp_config.json";
 
 let cltsData, cltsConfig;
 

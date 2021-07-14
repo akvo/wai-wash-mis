@@ -1,0 +1,62 @@
+[
+  {
+    "A":61005025,
+    "B":"Hathisude WSS",
+    "C":"RVT1",
+    "D":0,
+    "E":"RCC",
+    "F":28,
+    "G":81,
+    "H":600,
+    "I":18,
+    "J":"Adequate",
+    "K":"Good",
+    "L":"None",
+    "M":0
+  },
+  {
+    "A":61005029,
+    "B":"BhulkeKapre Water Supply System",
+    "C":"RVT1",
+    "D":0,
+    "E":"Masonary",
+    "F":28,
+    "G":81,
+    "H":559,
+    "I":9,
+    "J":"Adequate",
+    "K":"Minor Repair",
+    "L":"None",
+    "M":0
+  },
+  {
+    "A":61005029,
+    "B":"BhulkeKapre Water Supply System",
+    "C":"RVT3",
+    "D":0,
+    "E":"Masonary",
+    "F":28,
+    "G":81,
+    "H":549,
+    "I":9,
+    "J":"Adequate",
+    "K":"Minor Repair",
+    "L":"None",
+    "M":0
+  },
+  {
+    "A":51103004,
+    "B":"Pedari Water Supply System",
+    "C":"RVT1",
+    "D":0,
+    "E":"Elevated RCC",
+    "F":28,
+    "G":81,
+    "H":92,
+    "I":150,
+    "J":"Adequate",
+    "K":"Good",
+    "L":"None",
+    "M":0
+  }
+]

@@ -79,11 +79,13 @@ function Map({ geoUrl }) {
         state,
         level1,
         level2,
+        level3,
         firstFilter,
         markerDetail,
     } = UIStore.useState();
     const level1Key = state?.config?.locations?.level1;
     const level2Key = state?.config?.locations?.level2;
+    const level3Key = state?.config?.locations?.level3;
     const latlong = state?.config?.latlong;
     const marker = state?.config?.marker;
     const [filterData, setFilterData] = useState();
