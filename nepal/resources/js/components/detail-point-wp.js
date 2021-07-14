@@ -6,7 +6,8 @@ const { Panel } = Collapse;
 
 const DetailPointWaterPoint = ({
     markerDetail,
-    config, name,
+    config,
+    name,
     reservoir,
     reservoirConfig,
     taps,
@@ -27,9 +28,40 @@ const DetailPointWaterPoint = ({
         },
     ];
 
+    const renderMoreDetail = (data, config, columns) => {
+        return (
+            <Collapse>
+                {
+                    data.map((r, ri) => {
+                        let source = [];
+                        const name = `${r["C"]}`;
+                        const fk = r?.[config.foreign_key];
+                        Object.keys(r).forEach((x, i) => {
+                            const d = capitalize(config[x].replaceAll("_", " "));
+                            source.push({
+                                key: `${fk}-${ri}-${i}`,
+                                data: d,
+                                value: r[x] !== "" ? r[x] : " - ",
+                            });
+                        });
+                        return (
+                            <Panel header={name} key={fk + "-" + ri}>
+                                <Table
+                                    dataSource={source}
+                                    size="small"
+                                    columns={columns}
+                                    pagination={false}
+                                    bordered={true}
+                                />
+                            </Panel>
+                        )
+                    })
+                }
+            </Collapse>
+        );
+    };
+
     let dataSource = [];
-    let reservoirSource = [];
-    let tapSource = [];
     if (markerDetail.active) {
         Object.keys(markerDetail.data).forEach((x, i) => {
             const d = capitalize(config[x].replaceAll("_", " "));
@@ -44,34 +76,12 @@ const DetailPointWaterPoint = ({
             });
         });
 
-        reservoir.forEach((r, ri) => {
-            Object.keys(r).forEach((x, i) => {
-                const d = capitalize(reservoirConfig[x].replaceAll("_", " "));
-                reservoirSource.push({
-                    key: `wpr-${ri}-${i}`,
-                    data: d,
-                    value: r[x] !== "" ? r[x] : " - ",
-                });
-            });
-        });
-
-        taps.forEach((t, ti) => {
-            Object.keys(t).forEach((x, i) => {
-                const d = capitalize(tapsConfig[x].replaceAll("_", " "));
-                tapSource.push({
-                    key: `wpt-${ti}-${i}`,
-                    data: d,
-                    value: t[x] !== "" ? t[x] : " - ",
-                });
-            });
-        });
-
         return (
             <div className="detail-point">
                 <h4>{name}</h4>
                 <Divider />
                 <Collapse>
-                    <Panel header="Water Point Data" key="1">
+                    <Panel header="Water Supply System" key="1">
                         <Table
                             dataSource={dataSource}
                             size="small"
@@ -80,23 +90,11 @@ const DetailPointWaterPoint = ({
                             bordered={true}
                         />
                     </Panel>
-                    <Panel header="Reservoir Data" key="2">
-                        <Table
-                            dataSource={reservoirSource}
-                            size="small"
-                            columns={columns}
-                            pagination={false}
-                            bordered={true}
-                        />
+                    <Panel header="Reservoir" key="2">
+                        {renderMoreDetail(reservoir, reservoirConfig, columns)}
                     </Panel>
-                    <Panel header="Taps Data" key="3">
-                        <Table
-                            dataSource={tapSource}
-                            size="small"
-                            columns={columns}
-                            pagination={false}
-                            bordered={true}
-                        />
+                    <Panel header="Taps" key="3">
+                        {renderMoreDetail(taps, tapsConfig, columns)}
                     </Panel>
                 </Collapse>
             </div>
