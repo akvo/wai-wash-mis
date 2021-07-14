@@ -159,7 +159,7 @@ const generateChartOptions = (config, data, level2Key, firstFilter, level2) => {
 
 const HouseHold = ({ geoUrl }) => {
     const store = UIStore.useState();
-    const { level1, level2, state, firstFilter, secondFilter } = store;
+    const { level1, level2, level3, state, firstFilter, secondFilter } = store;
     const [chartOptions, setChartOptions] = useState();
     const chartsRef = useRef([]);
 
@@ -168,29 +168,29 @@ const HouseHold = ({ geoUrl }) => {
         const { data, config } = state;
         const level1Key = config?.locations?.level1;
         const level2Key = config?.locations?.level2;
+        const level3Key = config?.locations?.level3;
 
+        let options = [];
         let filterData = data;
         // filter data by level1
         if (level1) {
             filterData = filterData.filter(
                 (x) => x[level1Key].toLowerCase() === level1.toLowerCase()
             );
-        }
-
-        // generate charts
-        let options = generateChartOptions(
-            config,
-            filterData,
-            level2Key,
-            firstFilter,
-            level2
-        );
-        if (secondFilter !== "all") {
-            options = options.filter((x) =>
-                x.name.toLowerCase().includes(secondFilter.toLowerCase())
+            options = generateChartOptions(
+                config,
+                filterData,
+                level2Key,
+                firstFilter,
+                level2
             );
+            if (secondFilter !== "all") {
+                options = options.filter((x) =>
+                    x.name.toLowerCase().includes(secondFilter.toLowerCase())
+                );
+            }
+            setChartOptions(options);
         }
-        setChartOptions(options);
     }, [firstFilter, secondFilter, level1, level2]);
 
     const onChartsClick = (params, index) => {

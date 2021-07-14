@@ -42,7 +42,7 @@ const generateTable = (config, data, level2Key, level2, firstFilter) => {
     ];
     const { table } = config;
     const filterDataByLevel2 = data.filter(
-        (x) => x[level2Key].toLowerCase() === level2.toLowerCase()
+        (x) => String(x[level2Key]).toLowerCase() === String(level2).toLowerCase()
     );
     let tmp = [];
     // for demographics
@@ -106,7 +106,7 @@ const generateTable = (config, data, level2Key, level2, firstFilter) => {
             name: tb.name,
             column: column,
             data: flatten(indicators).map((x, i) => {
-                x.key = i;
+                x.key = `${tb.name}-${i}`;
                 return x;
             }),
         };
@@ -118,7 +118,7 @@ const generateTable = (config, data, level2Key, level2, firstFilter) => {
 
 const DetailTable = () => {
     const store = UIStore.useState();
-    const { level1, level2, state, firstFilter, secondFilter } = store;
+    const { level1, level2, level3, state, firstFilter, secondFilter } = store;
     const [table, setTable] = useState();
 
     useEffect(() => {
@@ -126,6 +126,7 @@ const DetailTable = () => {
         const { data, config } = state;
         const level1Key = config?.locations?.level1;
         const level2Key = config?.locations?.level2;
+        const level3Key = config?.locations?.level3;
 
         let filterData = data;
         // filter data by level1
@@ -139,16 +140,34 @@ const DetailTable = () => {
         let tableConfig = null;
         if (level2) {
             // filter data by level2
-            if (level2) {
-                filterData = filterData.filter(
-                    (x) => x[level2Key].toLowerCase() === level2.toLowerCase()
-                );
-            }
+            filterData = filterData.filter(
+                (x) => x[level2Key].toLowerCase() === level2.toLowerCase()
+            );
             tableConfig = generateTable(
                 config,
                 filterData,
                 level2Key,
                 level2,
+                firstFilter
+            );
+            if (secondFilter !== "all") {
+                tableConfig = tableConfig.filter((x) =>
+                    x.name.toLowerCase().includes(secondFilter.toLowerCase())
+                );
+            }
+            !level3 && setTable(tableConfig);
+        }
+
+        if (level3) {
+            // filter data by level3
+            filterData = filterData.filter(
+                (x) => String(x[level3Key]).toLowerCase() === String(level3).toLowerCase()
+            );
+            tableConfig = generateTable(
+                config,
+                filterData,
+                level3Key,
+                level3,
                 firstFilter
             );
             if (secondFilter !== "all") {
@@ -165,7 +184,7 @@ const DetailTable = () => {
                 tables: tableConfig,
             };
         });
-    }, [firstFilter, secondFilter, level1, level2]);
+    }, [firstFilter, secondFilter, level1, level2, level3]);
 
     if (table && level2) {
         return table.map((tb, index) => (
