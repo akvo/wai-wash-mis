@@ -20,7 +20,7 @@ import groupBy from "lodash/groupBy";
 import { scaleQuantize } from "d3-scale";
 
 const mapMaxZoom = 4;
-const defCenter = ["81.604705", "28.6483666666666"];
+const defCenter = ["81.73551085", "28.42744314"];
 const colorRange = ["#bbedda", "#a7e1cb", "#92d5bd", "#7dcaaf", "#67bea1"];
 const showMarkerOnFirstFilterValues = ["wp", "health", "school"];
 
@@ -192,7 +192,7 @@ function Map({ geoUrl }) {
                 data-tip=""
                 projection="geoEquirectangular"
                 height={350}
-                projectionConfig={{ scale: 12500 }}
+                projectionConfig={{ scale: 25000 }}
             >
                 <ZoomableGroup
                     filterZoomEvent={(evt) => {

@@ -34,7 +34,7 @@ const renderLogo = () => {
 const renderLevel1Option = (level1, level1List) => {
     return (
         <Select
-            style={{ width: 220 }}
+            style={{ width: 220, marginLeft: "5px", marginRight: "5px" }}
             placeholder="Select District"
             value={level1}
             onChange={handleOnChangeLevel1}
@@ -50,7 +50,7 @@ const renderLevel1Option = (level1, level1List) => {
 const renderLevel2Option = (level2, level2List) => {
     return (
         <Select
-            style={{ width: 220 }}
+            style={{ width: 220, marginLeft: "5px", marginRight: "5px" }}
             placeholder="Select Municipality"
             allowClear={true}
             value={level2}
@@ -73,7 +73,7 @@ const renderLevel2Option = (level2, level2List) => {
 const renderLevel3Option = (level3, level3List) => {
     return (
         <Select
-            style={{ width: 220 }}
+            style={{ width: 220, marginLeft: "5px", marginRight: "5px" }}
             placeholder="Select Ward Number"
             allowClear={true}
             value={level3}
