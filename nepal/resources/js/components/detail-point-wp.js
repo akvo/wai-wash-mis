@@ -38,7 +38,9 @@ const DetailPointWaterPoint = ({
                 {
                     data.map((r, ri) => {
                         let source = [];
-                        const name = `${r["C"]}`;
+                        const name = config?.names
+                                        ? config.names.map(n => r[n]).join(" - ")
+                                        : "No name";
                         const fk = r?.[config.foreign_key];
                         Object.keys(r).forEach((x, i) => {
                             const d = capitalize(config[x].replaceAll("_", " "));
