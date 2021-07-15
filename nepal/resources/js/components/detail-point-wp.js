@@ -87,7 +87,7 @@ const DetailPointWaterPoint = ({
                 <h4>{name}</h4>
                 <Divider />
                 <Collapse accordion>
-                    <Panel header="Water Supply System" key="1">
+                    <Panel header="General" key="1">
                         <Table
                             dataSource={dataSource}
                             size="small"
@@ -96,10 +96,10 @@ const DetailPointWaterPoint = ({
                             bordered={true}
                         />
                     </Panel>
-                    <Panel header="Reservoir" key="2">
+                    <Panel header="Reservoir Details" key="2">
                         {renderMoreDetail(reservoir, reservoirConfig, columns)}
                     </Panel>
-                    <Panel header="Taps" key="3">
+                    <Panel header="Tap Details" key="3">
                         {renderMoreDetail(taps, tapsConfig, columns)}
                     </Panel>
                 </Collapse>
