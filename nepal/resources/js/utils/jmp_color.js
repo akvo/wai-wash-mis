@@ -17,6 +17,10 @@ const hh = {
             color: "#FAD54F",
         },
         {
+            name: "no facility",
+            color: "#F8B302",
+        },
+        {
             name: "no service",
             color: "#F8B302",
         },
@@ -51,6 +55,10 @@ const hh = {
         {
             name: "limited",
             color: "#FCF176",
+        },
+        {
+            name: "no facility",
+            color: "#F9CA29",
         },
         {
             name: "no service",
