@@ -82,7 +82,7 @@ const generateChartOptions = (config, data, level2Key, firstFilter, level2) => {
             const dataByLocation = locations.map((loc) => {
                 const val = topic.values.filter((x) => String(x[level2Key]) === loc);
                 const totalDatalevel2 = data.filter(
-                    (x) => x[level2Key] === loc
+                    (x) => String(x[level2Key]) === String(loc)
                 );
                 const value =
                     val.length !== 0
