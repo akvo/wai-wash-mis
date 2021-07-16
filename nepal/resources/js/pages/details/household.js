@@ -80,7 +80,7 @@ const generateChartOptions = (config, data, level2Key, firstFilter, level2) => {
         let rankedTopic = [];
         const seriesData = dataByTopic.map((topic) => {
             const dataByLocation = locations.map((loc) => {
-                const val = topic.values.filter((x) => x[level2Key] === loc);
+                const val = topic.values.filter((x) => String(x[level2Key]) === loc);
                 const totalDatalevel2 = data.filter(
                     (x) => x[level2Key] === loc
                 );
@@ -92,7 +92,7 @@ const generateChartOptions = (config, data, level2Key, firstFilter, level2) => {
                     name: loc,
                     value: Math.round((value + Number.EPSILON) * 100) / 100,
                 };
-                if (level2 && level2 !== loc.toLowerCase()) {
+                if (level2 && String(level2) !== String(loc).toLowerCase()) {
                     res = {
                         ...res,
                         itemStyle: {
@@ -173,16 +173,16 @@ const HouseHold = ({ geoUrl }) => {
         let options = [];
         let filterData = data;
         // filter data by level1
-        if (level1) {
+        if (level2) {
             filterData = filterData.filter(
-                (x) => x[level1Key].toLowerCase() === level1.toLowerCase()
+                (x) => x[level2Key].toLowerCase() === level2.toLowerCase()
             );
             options = generateChartOptions(
                 config,
                 filterData,
-                level2Key,
+                level3Key,
                 firstFilter,
-                level2
+                level3
             );
             if (secondFilter !== "all") {
                 options = options.filter((x) =>
@@ -191,12 +191,12 @@ const HouseHold = ({ geoUrl }) => {
             }
             setChartOptions(options);
         }
-    }, [firstFilter, secondFilter, level1, level2]);
+    }, [firstFilter, secondFilter, level1, level2, level3]);
 
     const onChartsClick = (params, index) => {
         const echartInstance = chartsRef.current[index].getEchartsInstance();
         UIStore.update((e) => {
-            e.level2 = params.data.name.toLowerCase();
+            e.level3 = String(params.data.name).toLowerCase();
             e.markerDetail = {
                 ...e.markerDetail,
                 active: false,
@@ -226,7 +226,7 @@ const HouseHold = ({ geoUrl }) => {
                                 }}
                                 style={{
                                     height: opt.option.series?.[0]?.data
-                                        ? opt.option.series[0].data.length * 90
+                                        ? opt.option.series[0].data.length * 35
                                         : 600,
                                 }}
                                 ref={(ref) => {

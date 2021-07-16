@@ -115,7 +115,6 @@ const handleOnChangeLevel1 = (key) => {
     UIStore.update((e) => {
         e.level3 = null;
         e.level2 = null;
-        e.page = "details";
         e.level1 = key;
         e.markerDetail = {
             ...e.markerDetail,
@@ -129,6 +128,7 @@ const handleOnChangeLevel2 = (key) => {
     UIStore.update((e) => {
         e.level3 = null;
         e.level2 = key;
+        e.page = "details";
         e.markerDetail = {
             ...e.markerDetail,
             active: false,
@@ -156,12 +156,19 @@ export function HeaderHome() {
     const level1List = UIStore.useState((e) => e.level1List).filter(
         (x) => x.length
     );
+    const level2 = UIStore.useState((e) => e.level2);
+    const level2List = UIStore.useState((e) => e.level2List).filter(
+        (x) => x.length
+    );
 
     return (
         <Header className="header-container">
             <div className="header-content-wrapper">
                 {renderLogo()}
-                <div>{renderLevel1Option(level1, level1List)}</div>
+                <div>
+                    {renderLevel1Option(level1, level1List)}
+                    {renderLevel2Option(level2, level2List)}
+                </div>
                 {renderLoginBtn()}
             </div>
         </Header>

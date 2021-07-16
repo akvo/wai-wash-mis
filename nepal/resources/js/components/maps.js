@@ -17,6 +17,7 @@ import {
 import { UIStore } from "../store";
 
 import groupBy from "lodash/groupBy";
+import uniq from "lodash/uniq";
 import { scaleQuantize } from "d3-scale";
 
 const mapMaxZoom = 4;
@@ -24,10 +25,30 @@ const defCenter = ["81.73551085", "28.42744314"];
 const colorRange = ["#bbedda", "#a7e1cb", "#92d5bd", "#7dcaaf", "#67bea1"];
 const showMarkerOnFirstFilterValues = ["wp", "health", "school"];
 
-const ToolTipContent = ({ data, geo }) => {
+const ToolTipContent = ({ data, geo, config }) => {
+    // * commented if needed in the future
+    /**
+    const filterData = data.filter((x) =>
+        x?.[config.locations.level2].toLowerCase() === geo.UNIT_NAME.toLowerCase()
+    );
+    const ward = uniq(filterData.map((x) => x[config.locations.level3]))
+                    .sort(function(a, b) {
+                        return a - b;
+                    }).join(", ");
+    */
+    const { UNIT_NAME, UNIT_TYPE, WARD } = geo;
     return (
         <div className="map-tooltip">
-            <h3>{geo.UNIT_NAME}</h3>
+            <h3>{UNIT_NAME}</h3>
+            {
+                WARD &&
+                    <ul>
+                        <li key="ward-number">
+                            <span>Ward Number</span>
+                            <b>{WARD}</b>
+                        </li>
+                    </ul>
+            }
         </div>
     );
 };
@@ -237,6 +258,7 @@ function Map({ geoUrl }) {
                                                 <ToolTipContent
                                                     data={level2Data}
                                                     geo={geo.properties}
+                                                    config={state.config}
                                                 />
                                             );
                                         }}
