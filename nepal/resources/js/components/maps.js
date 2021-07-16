@@ -147,9 +147,10 @@ function Map({ geoUrl }) {
     };
 
     const onMapClick = (geo) => {
-        const name = geo.properties?.UNIT_NAME;
+        const { UNIT_NAME, WARD } = geo.properties;
         UIStore.update((e) => {
-            e.level2 = name && name.toLowerCase();
+            e.level2 = UNIT_NAME && UNIT_NAME.toLowerCase();
+            e.level3 = WARD && WARD;
             e.markerDetail = {
                 ...e.markerDetail,
                 active: false,
@@ -230,6 +231,7 @@ function Map({ geoUrl }) {
                         {({ geographies }) =>
                             geographies.map((geo) => {
                                 const name = geo.properties?.UNIT_NAME;
+                                const ward = geo.properties?.WARD;
                                 const level2Data =
                                     name && filterData &&
                                     filterData.filter(
@@ -245,7 +247,9 @@ function Map({ geoUrl }) {
                                 const active =
                                     level2 &&
                                     level2.toString().toLowerCase() ===
-                                        name.toLowerCase();
+                                        name.toLowerCase() &&
+                                    level3 && level3 == ward;
+
                                 return (
                                     <Geography
                                         key={geo.rsmKey}
