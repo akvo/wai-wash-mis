@@ -22,6 +22,7 @@ const indicatorRank = {
     surfaceWater: -2,
     openDefecation: -2,
     noFacility: -2,
+    noService: -2,
 };
 
 const generateChartOptions = (config, data, level2Key, firstFilter, level2) => {
