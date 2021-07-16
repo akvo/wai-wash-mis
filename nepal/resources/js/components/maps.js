@@ -19,6 +19,7 @@ import { UIStore } from "../store";
 import groupBy from "lodash/groupBy";
 import uniq from "lodash/uniq";
 import { scaleQuantize } from "d3-scale";
+import { filter } from "lodash";
 
 const mapMaxZoom = 4;
 const defCenter = ["81.73551085", "28.42744314"];
@@ -124,7 +125,7 @@ function Map({ geoUrl }) {
             );
         }
         if (level3) {
-            filterData = filterData.filter((x) => x[level3Key] === level3);
+            filterData = filterData.filter((x) => x[level3Key] == level3);
         }
         setFilterData(filterData);
     }, [level1, level2, level3]);
@@ -249,6 +250,13 @@ function Map({ geoUrl }) {
                                     level2.toString().toLowerCase() ===
                                         name.toLowerCase() &&
                                     level3 && level3 == ward;
+                                let enableMapOnClick = false;
+                                if (level1) {
+                                    enableMapOnClick = geo.properties?.DISTRICT.toLowerCase() === level1.toString().toLowerCase();
+                                }
+                                if (level2) {
+                                    enableMapOnClick = name.toLowerCase() === level2.toString().toLowerCase();
+                                }
 
                                 return (
                                     <Geography
@@ -270,9 +278,9 @@ function Map({ geoUrl }) {
                                             setContent("");
                                         }}
                                         onClick={() => {
-                                            curr && onMapClick(geo);
+                                            enableMapOnClick && onMapClick(geo);
                                         }}
-                                        cursor={curr ? "pointer" : ""}
+                                        cursor={enableMapOnClick ? "pointer" : ""}
                                         style={{
                                             default: {
                                                 fill: active
