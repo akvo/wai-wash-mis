@@ -25,9 +25,9 @@ const HealthFacilities = ({ geoUrl }) => {
     }
     if (level3) {
         // filter by level3
-        firstDataSource = firstDataSource.filter((x) => level2 === x?.[config.locations.level2]?.toLowerCase() && level3 === x?.[config.locations.level3]);
+        firstDataSource = firstDataSource.filter((x) => level2 === x?.[config.locations.level2]?.toLowerCase() && level3 == x?.[config.locations.level3]);
         firstDataSource = firstDataSource.map((x) => {
-            if (level2 === x?.[config.locations.level2]?.toLowerCase() && level3 === x?.[config.locations.level3]) {
+            if (level2 === x?.[config.locations.level2]?.toLowerCase() && level3 == x?.[config.locations.level3]) {
                 return { ...x, opacity: "100%" };
             }
             return { ...x, opacity: "20%" };
