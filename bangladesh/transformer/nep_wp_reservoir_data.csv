@@ -1,0 +1,5 @@
+Code,WSS Name,Reservoir RVT No in the Scheme,Reservoir RVT Construction,Reservoir RVT Type,Reservoir Lat,Reservoir Lon,Reservoir Elv,Reservori RVT Capacity (cum),Reservoir Adequacy of RVT,Reservoir RVT Condition,Reservoir Earthquake Effect
+61005025,Hathisude WSS,RVT1,,RCC,28.451558,81.7083644,600.8,18,Adequate,Good,None
+61005029,BhulkeKapre Water Supply System,RVT1,,Masonary,28.4112127,81.8002964,559.1,9,Adequate,Minor Repair,None
+61005029,BhulkeKapre Water Supply System,RVT3,,Masonary,28.4111378,81.8003597,549.6,9,Adequate,Minor Repair,None
+51103004,Pedari Water Supply System,RVT1,,Elevated RCC,28.1619385,81.6186278,92.3,150,Adequate,Good,None
