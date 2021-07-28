@@ -191,7 +191,7 @@ function Map({ geoUrl }) {
                 (centralLongitude * 180) / Math.PI,
             ];
         }
-        setPosition({ ...position, coordinates: center, zoom: 2 });
+        // setPosition({ ...position, coordinates: center, zoom: 2 });
         //* EOL Zoom when clicked on map
 
         UIStore.update((e) => {
