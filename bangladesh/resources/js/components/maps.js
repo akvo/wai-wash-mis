@@ -22,7 +22,12 @@ import { scaleQuantize } from "d3-scale";
 import { filter } from "lodash";
 
 const mapMaxZoom = 4;
-const defCenter = ["89.0250129959485", "22.7624996493547"];
+const defCenter = {
+    default: ["90.3917773641515", "23.96023516667764"],
+    paurashava: ["90.22568", "22.12115"],
+    agardari: ["89.02973", "22.75877"],
+};
+const defScale = 25000;
 const colorRange = ["#bbedda", "#a7e1cb", "#92d5bd", "#7dcaaf", "#67bea1"];
 const showMarkerOnFirstFilterValues = ["wp", "health", "school"];
 
@@ -93,7 +98,8 @@ const ToolTipMarker = ({ item, config, firstFilter }) => {
 
 function Map({ geoUrl }) {
     const [position, setPosition] = useState({
-        coordinates: defCenter,
+        coordinates: defCenter["default"],
+        scale: defScale,
         zoom: 1,
     });
     const { state, level1, level2, level3, firstFilter, markerDetail } =
@@ -113,6 +119,13 @@ function Map({ geoUrl }) {
                 (x) => x[level1Key].toLowerCase() === level1?.toLowerCase()
             );
         if (level2) {
+            setPosition({
+                ...position,
+                scale: defCenter?.[level2?.toLowerCase()] ? 95000 : defScale,
+                coordinates: defCenter?.[level2?.toLowerCase()]
+                    ? defCenter?.[level2?.toLowerCase()]
+                    : defCenter["default"],
+            });
             filterData = filterData.filter(
                 (x) => x[level2Key].toLowerCase() === level2?.toLowerCase()
             );
@@ -142,6 +155,45 @@ function Map({ geoUrl }) {
 
     const onMapClick = (geo) => {
         const { ADM4_EN, WARD } = geo.properties;
+
+        //* Zoom when clicked on map
+        const coordinates = geo.geometry.coordinates[0];
+
+        // calculate center position
+        let center = position.coordinates;
+        if (coordinates.length === 1) {
+            center = [coordinates[0][0], coordinates[0][1]];
+        } else {
+            let x = 0;
+            let y = 0;
+            let z = 0;
+
+            coordinates.forEach((pos) => {
+                let latitude = (pos[0] * Math.PI) / 180;
+                let longitude = (pos[1] * Math.PI) / 180;
+                x += Math.cos(latitude) * Math.cos(longitude);
+                y += Math.cos(latitude) * Math.sin(longitude);
+                z += Math.sin(latitude);
+            });
+
+            let total = coordinates.length;
+
+            x = x / total;
+            y = y / total;
+            z = z / total;
+
+            let centralLongitude = Math.atan2(y, x);
+            let centralSquareRoot = Math.sqrt(x * x + y * y);
+            let centralLatitude = Math.atan2(z, centralSquareRoot);
+
+            center = [
+                (centralLatitude * 180) / Math.PI,
+                (centralLongitude * 180) / Math.PI,
+            ];
+        }
+        setPosition({ coordinates: center, zoom: 3 });
+        //* EOL Zoom when clicked on map
+
         UIStore.update((e) => {
             e.level2 = ADM4_EN && ADM4_EN.toLowerCase();
             e.level3 = WARD && WARD;
@@ -208,7 +260,7 @@ function Map({ geoUrl }) {
                 data-tip=""
                 projection="geoEquirectangular"
                 height={350}
-                projectionConfig={{ scale: 95000 }}
+                projectionConfig={{ scale: position.scale }}
             >
                 <ZoomableGroup
                     filterZoomEvent={(evt) => {
