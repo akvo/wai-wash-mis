@@ -26,7 +26,7 @@ const renderLogo = () => {
             }
         >
             <Image width={35} src="/images/wai-logo.png" preview={false} />
-            <span className="brand">WAI Nepal</span>
+            <span className="brand">WAI Bangladesh</span>
         </div>
     );
 };
@@ -51,7 +51,7 @@ const renderLevel2Option = (level2, level2List) => {
     return (
         <Select
             style={{ width: 220, marginLeft: "5px", marginRight: "5px" }}
-            placeholder="Select Municipality"
+            placeholder="Select Municipality/Union"
             allowClear={true}
             value={level2}
             onChange={handleOnChangeLevel2}
@@ -82,10 +82,7 @@ const renderLevel3Option = (level3, level3List) => {
         >
             {level3List &&
                 level3List.map((x) => (
-                    <Select.Option
-                        key={x}
-                        value={x}
-                    >
+                    <Select.Option key={x} value={x}>
                         {x}
                     </Select.Option>
                 ))}
@@ -138,7 +135,7 @@ const handleOnChangeLevel2 = (key) => {
 };
 
 const handleOnChangeLevel3 = (key) => {
-    if (!key) {
+    if (key === null) {
         handleOnChangeLevel2(null);
     }
     UIStore.update((e) => {
