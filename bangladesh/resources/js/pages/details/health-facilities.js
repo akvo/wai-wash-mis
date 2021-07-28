@@ -14,7 +14,9 @@ const HealthFacilities = ({ geoUrl }) => {
     const { data, config } = health;
     const { main: mainConfig } = config;
 
-    let firstDataSource = data.filter((x) => level1 === x?.[config.locations.level1]?.toLowerCase());
+    let firstDataSource = data.filter(
+        (x) => level1 === x?.[config.locations.level1]?.toLowerCase()
+    );
     if (level2) {
         firstDataSource = firstDataSource.map((x) => {
             if (level2 === x?.[config.locations.level2]?.toLowerCase()) {
@@ -25,9 +27,16 @@ const HealthFacilities = ({ geoUrl }) => {
     }
     if (level3) {
         // filter by level3
-        firstDataSource = firstDataSource.filter((x) => level2 === x?.[config.locations.level2]?.toLowerCase() && level3 == x?.[config.locations.level3]);
+        firstDataSource = firstDataSource.filter(
+            (x) =>
+                level2 === x?.[config.locations.level2]?.toLowerCase() &&
+                level3 == x?.[config.locations.level3]
+        );
         firstDataSource = firstDataSource.map((x) => {
-            if (level2 === x?.[config.locations.level2]?.toLowerCase() && level3 == x?.[config.locations.level3]) {
+            if (
+                level2 === x?.[config.locations.level2]?.toLowerCase() &&
+                level3 == x?.[config.locations.level3]
+            ) {
                 return { ...x, opacity: "100%" };
             }
             return { ...x, opacity: "20%" };

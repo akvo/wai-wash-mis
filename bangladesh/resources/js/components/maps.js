@@ -23,11 +23,11 @@ import { filter } from "lodash";
 
 const mapMaxZoom = 4;
 const defCenter = {
-    default: ["90.3917773641515", "23.96023516667764"],
+    default: ["89.6127", "22.2696"],
     paurashava: ["90.22568", "22.12115"],
     agardari: ["89.02973", "22.75877"],
 };
-const defScale = 25000;
+const defScale = 20000;
 const colorRange = ["#bbedda", "#a7e1cb", "#92d5bd", "#7dcaaf", "#67bea1"];
 const showMarkerOnFirstFilterValues = ["wp", "health", "school"];
 
@@ -191,7 +191,7 @@ function Map({ geoUrl }) {
                 (centralLongitude * 180) / Math.PI,
             ];
         }
-        setPosition({ coordinates: center, zoom: 3 });
+        setPosition({ ...position, coordinates: center, zoom: 2 });
         //* EOL Zoom when clicked on map
 
         UIStore.update((e) => {
@@ -206,6 +206,11 @@ function Map({ geoUrl }) {
     };
 
     const onMarkerClick = (data) => {
+        setPosition({
+            ...position,
+            center: [data[latlong.longitude], data[latlong.latitude]],
+            zoom: 1.5,
+        });
         UIStore.update((e) => {
             e.level2 = data[level2Key].toLowerCase();
             e.markerDetail = {
@@ -251,7 +256,13 @@ function Map({ geoUrl }) {
                         type="secondary"
                         icon={<FullscreenOutlined />}
                         onClick={() => {
-                            setPosition({ coordinates: defCenter, zoom: 1 });
+                            setPosition({
+                                ...position,
+                                coordinates: defCenter?.[level2.toLowerCase()]
+                                    ? defCenter?.[level2.toLowerCase()]
+                                    : defCenter["default"],
+                                zoom: 1,
+                            });
                         }}
                     />
                 </Tooltip>
@@ -270,7 +281,7 @@ function Map({ geoUrl }) {
                     zoom={position.zoom}
                     center={position.coordinates}
                     onMoveEnd={(x) => {
-                        setPosition(x);
+                        setPosition({ ...position, ...x });
                     }}
                 >
                     <Geographies geography={geoUrl}>

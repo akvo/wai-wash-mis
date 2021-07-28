@@ -25,7 +25,7 @@ function Detail() {
     const [geoUrl, setGeoUrl] = useState();
 
     useEffect(() => {
-        fetch("/data/bangladesh-filtered.topo.json")
+        fetch("/data/bangladesh-admin2.topo.json")
             .then((res) => res.json())
             .then((res) => setGeoUrl(res));
     }, []);

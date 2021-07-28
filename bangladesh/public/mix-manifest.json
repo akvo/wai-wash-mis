@@ -2,6 +2,6 @@
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
     "/images/wai-logo.png": "/images/wai-logo.png",
-    "/data/nep-filtered.topo.json": "/data/nep-filtered.topo.json",
-    "/data/nep-filtered2.topo.json": "/data/nep-filtered2.topo.json"
+    "/data/bangladesh-admin2.topo.json": "/data/bangladesh-admin2.topo.json",
+    "/data/bangladesh-filtered.topo.json": "/data/bangladesh-filtered.topo.json"
 }

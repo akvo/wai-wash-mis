@@ -35,7 +35,7 @@ const DetailPoint = ({ markerDetail, config, name }) => {
 
         return (
             <div className="detail-point">
-                <h4>{name}</h4>
+                <h4>{name ? name : "-"}</h4>
                 <Divider />
                 <Table
                     dataSource={dataSource}
