@@ -1,13 +1,13 @@
 import { Store } from "pullstate";
 
-import hhData from "./data/nep_hh_data.json";
-import hhConfig from "./data/nep_hh_config.json";
+import hhData from "./data/bd_hh_data.json";
+import hhConfig from "./data/bd_hh_config.json";
 
-import schoolData from "./data/nep_school_data.json";
-import schoolConfig from "./data/nep_school_config.json";
+import schoolData from "./data/bd_school_data.json";
+import schoolConfig from "./data/bd_school_config.json";
 
-import healthData from "./data/nep_health_data.json";
-import healthConfig from "./data/nep_health_config.json";
+import healthData from "./data/bd_health_data.json";
+import healthConfig from "./data/bd_health_config.json";
 
 // import cltsData from "./data/ug_clts_data.json";
 // import cltsConfig from "./data/ug_clts_config.json";

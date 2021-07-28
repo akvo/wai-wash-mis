@@ -17,6 +17,10 @@ const hh = {
             color: "#FAD54F",
         },
         {
+            name: "surface water",
+            color: "#F8B302",
+        },
+        {
             name: "no facility",
             color: "#F8B302",
         },
