@@ -1,0 +1,38 @@
+{
+    "private": true,
+    "scripts": {
+        "dev": "npm run development",
+        "development": "mix",
+        "watch": "mix watch",
+        "watch-poll": "mix watch -- --watch-options-poll=1000",
+        "hot": "mix watch --hot",
+        "prod": "npm run production",
+        "production": "mix --production"
+    },
+    "devDependencies": {
+        "@babel/preset-react": "^7.13.13",
+        "axios": "^0.21",
+        "bootstrap": "^4.6.0",
+        "jquery": "^3.6",
+        "laravel-mix": "^6.0.25",
+        "popper.js": "^1.16.1",
+        "postcss": "^8.3.5",
+        "react": "^17.0.2",
+        "react-dom": "^17.0.2",
+        "resolve-url-loader": "^3.1.2",
+        "sass": "^1.32.11",
+        "sass-loader": "^11.0.1"
+    },
+    "dependencies": {
+        "@ant-design/icons": "^4.6.2",
+        "antd": "^4.15.4",
+        "d3-scale": "^3.3.0",
+        "echarts": "^5.1.1",
+        "echarts-for-react": "^3.0.1",
+        "lodash": "^4.17.21",
+        "prop-types": "^15.7.2",
+        "pullstate": "^1.22.1",
+        "react-simple-maps": "^2.3.0",
+        "react-tooltip": "^4.2.19"
+    }
+}
