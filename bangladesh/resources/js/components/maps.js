@@ -324,9 +324,6 @@ function Map({ geoUrl }) {
                                     <Geography
                                         key={geo.rsmKey}
                                         geography={geo}
-                                        stroke="#79B0CC"
-                                        strokeWidth="0.5"
-                                        strokeOpacity="0.6"
                                         onMouseEnter={() => {
                                             setContent(
                                                 <ToolTipContent
@@ -354,6 +351,11 @@ function Map({ geoUrl }) {
                                                               ? level2Data.length
                                                               : 0
                                                       ),
+                                                stroke: curr
+                                                    ? "#fff"
+                                                    : "#79B0CC",
+                                                strokeWidth: 0.5,
+                                                strokeOpacity: 0.6,
                                                 outline: "none",
                                             },
                                             hover: {
