@@ -229,7 +229,7 @@ const HouseHold = ({ geoUrl }) => {
                                 }}
                                 style={{
                                     height: opt.option.series?.[0]?.data
-                                        ? opt.option.series[0].data.length * 35
+                                        ? opt.option.series[0].data.length * 50
                                         : 600,
                                 }}
                                 ref={(ref) => {
