@@ -12,8 +12,8 @@ const renderLogo = () => {
             onClick={(e) =>
                 UIStore.update((e) => {
                     e.page = "home";
-                    e.woreda = null;
-                    e.kebele = null;
+                    e.level1 = null;
+                    e.level2 = null;
                     e.firstFilter = "hh";
                     e.secondFilter = "all";
                     e.markerDetail = {
@@ -30,35 +30,41 @@ const renderLogo = () => {
     );
 };
 
-const renderWoredaOption = (woreda, woredaList) => {
+const renderLevel1Option = (level1, level1List) => {
     return (
         <Select
-            style={{ width: 220 }}
-            placeholder="Select Woreda"
-            value={woreda}
-            onChange={handleOnChangeWoreda}
+            style={{ width: 220, marginLeft: "5px", marginRight: "5px" }}
+            placeholder="Select District"
+            value={level1}
+            onChange={handleOnChangeLevel1}
         >
-            {woredaList.map((x) => (
-                <Select.Option key={x.toLowerCase()}>{x}</Select.Option>
-            ))}
+            {level1List &&
+                level1List.map((x) => (
+                    <Select.Option key={x.toLowerCase()}>{x}</Select.Option>
+                ))}
         </Select>
     );
 };
 
-const renderKebeleOption = (kebele, kebeleList) => {
+const renderLevel2Option = (level2, level2List) => {
     return (
         <Select
-            style={{ width: 220 }}
-            placeholder="All Kebeles"
+            style={{ width: 220, marginLeft: "5px", marginRight: "5px" }}
+            placeholder="Select Municipality"
             allowClear={true}
-            value={kebele}
-            onChange={handleOnChangeKebele}
+            value={level2}
+            onChange={handleOnChangeLevel2}
+            getPopupContainer={(trigger) => trigger.parentNode}
         >
-            {kebeleList.map((x) => (
-                <Select.Option key={x.toLowerCase()} value={x.toLowerCase()}>
-                    {x}
-                </Select.Option>
-            ))}
+            {level2List &&
+                level2List.map((x) => (
+                    <Select.Option
+                        key={x.toLowerCase()}
+                        value={x.toLowerCase()}
+                    >
+                        {x}
+                    </Select.Option>
+                ))}
         </Select>
     );
 };
@@ -81,11 +87,11 @@ const renderLoginBtn = () => {
     );
 };
 
-const handleOnChangeWoreda = (key) => {
+const handleOnChangeLevel1 = (key) => {
     UIStore.update((e) => {
-        e.kebele = null;
+        e.level2 = null;
+        e.level1 = key;
         e.page = "details";
-        e.woreda = key;
         e.markerDetail = {
             ...e.markerDetail,
             active: false,
@@ -94,9 +100,9 @@ const handleOnChangeWoreda = (key) => {
     });
 };
 
-const handleOnChangeKebele = (key) => {
+const handleOnChangeLevel2 = (key) => {
     UIStore.update((e) => {
-        e.kebele = key;
+        e.level2 = key;
         e.markerDetail = {
             ...e.markerDetail,
             active: false,
@@ -106,36 +112,50 @@ const handleOnChangeKebele = (key) => {
 };
 
 export function HeaderHome() {
-    const woreda = UIStore.useState((e) => e.woreda);
-    const woredaList = UIStore.useState((e) => e.woredaList);
+    const level1 = UIStore.useState((e) => e.level1);
+    const level1List = UIStore.useState((e) => e.level1List).filter(
+        (x) => x.length
+    );
 
     return (
         <Header className="header-container">
             <div className="header-content-wrapper">
                 {renderLogo()}
-                <div>{renderWoredaOption(woreda, woredaList)}</div>
+                <div>{renderLevel1Option(level1, level1List)}</div>
                 {renderLoginBtn()}
             </div>
         </Header>
     );
 }
 
-export function HeaderDetail() {
-    const woreda = UIStore.useState((e) => e.woreda);
-    const kebele = UIStore.useState((e) => e.kebele);
-    const woredaList = UIStore.useState((e) => e.woredaList);
-    const kebeleList = UIStore.useState((e) => e.kebeleList);
+export const HeaderDetail = () => {
+    const level1 = UIStore.useState((e) => e.level1);
+    const level2 = UIStore.useState((e) => e.level2);
+    const level1List = UIStore.useState((e) => e.level1List).filter(
+        (x) => x?.length
+    );
+    const level2List = UIStore.useState((e) => e.level2List).filter(
+        (x) => x?.length
+    );
 
     return (
-        <Header className="header-container header-fixed">
+        <Header
+            className="header-container header-fixed"
+            style={{ zIndex: 100 }}
+        >
             <div className="header-content-wrapper">
                 {renderLogo()}
                 <div>
-                    {renderWoredaOption(woreda, woredaList)}
-                    {renderKebeleOption(kebele, kebeleList)}
+                    {renderLevel1Option(level1, level1List)}
+                    {renderLevel2Option(level2, level2List)}
+                    {level2 && (
+                        <Button onClick={() => handleOnChangeLevel1(null)}>
+                            Remove Filter
+                        </Button>
+                    )}
                 </div>
                 {renderLoginBtn()}
             </div>
         </Header>
     );
-}
+};

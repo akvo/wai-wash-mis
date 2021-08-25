@@ -13,22 +13,29 @@ function Main() {
     const { page, firstFilter, state } = store;
 
     useEffect(() => {
-        const { data, config } = store[firstFilter];
-        const { woreda, kebele } = config.locations;
+        const { data, config } = store?.[firstFilter];
+        const { level1, level2 } = config?.locations;
 
-        const woredaList = data
-            .map((x) => x[woreda])
-            .filter((value, index, self) => self.indexOf(value) === index);
-
-        let kebeleList = [];
-        if (store.woreda) {
-            kebeleList = data
-                .filter(
-                    (x) =>
-                        x[woreda].toLowerCase() === store.woreda.toLowerCase()
-                )
-                .map((x) => x[kebele])
+        const level1List =
+            data &&
+            data
+                .map((x) => x[level1])
                 .filter((value, index, self) => self.indexOf(value) === index);
+
+        let level2List = [];
+        if (store?.level1) {
+            level2List =
+                data &&
+                data
+                    .filter(
+                        (x) =>
+                            x[level1]?.toLowerCase() ===
+                            store.level1?.toLowerCase()
+                    )
+                    .map((x) => x[level2])
+                    .filter(
+                        (value, index, self) => self.indexOf(value) === index
+                    );
         }
 
         UIStore.update((e) => {
@@ -37,8 +44,8 @@ function Main() {
                 data: data,
                 config: config,
             };
-            e.woredaList = woredaList;
-            e.kebeleList = kebeleList;
+            e.level1List = level1List;
+            e.level2List = level2List;
         });
     }, [state]);
 
