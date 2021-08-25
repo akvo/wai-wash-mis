@@ -1,7 +1,6 @@
 Woreda,Kebele,Village,Site Name,Latitude,Longitude,Water Source Type_1,Water Source Type,Functionality Status,Souce of Energy,Estimated Number of Users,Hand Pump Type,Organisation that installed the Water Pump,Year Commisioned,Reason for Inventory,Functional Taps In The Scheme,Number of Non FunctionalTaps In The Scheme,Depth,Yield,Yield
 Shashemene,Wetera Shegule,Ardano,Ardano,7.212806,38.7258,Hand dug Well fitted with pump or windlass,Hand dug Well,Functional,Manual operation,180,Afridev,,2000,,,,,0.28,0.28
-"Shashemene
-",Hagugeta Keni,Qali,Qali,7.250937,38.62908,Hand dug Well fitted with pump or windlass,Hand dug Well,Functional,Manual operation,312,Afridev,CDA,2009,,,,,0.12,0.12
+Shashemene,Hagugeta Keni,Qali,Qali,7.250937,38.62908,Hand dug Well fitted with pump or windlass,Hand dug Well,Functional,Manual operation,312,Afridev,CDA,2009,,,,,0.12,0.12
 Arsi Negele,Kerero,A/shifaa,A/shifaa,7.487828,38.73458,Protected Spring,Protected Spring,Non Functional,Gravity,250,,,2000,Inspection,,,,0.5,0.5
 Shashemene,Hursa Sinbo,aredano,Ardano,7.1227,38.72439,Hand dug Well fitted with pump or windlass,Hand dug Well,Non Functional,Manual operation,180,Afridev,CDA,2009,,,,,0.12,0.12
 Shashemene,Hursa Sinbo,shifa,shifa,7.126625,38.73907,Hand dug Well fitted with pump or windlass,Hand dug Well,Non Functional,Manual operation,180,Afridev,CDA,2009,,,,,0.12,0.12
