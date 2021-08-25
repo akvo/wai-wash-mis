@@ -1,17 +1,23 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Layout, Menu, Affix, Spin } from "antd";
+import { Layout, Menu, Spin } from "antd";
 import { LoadingOutlined } from "@ant-design/icons";
 
 import { HeaderDetail } from "../../components/header";
-import HouseholdSchoolHealth from "./hh-school-health";
-import Clts from "./clts";
-import WaterPoint from "./wp";
+import HouseHold from "./household";
+import Schools from "./schools";
+import HealthFacilities from "./health-facilities";
+import WaterPoint from "./waterpoint";
 
 import { UIStore } from "../../store";
 
 import "./styles.scss";
 
 const { Content } = Layout;
+const ContentLoading = () => (
+    <div className="loading-container">
+        <Spin indicator={<LoadingOutlined style={{ fontSize: 24 }} spin />} />
+    </div>
+);
 
 function Detail() {
     const store = UIStore.useState();
@@ -41,79 +47,60 @@ function Detail() {
         });
     };
 
+    const handleMenu = (cur) => {
+        UIStore.update((e) => {
+            e.secondFilter = cur.key;
+            e.markerDetail = {
+                ...e.markerDetail,
+                active: false,
+                data: {},
+            };
+        });
+    };
+
     return (
         <div id="details">
             <HeaderDetail />
-            <Affix offsetTop={0}>
-                <Menu
-                    selectedKeys={[firstFilter]}
-                    onClick={(cur) => handleFirstFilterClick(cur)}
-                    mode="horizontal"
-                    className="first-filter"
-                    style={{
-                        backgroundColor: "#F9F9F9",
-                    }}
-                >
-                    <Menu.Item key="hh">Households</Menu.Item>
-                    <Menu.Item key="school">Schools</Menu.Item>
-                    <Menu.Item key="health">Health Facilities</Menu.Item>
-                    <Menu.Item key="clts">
-                        Community Led Total Sanitation
-                    </Menu.Item>
-                    <Menu.Item key="wp">Water Points</Menu.Item>
-                </Menu>
-            </Affix>
+            <Menu
+                selectedKeys={[firstFilter]}
+                onClick={(cur) => handleFirstFilterClick(cur)}
+                mode="horizontal"
+                className="first-filter"
+                style={{ backgroundColor: "#F9F9F9" }}
+            >
+                <Menu.Item key="hh">Households</Menu.Item>
+                <Menu.Item key="school">Schools</Menu.Item>
+                <Menu.Item key="health">Health Facilities</Menu.Item>
+                <Menu.Item key="wp">Water Points</Menu.Item>
+            </Menu>
             <Content className="content-container">
-                {!geoUrl && (
-                    <div className="loading-container">
-                        <Spin
-                            indicator={
-                                <LoadingOutlined
-                                    style={{ fontSize: 24 }}
-                                    spin
-                                />
-                            }
-                        />
+                {!geoUrl && <ContentLoading />}
+                {geoUrl && ["hh"].includes(firstFilter.toLocaleLowerCase()) && (
+                    <div>
+                        <Menu
+                            selectedKeys={[secondFilter]}
+                            onClick={handleMenu}
+                            mode="horizontal"
+                            style={{ borderBottom: 0 }}
+                        >
+                            <Menu.Item key="all">All</Menu.Item>
+                            <Menu.Item key="water">Water</Menu.Item>
+                            <Menu.Item key="sanitation">Sanitation</Menu.Item>
+                            <Menu.Item key="hygiene">Hygiene</Menu.Item>
+                        </Menu>
                     </div>
                 )}
 
-                {geoUrl &&
-                    ["hh", "school", "health"].includes(
-                        firstFilter.toLocaleLowerCase()
-                    ) && (
-                        <div>
-                            <Menu
-                                selectedKeys={[secondFilter]}
-                                onClick={(cur) =>
-                                    UIStore.update((e) => {
-                                        e.secondFilter = cur.key;
-                                        e.markerDetail = {
-                                            ...e.markerDetail,
-                                            active: false,
-                                            data: {},
-                                        };
-                                    })
-                                }
-                                mode="horizontal"
-                                style={{ borderBottom: 0 }}
-                            >
-                                <Menu.Item key="all">All</Menu.Item>
-                                <Menu.Item key="water">Water</Menu.Item>
-                                <Menu.Item key="sanitation">
-                                    Sanitation
-                                </Menu.Item>
-                                <Menu.Item key="hygiene">Hygiene</Menu.Item>
-                            </Menu>
-                        </div>
-                    )}
+                {geoUrl && firstFilter.toLocaleLowerCase() === "hh" && (
+                    <HouseHold geoUrl={geoUrl} />
+                )}
 
-                {geoUrl &&
-                    ["hh", "school", "health"].includes(
-                        firstFilter.toLocaleLowerCase()
-                    ) && <HouseholdSchoolHealth geoUrl={geoUrl} />}
+                {geoUrl && firstFilter.toLocaleLowerCase() === "school" && (
+                    <Schools geoUrl={geoUrl} />
+                )}
 
-                {geoUrl && firstFilter.toLocaleLowerCase() === "clts" && (
-                    <Clts geoUrl={geoUrl} />
+                {geoUrl && firstFilter.toLocaleLowerCase() === "health" && (
+                    <HealthFacilities geoUrl={geoUrl} />
                 )}
 
                 {geoUrl && firstFilter.toLocaleLowerCase() === "wp" && (

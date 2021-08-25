@@ -1,1 +1,35 @@
-{"A": "Identifier", "B": "Woreda", "C": "Kebele", "D": "Name_of_Health_facility", "E": "Latitude", "F": "Longitude", "G": "Type_of_healthy_facility", "H": "Water Service Level", "I": "Main Water Supply for the Facility", "J": "Distance of Main Water Supply from Facility", "K": "Water is available at the Time of Survey", "L": "Sanitation Service Level", "M": "Type of Toilet for Patients", "N": "At least one toilet is usable", "O": "Toilets dedicated for staff", "P": "Toilets are in sex-separated or gender-neutral rooms", "Q": "Toilets have menstrual hygiene facilites", "R": "Toilets accessible for people with limited mobility", "S": "Hygiene Service Level", "T": "Functional Hand Hygien Facility at Points of Care", "U": "Functional handwashing facility at one or more toilets", "V": "Health Care Waste Service Level", "W": "Waste is Correctly Segregated into at Least Three Labelled Bins in the Consultation Area", "X": "Main method for Disposing Infectious Waste", "Y": "Main method used for disposing Sharps Waste", "Z": "Environmental Cleaning Service Level", "AA": "Cleaning protocols are available", "AB": "All Staff Responsible for Cleaning Received Training", "charts": [{"key": "H", "name": "Water Service Level", "value": ["Advanced", "Basic", "Limited", "No Service"]}, {"key": "L", "name": "Sanitation Service Level", "value": ["Advanced", "Basic", "Limited", "No Service"]}, {"key": "S", "name": "Hygiene Service Level", "value": ["Advanced", "Basic", "Limited", "No Service"]}], "locations": {"woreda": "B", "kebele": "C"}, "latlong": {"latitude": "E", "longitude": "F"}, "table": [{"key": "H", "name": "water indicators", "indicators": ["I", "J", "K"]}, {"key": "L", "name": "sanitation indicators", "indicators": ["M", "N", "O", "P", "Q", "R"]}, {"key": "S", "name": "hygiene indicators", "indicators": ["T", "U"]}]}
+{
+    "A": "Woreda",
+    "B": "Kebele",
+    "C": "Name_of_Health_facility",
+    "D": "lat",
+    "E": "Long",
+    "F": "Type_of_healthy_facility",
+    "G": "Description of Water Supply in Health Facilities",
+    "H": "water service level",
+    "I": "Latrine_Description",
+    "J": "Sanitation",
+    "K": "Physically_Separate_Latrines_for_Male_Female_Patients",
+    "L": "Facilitated_Access_for_Disabled",
+    "M": "Latrine_condition",
+    "N": "992194004|Is_there_hand_washing_facility_with_in_5m_of_the_toilet",
+    "O": "Hygiene",
+    "P": "Is_hand_washing_facility_operating_i.e_with_water",
+    "Q": "Is_Soap_available_at_each_hand_washing_stand",
+    "R": "Is_there_a_toilet_for_staff",
+    "charts": [
+        {
+            "key": "H",
+            "name": "water service level",
+            "value": ["Advanced", "Basic", "Limited", "No Service"]
+        }
+    ],
+    "marker": { "name": "C", "color": [], "detail": [] },
+    "locations": { "level1": "A", "level2": "B" },
+    "latlong": { "lat": "D", "long": "E" },
+    "main": {
+        "name": "Health Facility",
+        "key": "C",
+        "indicators": [{ "name": "Water", "key": "H" }]
+    }
+}

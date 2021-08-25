@@ -46,7 +46,7 @@ export const generateChartOptions = (
     kebele
 ) => {
     const locations = Object.keys(groupBy(data, kebeleKey));
-    const options = config.charts.map((item) => {
+    const options = config?.charts?.map((item) => {
         let option = {
             tooltip: {
                 trigger: "axis",
@@ -90,7 +90,7 @@ export const generateChartOptions = (
             };
         }
         if (item.type === "stack") {
-            const dataByTopic = item.value.map((val) => {
+            const dataByTopic = item?.value.map((val) => {
                 const topic = data.filter((x) => x[item.column] === val);
                 return {
                     name: val,
@@ -103,7 +103,7 @@ export const generateChartOptions = (
                         (x) => x[kebeleKey] === loc
                     );
 
-                    let val = topic.values.filter((x) => x[kebeleKey] === loc);
+                    let val = topic?.values.filter((x) => x[kebeleKey] === loc);
                     // #TODO:: filter with and value
                     if (
                         item?.and &&
@@ -307,65 +307,6 @@ export const generateTable = (config, data, kebeleKey, kebele, firstFilter) => {
         });
         const results = {
             name: tb.name,
-            column: column,
-            data: flatten(indicators).map((x, i) => {
-                x.key = i;
-                return x;
-            }),
-        };
-        tmp.push(results);
-        return results;
-    });
-    return tmp;
-};
-
-export const generateDetailTable = (config, data) => {
-    const { table, marker } = config;
-    let tableData = table.filter((x) => x.type === "detail");
-    let tmp = [];
-    tableData = tableData.map((tb) => {
-        const indicators = [];
-        tb.indicators.forEach((ind) => {
-            let value = "-";
-            if (
-                ind.action === "select" &&
-                !ind.value &&
-                ind.type === "number"
-            ) {
-                value = data[ind.column] === 0 ? value : data[ind.column];
-            }
-            if (
-                ind.action === "select" &&
-                !ind.value &&
-                ind.type === "string"
-            ) {
-                value = data[ind.column] === "" ? value : data[ind.column];
-            }
-            if (ind.action === "select" && !ind.value && ind.type === "date") {
-                if (data[ind.column] !== "") {
-                    value = data[ind.column];
-                    value = new Date(value);
-                    value = value.toLocaleString("en-US", {
-                        weekday: "short",
-                        year: "numeric",
-                        month: "2-digit",
-                        day: "numeric",
-                    });
-                }
-            }
-            indicators.push({
-                indicator: ind.name,
-                option: ind.name,
-                value: value,
-            });
-            return;
-        });
-        let com_name = null;
-        if (marker && marker?.name) {
-            com_name = data[marker.name];
-        }
-        const results = {
-            name: com_name ? `${tb.name} - ${com_name}` : tb.name,
             column: column,
             data: flatten(indicators).map((x, i) => {
                 x.key = i;

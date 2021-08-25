@@ -17,7 +17,11 @@ const hh = {
             color: "#FAD54F",
         },
         {
-            name: "surface water",
+            name: "no facility",
+            color: "#F8B302",
+        },
+        {
+            name: "no service",
             color: "#F8B302",
         },
     ],
@@ -56,6 +60,10 @@ const hh = {
             name: "no facility",
             color: "#F9CA29",
         },
+        {
+            name: "no service",
+            color: "#F9CA29",
+        },
     ],
 };
 
@@ -92,7 +100,7 @@ const schoolAndHealth = {
             color: "#FCF176",
         },
         {
-            name: "no services",
+            name: "no service",
             color: "#F9CA29",
         },
     ],
@@ -110,7 +118,7 @@ const schoolAndHealth = {
             color: "#FCF176",
         },
         {
-            name: "no services",
+            name: "no service",
             color: "#F9CA29",
         },
     ],
@@ -120,4 +128,9 @@ export const jmpColors = {
     hh: hh,
     school: schoolAndHealth,
     health: schoolAndHealth,
+    facilities: {
+        basic: "#67b769",
+        limited: "#F9CA29",
+        noService: "#dc3545",
+    },
 };
