@@ -15,8 +15,10 @@ function WaterPoint({ geoUrl }) {
     const { data, config, locations } = wp;
     const { main: mainConfig } = config;
 
-    let firstDataSource = data.filter(
-        (x) => x[mainConfig.select.key] === mainConfig.select.value
+    let firstDataSource = data.filter((x) =>
+        x[mainConfig.select.key]
+            ?.toLowerCase()
+            .includes(mainConfig.select.value?.toLowerCase())
     );
 
     firstDataSource = level2
@@ -103,6 +105,8 @@ function WaterPoint({ geoUrl }) {
             };
         },
     }));
+
+    indicators.unshift(indicators.pop());
 
     const firstColumns = [
         {
