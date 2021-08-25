@@ -1,164 +1,163 @@
-Woreda,Kebele,School Name,Latitude,Longitude,School Type,Male Pupils,Female Pupils,Reason for Inventory,Water Supply Source,Water,Year Commisioned,Functionality_Status_of_Water_Supply,Yield,Type of Latrine,Sanitation,latrine_For_Boys_and_Girls_Separate,Number of Boy Pupils,Number of Girl Pupils,Are there Latrines for Disabled?,Latrine_Condition,Presence_of_HandWashingFacility,,hand_washing_in_use,availability_of_soap,Urinal_present_girls,Urinal_present_boys,Separate_latrine_for_tolitet_Staff
-Shashemene,Bura,Bura,7.260344141,38.48864077,Primary(1-8),644,368,New Scheme,Pipeline Connection,Basic,2006,Functional,,Simple Pit Latrine,Limited,No,644,368,No,"Clean, Used",No Service,Yes,No,No,No,No,No
-Shashemene,Bura,B/Sheshera,7.226484876,38.48695793,Primary(1-8),215,173,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,No,215,173,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Shashemene,T/Kombolcha,Tatesa,7.247196982,38.43917944,Primary(1-8),558,249,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,Yes,558,249,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Shashemene,M/Dema,M/Bolo,7.214556471,38.57791966,Primary(1-8),186,176,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,Yes,186,176,No,Dirty But Used,No Service,Yes,No,No,No,No,Yes
-Shashemene,Toga,Toga,7.16492591,38.52525529,Primary(1-8),351,254,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,Yes,351,254,Yes,Dirty But Used,No Service,No,No,No,No,Yes,No
-Shashemene,B/Deneba,B/Deneba,7.280533737,38.58603859,Primary(1-8),486,404,Repair,Pipeline Connection,Basic,2004,Non Functional - Mechanical,,Simple Pit Latrine,Limited,Yes,486,404,No,Dirty But Used,No Service,Yes,No,No,No,No,Yes
-Shashemene,k/Birojota,k/Birojota,7.164953066,38.52527337,Primary(1-8),323,239,,No Water Scheme,No Service,,,,No Latrine,No Service,No,323,239,No,No Latrine,No Service,Yes,No,No,No,No,No
-Shashemene,H/Shumba,H/Shumba,7.269705606,38.62714864,Primary(1-8),566,513,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,Yes,566,513,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Shashemene,Daleti,Daleti,7.166765587,38.47832153,Primary(1-8),422,311,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,Yes,422,311,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Shashemene,Ebicha,Ebicha,7.149254431,38.62877768,Primary(1-8),660,365,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,Yes,660,365,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Shashemene,K/Rogicha,K/Rogicha,7.276356523,38.5321869,Primary(1-8),476,385,Repair,Pipeline Connection,Basic,2004,Non Functional - Mechanical,,Simple Pit Latrine,Limited,Yes,476,385,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Shashemene,Ch/Guta,Ch/Guta,7.301294433,38.54929243,Primary(1-8),348,264,New Scheme,Pipeline Connection,Basic,2004,Functional,,Simple Pit Latrine,Limited,Yes,348,264,No,"Clean, Used",No Service,Yes,No,No,No,No,No
-Shashemene,H/Shumba,Aleche,7.15508887,38.58626128,Primary(1-4),220,222,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,No,220,222,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Shashemene,Ebicha,E/Katime,7.154989506,38.58641533,Primary(1-4),307,265,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,No,307,265,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Shashemene,Abaro,Abaro,7.122074651,38.66793959,Primary(1-8),665,554,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,Yes,665,554,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Shashemene,M/Dema,Meja,7.214565517,38.57791965,Primary(1-8),984,849,New Scheme,Pipeline Connection,Basic,2006,Functional,,Simple Pit Latrine,Limited,Yes,984,849,No,"Clean, Used",No Service,Yes,No,No,No,No,Yes
-Shashemene,O/Chefo,U/keca,7.230371409,38.54364747,Primary(1-8),466,410,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,Yes,466,410,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Shashemene,O/Chefo,Chefo,7.216151695,38.53464929,Primary(1-4),250,234,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,Yes,250,234,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Shashemene,Ch/Guta,M/Bushe,7.301475236,38.54918353,Primary(1-4),122,112,,No Water Scheme,No Service,,,,No Latrine,No Service,No,122,112,No,No Latrine,No Service,Yes,No,No,No,No,No
-Shashemene,Ch/Hebera,Ch/Hebera,7.310346603,38.52918913,Primary(1-8),512,337,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,No,512,337,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Shashemene,Ch/D/Nyata,Ch/Sheshera,7.310437011,38.52914373,Primary(1-8),202,169,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,No,202,169,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Shashemene,A/Ilu,Ilu,7.23294739,38.59921636,Primary(1-8),401,356,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,Yes,401,356,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Shashemene,J/Wandere,Wandere,7.233046233,38.70498877,Primary(1-8),439,377,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,Yes,439,377,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Shashemene,Idola,k/Gara,7.136083838,38.64018107,Primary(1-8),340,286,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,No,340,286,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Shashemene,Idola,I/Burqa,7.171815267,38.62979193,Primary(1-4),210,165,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,Yes,210,165,No,Dirty But Used,No Service,Yes,No,No,No,No,Yes
-Shashemene,A/Denku,Awasho,7.196674195,38.63142933,Primary(1-8),394,342,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,Yes,394,342,No,Dirty But Used,No Service,Yes,No,No,No,No,Yes
-Shashemene,Sole,Sole,7.173832099,38.65248716,Primary(1-8),937,764,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,Yes,937,764,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Shashemene,A/Denku,Agemsa,7.180640984,38.62621629,Primary(1-8),423,457,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,No,423,457,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Shashemene,Sole,F/Meti,7.147500905,38.69200255,Primary(1-8),247,272,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,No,247,272,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Shashemene,Jigesa,N/Jigesa,7.205213614,38.66718198,Primary(1-8),532,408,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,Yes,532,408,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Shashemene,Meraro,Meraro,7.144521435,38.71483594,Primary(1-8),540,512,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,Yes,540,512,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Shashemene,H/Simboo,Hursa,7.137473084,38.71214152,Primary(1-8),601,559,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,Yes,601,559,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Shashemene,T/W/Elemo,T/W/Elemo,7.229173793,38.69006345,Primary(1-8),250,209,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,No,250,209,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Woreda,Kebele,School Name,Latitude,Longitude,School Type,Male Pupils,Female Pupils,Reason for Inventory,Water Supply Source,Water,Year Commisioned,Functionality_Status_of_Water_Supply,Yield,Type of Latrine,Sanitation,latrine_For_Boys_and_Girls_Separate,Number of Boy Pupils,Number of Girl Pupils,Are there Latrines for Disabled?,Latrine_Condition,Presence_of_HandWashingFacility,field_23,hand_washing_in_use,availability_of_soap,Urinal_present_girls,Urinal_present_boys,Separate_latrine_for_tolitet_Staff
+Arsi Negele,Arsi Negele Town,Sh/Haroresa,7.358647458,38.6679749,Primary(1-8),299,314,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,299,314,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Arsi Negele,Arsi Negele Town,Ashoka,7.352270808,38.6687226,Primary(1-8),404,315,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,404,315,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Shashemene Town,Shashemene Town,Goba,7.193509433,38.60052814,Primary(1-8),265,233,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,Yes,265,233,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Shashemene,Kuyera Town,Danisa,7.265975306,38.65713648,Primary(1-8),360,388,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,Yes,360,388,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Shashemene,Kuyera Town,Feti,7.269963621,38.65602827,Primary(1-8),254,235,New Scheme,Pipeline Connection,Basic,2001,Functional,,Simple Pit Latrine,Limited,Yes,254,235,No,"Clean, Used",No Service,Yes,No,No,No,No,No
+Arsi Negele,Muda Arja,L/Laman,7.586173911,38.54927343,Primary(1-4),243,232,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,243,232,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Arsi Negele,Muda Arja,L/Laga,7.627405586,38.47156099,Primary(1-4),192,176,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,192,176,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Arsi Negele,Muda Arja,M/kadho,7.589827798,38.51520202,Primary(1-8),258,232,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,258,232,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Arsi Negele,Alge,Alge,7.569037897,38.43700475,Primary(1-8),448,323,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,448,323,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Arsi Negele,Alge,Alge lak 2,7.58240387,38.46326708,Primary(1-4),211,140,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,211,140,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Arsi Negele,Alge,Sh/Dangaya,7.53996682,38.46633788,Primary(1-4),258,217,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,258,217,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Arsi Negele,Alge,Layo,7.564835778,38.47648709,Primary(1-4),155,161,,,No Service,,,,Simple Pit Latrine,Limited,Yes,155,161,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Arsi Negele,Shala Bila,Bila,7.540188487,38.50087242,Primary(1-4),168,153,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,168,153,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Arsi Negele,Shala Bila,Jido Fikee,7.55474846,38.55663936,Primary(1-8),302,290,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,302,290,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Arsi Negele,Balena Kilo,Dole,7.524492624,38.67111326,Primary(1-8),422,429,,,No Service,,,,Simple Pit Latrine,Limited,Yes,422,429,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Arsi Negele,Balena Kilo,Gale,7.506353841,38.64487828,Primary(1-8),220,200,,,No Service,,,,Simple Pit Latrine,Limited,Yes,220,200,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Arsi Negele,Dega Argemo,D/D/Harangama,7.58724393,38.67375823,Primary(1-8),341,370,,,No Service,,,,Simple Pit Latrine,Limited,Yes,341,370,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Arsi Negele,Dega Hora Kilo,Daka Langano,7.618674583,38.68223851,Primary(1-8),310,279,,,No Service,,,,Simple Pit Latrine,Limited,Yes,310,279,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Arsi Negele,Dega Hora Kilo,D/H/kalo,7.652365255,38.68903188,Primary(1-8),408,349,,,No Service,,,,Simple Pit Latrine,Limited,Yes,408,349,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Arsi Negele,Hadi Bossa,Hadha,7.517846497,38.68675368,Primary(1-4),81,106,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,81,106,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Arsi Negele,Hadi Bossa,Boso,7.488457989,38.68781699,Primary(1-8),306,289,,,No Service,,,,Simple Pit Latrine,Limited,Yes,306,289,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Arsi Negele,Hadi Bossa,Sad.2ffa Dole,7.527205624,38.67020479,Primary(1-8),167,144,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,167,144,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Arsi Negele,Kerero,Qararu,7.486254649,38.72041045,Primary(1-8),425,354,,,No Service,,,,Simple Pit Latrine,Limited,Yes,425,354,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Arsi Negele,Kerero,Lalesa,7.499811068,38.73003649,Primary(1-8),372,389,,,No Service,,,,Simple Pit Latrine,Limited,Yes,372,389,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Arsi Negele,Kerero,Q/Arba,7.471863126,38.72062806,Primary(1-8),153,152,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,153,152,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Arsi Negele,Sirba Lenda,S/Lenda,7.381830697,38.7343674,Primary(1-8),387,233,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,387,233,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Arsi Negele,Sirba Lenda,Koticha,7.414286801,38.7345111,Primary(1-8),272,242,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,272,242,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Arsi Negele,Gerbi Arba,G/M/Buta,7.408031921,38.71301123,Primary(1-8),279,273,,,No Service,,,,Simple Pit Latrine,Limited,Yes,279,273,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Arsi Negele,Gerbi Arba,Qumudu,7.449175118,38.71834055,Primary(1-8),374,306,,,No Service,,,,Simple Pit Latrine,Limited,Yes,374,306,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Arsi Negele,Gebta Arjo,G/Arjo,7.46127868,38.67917221,Primary(1-8),261,,,,No Service,,,,Simple Pit Latrine,Limited,Yes,261,,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Arsi Negele,Gebta Arjo,R/Totamo,7.454153422,38.69581652,Primary(1-8),168,158,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,168,158,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Arsi Negele,Gebta Arjo,Arjo Fike,7.479679189,38.66919832,Primary(1-8),322,283,,,No Service,,,,Simple Pit Latrine,Limited,Yes,322,283,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Arsi Negele,Gebta Arjo,Arjo,7.479706421,38.66932518,Primary(1-8),322,383,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,322,383,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Arsi Negele,Rafa Hrgesa,Urgo,7.430721507,38.69054939,Primary(1-8),171,169,,,No Service,,,,Simple Pit Latrine,Limited,Yes,171,169,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Arsi Negele,Rafa Hrgesa,Rafu,7.440152709,38.66112622,Primary(1-4),73,77,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,73,77,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Arsi Negele,Rafa Hrgesa,W/Hargisa,7.431614678,38.67461735,Primary(1-8),274,231,,,No Service,,,,Simple Pit Latrine,Limited,Yes,274,231,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Arsi Negele,Ali Wayo,Ali,7.40922207,38.65644685,Primary(1-8),179,185,,,No Service,,,,Simple Pit Latrine,Limited,Yes,179,185,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Arsi Negele,Ali Wayo,w/kiltota,7.404140489,38.67117598,Primary(1-8),289,267,,,No Service,,,,Simple Pit Latrine,Limited,Yes,289,267,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Arsi Negele,Edo Jagesa,Qiqichaa,7.369281165,38.63942504,Primary(1-8),166,173,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,166,173,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Arsi Negele,Gerbo Derar,G/Dhoqona,7.385344636,38.69826502,Primary(1-8),270,247,,,No Service,,,,Simple Pit Latrine,Limited,Yes,270,247,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Arsi Negele,Meko Oda,Ashale,7.357969027,38.72104416,Primary(1-8),314,236,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,314,236,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Arsi Negele,Meko Oda,Mako,7.362858871,38.7009985,Primary(1-8),279,262,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,279,262,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Arsi Negele,Meko Oda,Golba,7.378771025,38.7160475,Primary(1-8),72,54,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,72,54,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Arsi Negele,Meko Oda,Weni,7.379375084,38.71291194,Primary(1-4),62,61,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,62,61,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Arsi Negele,Chri Elalu,lalu kawa,7.366096547,38.75995583,Primary(1-4),520,410,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,520,410,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Arsi Negele,Chri Elalu,Burqa Gudina,7.374491165,38.77778361,Primary(1-8),91,92,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,91,92,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Arsi Negele,Chri Elalu,Ciri,7.387501029,38.76420315,Primary(1-4),248,263,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,248,263,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Arsi Negele,Besko Elala,C/Tulu,7.344234008,38.77961077,Primary(1-8),160,124,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,160,124,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Arsi Negele,Besko Elala,Jedala,7.357310739,38.79131993,Primary(1-8),250,216,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,250,216,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Arsi Negele,Besko Elala,Boye,7.370135216,38.80605628,Primary(1-8),358,321,,,No Service,,,,Simple Pit Latrine,Limited,Yes,358,321,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Arsi Negele,Besko Elala,Sad.2ffa Basaqu,7.346153486,38.80287737,High School 9-10,295,190,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,295,190,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Arsi Negele,Besko Elala,Ilala,7.329856468,38.8936231,Primary(1-8),328,321,,,No Service,,,,Simple Pit Latrine,Limited,Yes,328,321,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Arsi Negele,Besko Elala,Awara,7.320391473,38.85091611,Primary(1-4),193,207,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,193,207,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Arsi Negele,Besko Elala,Basaku,7.34885246,38.81061396,Primary(1-8),588,622,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,588,622,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Arsi Negele,Gambelto,Hadansho,7.346225379,38.7477257,Primary(1-8),246,253,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,246,253,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Arsi Negele,Gambelto,Wincitu,7.325401987,38.73193658,Primary(1-8),238,245,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,238,245,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Arsi Negele,Gambelto,Gambelto,7.314208337,38.75665866,Primary(1-8),480,409,,,No Service,,,,Simple Pit Latrine,Limited,Yes,480,409,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Arsi Negele,Sayo Menja,S/Laga,7.329684959,38.7097728,Primary(1-8),130,127,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,130,127,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Arsi Negele,Sayo Menja,Seyo Maja,7.318605207,38.69792955,Primary(1-8),331,293,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,331,293,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Arsi Negele,Kersa Meja,Q/Warqa,7.342168261,38.65861869,Primary(1-8),90,87,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,90,87,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Arsi Negele,Kersa Gera,Galo Gara,7.355344828,38.62113382,Primary(1-8),149,141,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,149,141,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Arsi Negele,Kersa Gera,Bura Gara,7.355552961,38.62123331,Primary(1-8),294,231,,,No Service,,,,Simple Pit Latrine,Limited,Yes,294,231,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Arsi Negele,Kersa Gera,karsa korke,7.327820995,38.63453884,Primary(1-8),249,198,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,249,198,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Arsi Negele,Kersa Elala,k/ilala,7.312439845,38.65296988,Primary(1-8),315,287,,,No Service,,,,Simple Pit Latrine,Limited,Yes,315,287,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Arsi Negele,Kersa Elala,karsa no 2,7.311207386,38.65006265,Primary(1-4),162,159,,,No Service,,,,Simple Pit Latrine,Limited,Yes,162,159,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Arsi Negele,Kersa Elala,Awade,7.315456538,38.67100572,Primary(1-4),54,55,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,54,55,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Arsi Negele,Terge Galo,X urge,7.291130496,38.68061739,Primary(1-8),582,564,,,No Service,,,,Simple Pit Latrine,Limited,Yes,582,564,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Arsi Negele,Adeba Tita,Adaba,7.272901663,38.73399707,Primary(1-8),303,218,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,303,218,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Arsi Negele,Adeba Tita,Xixa,7.29062346,38.72090484,Primary(1-8),318,331,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,318,331,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Arsi Negele,Adeba Tita,Sad.2ffa Qalo Duro,7.280499396,38.73279678,High School 9-10,344,185,,,No Service,,,,Simple Pit Latrine,Limited,Yes,344,185,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Arsi Negele,Bombaso Rja,Reji,7.26363969,38.76863462,Primary(1-8),517,520,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,517,520,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Arsi Negele,Bombaso Rja,Bombaso,7.292161429,38.7522858,Primary(1-8),258,261,,,No Service,,,,Simple Pit Latrine,Limited,Yes,258,261,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Arsi Negele,Asheka,CafaDuro,7.294778415,38.79380415,Primary(1-8),212,213,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,212,213,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Arsi Negele,Asheka,Calalaka,7.294578698,38.79225506,Primary(1-8),383,370,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,383,370,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Arsi Negele,Aga,Aga Shawo,7.24787872,38.8217985,Primary(1-8),137,154,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,137,154,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Arsi Negele,Aga,Aga,7.277100698,38.83222319,Primary(1-8),290,289,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,290,289,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Arsi Negele,Gude Dura,Gode,7.171092722,38.80956522,Primary(1-8),752,695,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,752,695,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Arsi Negele,Gude Dura,Wacore,7.222935944,38.81323931,Primary(1-8),454,409,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,454,409,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Arsi Negele,Gude Dura,Gode sad 2faa,7.171029419,38.80961054,High School 9-10,177,78,,,No Service,,,,Simple Pit Latrine,Limited,Yes,177,78,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Arsi Negele,Gude Dura,Sotira,7.201646799,38.80299474,Primary(1-8),353,377,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,353,377,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Arsi Negele,Gude Dura,Bonkore,7.186186847,38.82370657,Primary(1-4),170,179,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,170,179,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Arsi Negele,Gude Dura,A/Mata Arba,7.180442771,38.78171028,Primary(1-8),345,345,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,345,345,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Arsi Negele,Werro Awelo,Mararo,7.207585938,38.77479528,Primary(1-8),300,317,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,300,317,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Arsi Negele,Werro Awelo,Burkitu,7.232914728,38.79506427,Primary(1-8),176,177,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,176,177,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Arsi Negele,Werro Awelo,Hawilo,7.194296935,38.75578107,Primary(1-8),358,302,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,358,302,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Arsi Negele,Gunde Gurate,Gurate,7.235602507,38.74376571,Primary(1-8),421,434,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,421,434,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Arsi Negele,Gunde Gurate,Gonde,7.259569855,38.75292873,Primary(1-8),395,338,,,No Service,,,,Simple Pit Latrine,Limited,Yes,395,338,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Arsi Negele,Wetera,Watara,7.240889484,38.72023802,Primary(1-8),693,590,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,693,590,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Arsi Negele,Wetera,,7.239830181,38.71869875,High School 9-10,90,98,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,90,98,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Arsi Negele,Amibagodasideni,Mudhi Arjo,7.61505564,38.82384447,Primary(1-8),324,216,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,324,216,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Shashemene,Chulule Habera,Ch/Hebera,7.310346603,38.52918913,Primary(1-8),512,337,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,No,512,337,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Shashemene,Chulule Habera,Ch/Sheshera,7.310437011,38.52914373,Primary(1-8),202,169,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,No,202,169,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Shashemene,Kubi guta,M/Kubi,7.326847713,38.55795531,Primary(1-4),176,130,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,No,176,130,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Shashemene,Kubi guta,K/Guta,7.316660577,38.58456487,Primary(1-8),298,191,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,No,298,191,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Shashemene,Jelo Dida,Jelo,7.302370499,38.62835374,Primary(1-8),299,258,,No Water Scheme,No Service,,,,No Latrine,No Service,No,299,258,No,No Latrine,No Service,Yes,No,No,No,No,No
+Shashemene,Jelo Dida,J/Dida,7.302099889,38.62927804,Primary(1-4),124,143,,No Water Scheme,No Service,,,,No Latrine,No Service,No,124,143,No,No Latrine,No Service,Yes,No,No,No,No,No
+Shashemene,Faji Gole,B/Deneba,7.280533737,38.58603859,Primary(1-8),486,404,Repair,Pipeline Connection,Basic,2004,Non Functional - Mechanical,,Simple Pit Latrine,Limited,Yes,486,404,No,Dirty But Used,No Service,Yes,No,No,No,No,Yes
+Shashemene,Faji Gole,F/kite,7.302054615,38.59753346,Primary(1-4),140,147,,No Water Scheme,No Service,,,,No Latrine,No Service,No,140,147,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Shashemene,Chefageta,Ch/Guta,7.301294433,38.54929243,Primary(1-8),348,264,New Scheme,Pipeline Connection,Basic,2004,Functional,,Simple Pit Latrine,Limited,Yes,348,264,No,"Clean, Used",No Service,Yes,No,No,No,No,No
+Shashemene,Chefageta,M/Bushe,7.301475236,38.54918353,Primary(1-4),122,112,,No Water Scheme,No Service,,,,No Latrine,No Service,No,122,112,No,No Latrine,No Service,Yes,No,No,No,No,No
+Shashemene,Korerogicha,K/Rogicha,7.276356523,38.5321869,Primary(1-8),476,385,Repair,Pipeline Connection,Basic,2004,Non Functional - Mechanical,,Simple Pit Latrine,Limited,Yes,476,385,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Shashemene,Fajigeba,F/keraru,7.264082978,38.58960468,Primary(1-8),318,225,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,Yes,318,225,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Shashemene,Fajigeba,Cheleleka,7.276442687,38.57366776,Primary(1-4),63,59,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,No,63,59,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Shashemene,Fajigeba,S/Gole,7.276442627,38.57360435,Primary(1-8),369,315,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,Yes,369,315,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Shashemene,Hagugeta Keni,H/Shumba,7.269705606,38.62714864,Primary(1-8),566,513,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,Yes,566,513,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Shashemene,Hagugeta Keni,M/Bekumsa,7.269931948,38.62739305,Primary(1-4),45,61,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,Yes,45,61,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Shashemene,Hagugeta Keni,Adventist,7.269931948,38.62739305,Primary(1-8),167,141,New Scheme,Pipeline Connection,Basic,2001,Functional,,Simple Pit Latrine,Limited,Yes,167,141,No,"Clean, Used",No Service,Yes,No,No,No,No,Yes
+Shashemene,Hagugeta Keni,H/kundi,7.27013982,38.62717546,Primary(1-8),194,204,,No Water Scheme,No Service,,,,No Latrine,No Service,No,194,204,No,No Latrine,No Service,Yes,No,No,No,No,No
+Shashemene,Hagugeta Keni,Bif/kundi,7.265392725,38.60794753,Primary(1-4),112,88,,No Water Scheme,No Service,,,,No Latrine,No Service,No,112,88,No,No Latrine,No Service,Yes,No,No,No,No,No
+Shashemene,Ilalal Korke,J/Goba,7.27537075,38.65314338,Primary(1-8),570,583,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,No,570,583,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Shashemene,Ilalal Korke,Shesha,7.255313945,38.67422011,Primary(1-8),373,338,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,Yes,373,338,No,Dirty But Used,No Service,Yes,No,No,No,No,Yes
+Shashemene,Wetera Shegule,Wandere,7.233046233,38.70498877,Primary(1-8),439,377,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,Yes,439,377,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Shashemene,Wetera Shegule,W/Shegule,7.216662389,38.71614969,Primary(1-8),493,385,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,Yes,493,385,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Shashemene,Turre Wetera Elemo,T/W/Elemo,7.229173793,38.69006345,Primary(1-8),250,209,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,No,250,209,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Shashemene,Turre Wetera Elemo,M/Ferda,7.245911689,38.66902731,Primary(1-4),57,47,,No Water Scheme,No Service,,,,No Latrine,No Service,No,57,47,No,No Latrine,No Service,Yes,No,No,No,No,No
+Shashemene,Turre Wetera Elemo,W/Danshe,7.212954639,38.70350725,Primary(1-4),174,148,,No Water Scheme,No Service,,,,No Latrine,No Service,No,174,148,No,No Latrine,No Service,Yes,No,No,No,No,No
+Shashemene,kerara Felicha,K/F/Gudina,7.23974514,38.64840598,Primary(1-8),592,538,Repair,Pipeline Connection,Basic,2004,Non Functional - Mechanical,,Simple Pit Latrine,Limited,Yes,592,538,Yes,Dirty But Used,No Service,No,No,No,Yes,No,Yes
+Shashemene,Bute Felicha,M/Oda,7.220171661,38.62740674,Primary(1-8),600,628,Repair,Pipeline Connection,Basic,2001,Non Functional - Mechanical,,Simple Pit Latrine,Limited,Yes,600,628,Yes,Dirty But Used,No Service,No,No,No,Yes,No,Yes
+Shashemene,Bute Felicha,B/kundi,7.245780004,38.6165247,Primary(1-8),364,207,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,Yes,364,207,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Shashemene,Ale Luilu,Ilu,7.23294739,38.59921636,Primary(1-8),401,356,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,Yes,401,356,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Shashemene,Oine Chefo Unbule,U/keca,7.230371409,38.54364747,Primary(1-8),466,410,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,Yes,466,410,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Shashemene,Oine Chefo Unbule,Chefo,7.216151695,38.53464929,Primary(1-4),250,234,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,Yes,250,234,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Shashemene,Chebidi Dangata,C/D/Nyata-2ry,7.237007531,38.52273462,High School 9-10,213,81,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,Yes,213,81,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Shashemene,Chebidi Dangata,Ch/D/Nyata,7.235160526,38.5211061,Primary(1-8),373,331,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,Yes,373,331,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Shashemene,Bura Borema,Bura,7.260344141,38.48864077,Primary(1-8),644,368,New Scheme,Pipeline Connection,Basic,2006,Functional,,Simple Pit Latrine,Limited,No,644,368,No,"Clean, Used",No Service,Yes,No,No,No,No,No
+Shashemene,Bura Borema,B/Sheshera,7.226484876,38.48695793,Primary(1-8),215,173,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,No,215,173,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Shashemene,Tatesa Dedesa,Tatesa,7.247196982,38.43917944,Primary(1-8),558,249,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,Yes,558,249,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Shashemene,Tatesa Dedesa,Kombolcha,7.249437768,38.47497502,Primary(1-8),330,207,New Scheme,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,Yes,330,207,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Shashemene,Daleti Guracha Bishen,Daleti,7.166765587,38.47832153,Primary(1-8),422,311,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,Yes,422,311,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Shashemene,Toga Weransa,Toga,7.16492591,38.52525529,Primary(1-8),351,254,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,Yes,351,254,Yes,Dirty But Used,No Service,No,No,No,No,Yes,No
+Shashemene,Toga Weransa,k/Birojota,7.164953066,38.52527337,Primary(1-8),323,239,,No Water Scheme,No Service,,,,No Latrine,No Service,No,323,239,No,No Latrine,No Service,Yes,No,No,No,No,No
+Shashemene,Meja Dema,M/Bolo,7.214556471,38.57791966,Primary(1-8),186,176,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,Yes,186,176,No,Dirty But Used,No Service,Yes,No,No,No,No,Yes
+Shashemene,Meja Dema,Meja,7.214565517,38.57791965,Primary(1-8),984,849,New Scheme,Pipeline Connection,Basic,2006,Functional,,Simple Pit Latrine,Limited,Yes,984,849,No,"Clean, Used",No Service,Yes,No,No,No,No,Yes
+Shashemene,Sheleche Harlate,Aleche,7.15508887,38.58626128,Primary(1-4),220,222,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,No,220,222,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Shashemene,Sheleche Harlate,E/Katime,7.154989506,38.58641533,Primary(1-4),307,265,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,No,307,265,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Shashemene,Sheleche Harlate,Shifa,7.156822574,38.58286349,Primary(1-8),368,264,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,Yes,368,264,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Shashemene,Mudeta,Ebicha,7.149254431,38.62877768,Primary(1-8),660,365,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,Yes,660,365,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Shashemene,Ido Laburka,k/Gara,7.136083838,38.64018107,Primary(1-8),340,286,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,No,340,286,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Shashemene,Ido Laburka,I/Burqa,7.171815267,38.62979193,Primary(1-4),210,165,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,Yes,210,165,No,Dirty But Used,No Service,Yes,No,No,No,No,Yes
+Shashemene,Ido Laburka,Alelu,7.154682435,38.64090917,Primary(1-8),377,330,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,Yes,377,330,Yes,Dirty But Used,No Service,Yes,No,No,No,No,No
+Shashemene,Owa Shodongu,Awasho,7.196674195,38.63142933,Primary(1-8),394,342,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,Yes,394,342,No,Dirty But Used,No Service,Yes,No,No,No,No,Yes
+Shashemene,Owa Shodongu,Agemsa,7.180640984,38.62621629,Primary(1-8),423,457,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,No,423,457,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Shashemene,Jegesa Korke,N/Jigesa,7.205213614,38.66718198,Primary(1-8),532,408,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,Yes,532,408,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Shashemene,Jegesa Korke,J/Katolik,7.213722252,38.6750289,Primary(1-8),416,379,New Scheme,Pipeline Connection,Basic,2003,Functional,,Simple Pit Latrine,Limited,Yes,416,379,No,"Clean, Used",No Service,Yes,No,No,No,No,Yes
 Shashemene,Meraro,Hemulo,7.152548659,38.73605977,Primary(1-8),289,266,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,Yes,289,266,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Shashemene,J/Wandere,J/Goba,7.27537075,38.65314338,Primary(1-8),570,583,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,No,570,583,No,Dirty But Used,No Service,Yes,No,No,No,No,No
 Shashemene,Meraro,Chorora,7.151644104,38.73610557,Primary(1-8),190,165,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,Yes,190,165,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Shashemene,Jigesa,J/Katolik,7.213722252,38.6750289,Primary(1-8),416,379,New Scheme,Pipeline Connection,Basic,2003,Functional,,Simple Pit Latrine,Limited,Yes,416,379,No,"Clean, Used",No Service,Yes,No,No,No,No,Yes
-Shashemene,H/Simbo,B/Simbo,7.14808504,38.72910688,Primary(1-8),289,275,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,Yes,289,275,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Shashemene,H/Simbo,S/Tuse,7.150766143,38.71990378,Primary(1-4),157,138,New Scheme,Shallow Well fitted with Pump,Limited,2008,Functional,2,No Latrine,No Service,No,157,138,No,No Latrine,No Service,Yes,No,No,No,No,No
-Shashemene,K/Gonde,K/Gonde,7.13387699,38.767677,Primary(1-8),570,583,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,Yes,570,583,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Shashemene,A/Shifa,A/Shifa,7.16110729,38.77235469,Primary(1-8),514,450,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,Yes,514,450,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Shashemene,W/shegule,A/Beke,7.186426419,38.73818686,Primary(1-8),119,95,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,Yes,119,95,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Shashemene,A/Shifa,Shifa,7.156822574,38.58286349,Primary(1-8),368,264,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,Yes,368,264,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Shashemene,K/Gonde,D/Kerso,7.150766143,38.71990378,Primary(1-4),191,230,,No Water Scheme,No Service,,,,No Latrine,No Service,No,191,230,No,No Latrine,No Service,Yes,No,No,No,No,No
-Shashemene,Danisa,Danisa,7.265975306,38.65713648,Primary(1-8),360,388,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,Yes,360,388,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Shashemene,K/Gonde,K/Keca,7.168558623,38.73412143,Primary(1-4),159,225,,No Water Scheme,No Service,,,,No Latrine,No Service,No,159,225,No,No Latrine,No Service,Yes,No,No,No,No,No
-Shashemene,W/Shegule,W/Shegule,7.216662389,38.71614969,Primary(1-8),493,385,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,Yes,493,385,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Shashemene,Sh/Korke,Shesha,7.255313945,38.67422011,Primary(1-8),373,338,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,Yes,373,338,No,Dirty But Used,No Service,Yes,No,No,No,No,Yes
-Shashemene,T/Kombolcha,Kombolcha,7.249437768,38.47497502,Primary(1-8),330,207,New Scheme,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,Yes,330,207,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Shashemene,T/W/Elemo,W/Dengego,7.138887886,38.67667591,Primary(1-8),353,346,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,No,353,346,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Shashemene,T/W/Elemo,M/Ferda,7.245911689,38.66902731,Primary(1-4),57,47,,No Water Scheme,No Service,,,,No Latrine,No Service,No,57,47,No,No Latrine,No Service,Yes,No,No,No,No,No
-Shashemene,W/Shegule,W/Danshe,7.212954639,38.70350725,Primary(1-4),174,148,,No Water Scheme,No Service,,,,No Latrine,No Service,No,174,148,No,No Latrine,No Service,Yes,No,No,No,No,No
-Shashemene,Jelo,Jelo,7.302370499,38.62835374,Primary(1-8),299,258,,No Water Scheme,No Service,,,,No Latrine,No Service,No,299,258,No,No Latrine,No Service,Yes,No,No,No,No,No
-Shashemene,Obenso,Obenso,7.138190924,38.67605151,Primary(1-8),222,140,,No Water Scheme,No Service,,,,No Latrine,No Service,No,222,140,No,No Latrine,No Service,Yes,No,No,No,No,No
-Shashemene,Sh/Korke,M/Bekumsa,7.269931948,38.62739305,Primary(1-4),45,61,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,Yes,45,61,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Shashemene,Sh/Korke,Adventist,7.269931948,38.62739305,Primary(1-8),167,141,New Scheme,Pipeline Connection,Basic,2001,Functional,,Simple Pit Latrine,Limited,Yes,167,141,No,"Clean, Used",No Service,Yes,No,No,No,No,Yes
-Shashemene,Sh/Korke,Feti,7.269963621,38.65602827,Primary(1-8),254,235,New Scheme,Pipeline Connection,Basic,2001,Functional,,Simple Pit Latrine,Limited,Yes,254,235,No,"Clean, Used",No Service,Yes,No,No,No,No,No
-Shashemene,Jelo,J/Dida,7.302099889,38.62927804,Primary(1-4),124,143,,No Water Scheme,No Service,,,,No Latrine,No Service,No,124,143,No,No Latrine,No Service,Yes,No,No,No,No,No
-Shashemene,B/Filicha,M/Oda,7.220171661,38.62740674,Primary(1-8),600,628,Repair,Pipeline Connection,Basic,2001,Non Functional - Mechanical,,Simple Pit Latrine,Limited,Yes,600,628,Yes,Dirty But Used,No Service,No,No,No,Yes,No,Yes
-Shashemene,H/kundi,H/kundi,7.27013982,38.62717546,Primary(1-8),194,204,,No Water Scheme,No Service,,,,No Latrine,No Service,No,194,204,No,No Latrine,No Service,Yes,No,No,No,No,No
-Shashemene,H/kundi,Bif/kundi,7.265392725,38.60794753,Primary(1-4),112,88,,No Water Scheme,No Service,,,,No Latrine,No Service,No,112,88,No,No Latrine,No Service,Yes,No,No,No,No,No
-Shashemene,B/Filicha,B/kundi,7.245780004,38.6165247,Primary(1-8),364,207,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,Yes,364,207,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Shashemene,F/keraru,F/keraru,7.264082978,38.58960468,Primary(1-8),318,225,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,Yes,318,225,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Shashemene,Goba,Goba,7.193509433,38.60052814,Primary(1-8),265,233,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,Yes,265,233,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Shashemene,F/keraru,Cheleleka,7.276442687,38.57366776,Primary(1-4),63,59,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,No,63,59,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Shashemene,K/Guta,M/Kubi,7.326847713,38.55795531,Primary(1-4),176,130,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,No,176,130,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Shashemene,K/Guta,K/Guta,7.316660577,38.58456487,Primary(1-8),298,191,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,No,298,191,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Shashemene,F/Gole,S/Gole,7.276442627,38.57360435,Primary(1-8),369,315,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,Yes,369,315,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Shashemene,A/Ilu,Alelu,7.154682435,38.64090917,Primary(1-8),377,330,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,Yes,377,330,Yes,Dirty But Used,No Service,Yes,No,No,No,No,No
-Shashemene,C/D/Nyata,C/D/Nyata-2ry,7.237007531,38.52273462,High School 9-10,213,81,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,Yes,213,81,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Shashemene,H/Simboo,Huursa -2ry,7.137074888,38.71185196,High School 9-10,281,135,New Scheme,Pipeline Connection,Basic,2007,Functional,,Simple Pit Latrine,Limited,Yes,281,135,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Negelle Arsi,Ashale,Ashale,7.357969027,38.72104416,Primary(1-8),314,236,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,314,236,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Negelle Arsi,Hadansho,Hadansho,7.346225379,38.7477257,Primary(1-8),246,253,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,246,253,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Negelle Arsi,Mako,Mako,7.362858871,38.7009985,Primary(1-8),279,262,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,279,262,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Negelle Arsi,Adaba,Adaba,7.272901663,38.73399707,Primary(1-8),303,218,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,303,218,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Negelle Arsi,Watara,Watara,7.240889484,38.72023802,Primary(1-8),693,590,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,693,590,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Shashemene,F/Gole,F/kite,7.302054615,38.59753346,Primary(1-4),140,147,,No Water Scheme,No Service,,,,No Latrine,No Service,No,140,147,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Negelle Arsi,G/M/Buta,G/M/Buta,7.408031921,38.71301123,Primary(1-8),279,273,,,No Service,,,,Simple Pit Latrine,Limited,Yes,279,273,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Negelle Arsi,Galo Gara,Galo Gara,7.355344828,38.62113382,Primary(1-8),149,141,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,149,141,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Negelle Arsi,Gurate,Gurate,7.235602507,38.74376571,Primary(1-8),421,434,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,421,434,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Shashemene,Shesha,Adventist-2ry,0,34.51125608,High School 9-10,342,213,New Scheme,Pipeline Connection,Basic,1999,Functional,,Simple Pit Latrine,Limited,Yes,342,213,No,"Clean, Used",No Service,Yes,No,No,No,No,Yes
-Negelle Arsi,Ali,Ali,7.40922207,38.65644685,Primary(1-8),179,185,,,No Service,,,,Simple Pit Latrine,Limited,Yes,179,185,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Negelle Arsi,Qiqichaa,Qiqichaa,7.369281165,38.63942504,Primary(1-8),166,173,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,166,173,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Negelle Arsi,G/Arjo,G/Arjo,7.46127868,38.67917221,Primary(1-8),261,,,,No Service,,,,Simple Pit Latrine,Limited,Yes,261,,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Negelle Arsi,Dole,Dole,7.524492624,38.67111326,Primary(1-8),422,429,,,No Service,,,,Simple Pit Latrine,Limited,Yes,422,429,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Negelle Arsi,D/D/Harangama,D/D/Harangama,7.58724393,38.67375823,Primary(1-8),341,370,,,No Service,,,,Simple Pit Latrine,Limited,Yes,341,370,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Negelle Arsi,Gale,Gale,7.506353841,38.64487828,Primary(1-8),220,200,,,No Service,,,,Simple Pit Latrine,Limited,Yes,220,200,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Negelle Arsi,Hadha,Hadha,7.517846497,38.68675368,Primary(1-4),81,106,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,81,106,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Negelle Arsi,Aga Shawo,Aga Shawo,7.24787872,38.8217985,Primary(1-8),137,154,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,137,154,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Negelle Arsi,lalu kawa,lalu kawa,7.366096547,38.75995583,Primary(1-4),520,410,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,520,410,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Negelle Arsi,C/Tulu,C/Tulu,7.344234008,38.77961077,Primary(1-8),160,124,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,160,124,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Negelle Arsi,S/Laga,S/Laga,7.329684959,38.7097728,Primary(1-8),130,127,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,130,127,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Negelle Arsi,Qararu,Qararu,7.486254649,38.72041045,Primary(1-8),425,354,,,No Service,,,,Simple Pit Latrine,Limited,Yes,425,354,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Negelle Arsi,R/Totamo,R/Totamo,7.454153422,38.69581652,Primary(1-8),168,158,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,168,158,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Negelle Arsi,Mudhi Arjo,Mudhi Arjo,7.61505564,38.82384447,Primary(1-8),324,216,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,324,216,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Negelle Arsi,Alge,Alge,7.569037897,38.43700475,Primary(1-8),448,323,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,448,323,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Negelle Arsi,Arjo Fike,Arjo Fike,7.479679189,38.66919832,Primary(1-8),322,283,,,No Service,,,,Simple Pit Latrine,Limited,Yes,322,283,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Negelle Arsi,Alge lak 2,Alge lak 2,7.58240387,38.46326708,Primary(1-4),211,140,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,211,140,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Negelle Arsi,L/Laman,L/Laman,7.586173911,38.54927343,Primary(1-4),243,232,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,243,232,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Negelle Arsi,G/Dhoqona,G/Dhoqona,7.385344636,38.69826502,Primary(1-8),270,247,,,No Service,,,,Simple Pit Latrine,Limited,Yes,270,247,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Negelle Arsi,Gonde,Gonde,7.259569855,38.75292873,Primary(1-8),395,338,,,No Service,,,,Simple Pit Latrine,Limited,Yes,395,338,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Negelle Arsi,Mararo,Mararo,7.207585938,38.77479528,Primary(1-8),300,317,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,300,317,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Negelle Arsi,Xixa,Xixa,7.29062346,38.72090484,Primary(1-8),318,331,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,318,331,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Shashemene,K/Filicha,K/F/Gudina,7.23974514,38.64840598,Primary(1-8),592,538,Repair,Pipeline Connection,Basic,2004,Non Functional - Mechanical,,Simple Pit Latrine,Limited,Yes,592,538,Yes,Dirty But Used,No Service,No,No,No,Yes,No,Yes
-Negelle Arsi,Wincitu,Wincitu,7.325401987,38.73193658,Primary(1-8),238,245,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,238,245,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Negelle Arsi,Reji,Reji,7.26363969,38.76863462,Primary(1-8),517,520,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,517,520,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Negelle Arsi,Burkitu,Burkitu,7.232914728,38.79506427,Primary(1-8),176,177,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,176,177,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Negelle Arsi,S/Lenda,S/Lenda,7.381830697,38.7343674,Primary(1-8),387,233,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,387,233,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Negelle Arsi,Danshe,Danshe,7.268415188,38.70510164,Primary(1-8),577,503,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,577,503,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Negelle Arsi,Golba,Golba,7.378771025,38.7160475,Primary(1-8),72,54,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,72,54,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Negelle Arsi,k/ilala,k/ilala,7.312439845,38.65296988,Primary(1-8),315,287,,,No Service,,,,Simple Pit Latrine,Limited,Yes,315,287,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Negelle Arsi,Seyo Maja,Seyo Maja,7.318605207,38.69792955,Primary(1-8),331,293,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,331,293,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Negelle Arsi,Q/Warqa,Q/Warqa,7.342168261,38.65861869,Primary(1-8),90,87,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,90,87,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Negelle Arsi,Bura Gara,Bura Gara,7.355552961,38.62123331,Primary(1-8),294,231,,,No Service,,,,Simple Pit Latrine,Limited,Yes,294,231,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Negelle Arsi,Gode,Gode,7.171092722,38.80956522,Primary(1-8),752,695,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,752,695,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Negelle Arsi,Urgo,Urgo,7.430721507,38.69054939,Primary(1-8),171,169,,,No Service,,,,Simple Pit Latrine,Limited,Yes,171,169,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Negelle Arsi,Wacore,Wacore,7.222935944,38.81323931,Primary(1-8),454,409,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,454,409,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Negelle Arsi,Jedala,Jedala,7.357310739,38.79131993,Primary(1-8),250,216,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,250,216,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Negelle Arsi,Boye,Boye,7.370135216,38.80605628,Primary(1-8),358,321,,,No Service,,,,Simple Pit Latrine,Limited,Yes,358,321,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Negelle Arsi,Sad.2ffa Basaqu,Sad.2ffa Basaqu,7.346153486,38.80287737,High School 9-10,295,190,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,295,190,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Negelle Arsi,Gambelto,Gambelto,7.314208337,38.75665866,Primary(1-8),480,409,,,No Service,,,,Simple Pit Latrine,Limited,Yes,480,409,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Negelle Arsi,Sad.2ffa Qalo Duro,Sad.2ffa Qalo Duro,7.280499396,38.73279678,High School 9-10,344,185,,,No Service,,,,Simple Pit Latrine,Limited,Yes,344,185,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Negelle Arsi,Gode sad 2faa,Gode sad 2faa,7.171029419,38.80961054,High School 9-10,177,78,,,No Service,,,,Simple Pit Latrine,Limited,Yes,177,78,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Negelle Arsi,Watara sad 2ffaa,,7.239830181,38.71869875,High School 9-10,90,98,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,90,98,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Shashemene,Ch/D/Nyata,Ch/D/Nyata,7.235160526,38.5211061,Primary(1-8),373,331,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,Yes,373,331,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Negelle Arsi,Sotira,Sotira,7.201646799,38.80299474,Primary(1-8),353,377,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,353,377,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Negelle Arsi,Weni,Weni,7.379375084,38.71291194,Primary(1-4),62,61,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,62,61,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Negelle Arsi,Bonkore,Bonkore,7.186186847,38.82370657,Primary(1-4),170,179,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,170,179,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Negelle Arsi,Ilala,Ilala,7.329856468,38.8936231,Primary(1-8),328,321,,,No Service,,,,Simple Pit Latrine,Limited,Yes,328,321,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Negelle Arsi,Hawilo,Hawilo,7.194296935,38.75578107,Primary(1-8),358,302,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,358,302,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Negelle Arsi,w/kiltota,w/kiltota,7.404140489,38.67117598,Primary(1-8),289,267,,,No Service,,,,Simple Pit Latrine,Limited,Yes,289,267,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Negelle Arsi,Sh/Haroresa,Sh/Haroresa,7.358647458,38.6679749,Primary(1-8),299,314,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,299,314,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Negelle Arsi,Awara,Awara,7.320391473,38.85091611,Primary(1-4),193,207,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,193,207,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Negelle Arsi,Daka Langano,Daka Langano,7.618674583,38.68223851,Primary(1-8),310,279,,,No Service,,,,Simple Pit Latrine,Limited,Yes,310,279,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Negelle Arsi,Ashoka,Ashoka,7.352270808,38.6687226,Primary(1-8),404,315,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,404,315,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Negelle Arsi,Bila,Bila,7.540188487,38.50087242,Primary(1-4),168,153,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,168,153,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Negelle Arsi,Sh/Dangaya,Sh/Dangaya,7.53996682,38.46633788,Primary(1-4),258,217,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,258,217,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Negelle Arsi,Arjo,Arjo,7.479706421,38.66932518,Primary(1-8),322,383,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,322,383,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Negelle Arsi,Koticha,Koticha,7.414286801,38.7345111,Primary(1-8),272,242,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,272,242,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Negelle Arsi,A/Mata Arba,A/Mata Arba,7.180442771,38.78171028,Primary(1-8),345,345,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,345,345,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Negelle Arsi,Qumudu,Qumudu,7.449175118,38.71834055,Primary(1-8),374,306,,,No Service,,,,Simple Pit Latrine,Limited,Yes,374,306,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Negelle Arsi,karsa no 2,karsa no 2,7.311207386,38.65006265,Primary(1-4),162,159,,,No Service,,,,Simple Pit Latrine,Limited,Yes,162,159,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Negelle Arsi,D/H/kalo,D/H/kalo,7.652365255,38.68903188,Primary(1-8),408,349,,,No Service,,,,Simple Pit Latrine,Limited,Yes,408,349,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Negelle Arsi,karsa korke,karsa korke,7.327820995,38.63453884,Primary(1-8),249,198,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,249,198,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Negelle Arsi,Layo,Layo,7.564835778,38.47648709,Primary(1-4),155,161,,,No Service,,,,Simple Pit Latrine,Limited,Yes,155,161,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Negelle Arsi,Boso,Boso,7.488457989,38.68781699,Primary(1-8),306,289,,,No Service,,,,Simple Pit Latrine,Limited,Yes,306,289,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Negelle Arsi,Jido Fikee,Jido Fikee,7.55474846,38.55663936,Primary(1-8),302,290,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,302,290,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Negelle Arsi,X urge,X urge,7.291130496,38.68061739,Primary(1-8),582,564,,,No Service,,,,Simple Pit Latrine,Limited,Yes,582,564,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Negelle Arsi,Rafu,Rafu,7.440152709,38.66112622,Primary(1-4),73,77,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,73,77,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Negelle Arsi,CafaDuro,CafaDuro,7.294778415,38.79380415,Primary(1-8),212,213,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,212,213,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Negelle Arsi,Lalesa,Lalesa,7.499811068,38.73003649,Primary(1-8),372,389,,,No Service,,,,Simple Pit Latrine,Limited,Yes,372,389,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Negelle Arsi,Q/Arba,Q/Arba,7.471863126,38.72062806,Primary(1-8),153,152,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,153,152,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Negelle Arsi,Bombaso,Bombaso,7.292161429,38.7522858,Primary(1-8),258,261,,,No Service,,,,Simple Pit Latrine,Limited,Yes,258,261,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Negelle Arsi,W/Hargisa,W/Hargisa,7.431614678,38.67461735,Primary(1-8),274,231,,,No Service,,,,Simple Pit Latrine,Limited,Yes,274,231,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Negelle Arsi,L/Laga,L/Laga,7.627405586,38.47156099,Primary(1-4),192,176,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,192,176,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Negelle Arsi,Awade,Awade,7.315456538,38.67100572,Primary(1-4),54,55,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,54,55,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Negelle Arsi,Burqa Gudina,Burqa Gudina,7.374491165,38.77778361,Primary(1-8),91,92,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,91,92,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Negelle Arsi,Aga,Aga,7.277100698,38.83222319,Primary(1-8),290,289,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,290,289,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Negelle Arsi,Ciri,Ciri,7.387501029,38.76420315,Primary(1-4),248,263,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,248,263,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Negelle Arsi,Calalaka,Calalaka,7.294578698,38.79225506,Primary(1-8),383,370,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,383,370,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Negelle Arsi,Basaku,Basaku,7.34885246,38.81061396,Primary(1-8),588,622,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,588,622,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Negelle Arsi,Sad.2ffa Dole,Sad.2ffa Dole,7.527205624,38.67020479,Primary(1-8),167,144,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,167,144,No,Dirty But Used,No Service,Yes,No,No,No,No,No
-Negelle Arsi,M/kadho,M/kadho,7.589827798,38.51520202,Primary(1-8),258,232,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,258,232,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Shashemene,Faji Sole,Sole,7.173832099,38.65248716,Primary(1-8),937,764,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,Yes,937,764,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Shashemene,Faji Sole,F/Meti,7.147500905,38.69200255,Primary(1-8),247,272,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,No,247,272,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Shashemene,Abaro,Abaro,7.122074651,38.66793959,Primary(1-8),665,554,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,Yes,665,554,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Shashemene,Jengele Wendere,W/Dengego,7.138887886,38.67667591,Primary(1-8),353,346,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,No,353,346,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Shashemene,Jengele Wendere,Obenso,7.138190924,38.67605151,Primary(1-8),222,140,,No Water Scheme,No Service,,,,No Latrine,No Service,No,222,140,No,No Latrine,No Service,Yes,No,No,No,No,No
+Shashemene,Hursa Sinbo,Meraro,7.144521435,38.71483594,Primary(1-8),540,512,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,Yes,540,512,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Shashemene,Hursa Sinbo,Hursa,7.137473084,38.71214152,Primary(1-8),601,559,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,Yes,601,559,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Shashemene,Hursa Sinbo,B/Simbo,7.14808504,38.72910688,Primary(1-8),289,275,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,Yes,289,275,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Shashemene,Hursa Sinbo,S/Tuse,7.150766143,38.71990378,Primary(1-4),157,138,New Scheme,Shallow Well fitted with Pump,Limited,2008,Functional,2,No Latrine,No Service,No,157,138,No,No Latrine,No Service,Yes,No,No,No,No,No
+Shashemene,Hursa Sinbo,D/Kerso,7.150766143,38.71990378,Primary(1-4),191,230,,No Water Scheme,No Service,,,,No Latrine,No Service,No,191,230,No,No Latrine,No Service,Yes,No,No,No,No,No
+Shashemene,Hursa Sinbo,Huursa -2ry,7.137074888,38.71185196,High School 9-10,281,135,New Scheme,Pipeline Connection,Basic,2007,Functional,,Simple Pit Latrine,Limited,Yes,281,135,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Shashemene,Gonde Kerso,K/Gonde,7.13387699,38.767677,Primary(1-8),570,583,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,Yes,570,583,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Shashemene,Gonde Kerso,K/Keca,7.168558623,38.73412143,Primary(1-4),159,225,,No Water Scheme,No Service,,,,No Latrine,No Service,No,159,225,No,No Latrine,No Service,Yes,No,No,No,No,No
+Shashemene,Aredano Shifa,A/Shifa,7.16110729,38.77235469,Primary(1-8),514,450,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,Yes,514,450,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+Shashemene,Aredano Shifa,A/Beke,7.186426419,38.73818686,Primary(1-8),119,95,,No Water Scheme,No Service,,,,Simple Pit Latrine,Limited,Yes,119,95,No,Dirty But Used,No Service,Yes,No,No,No,No,No
+,,Danshe,7.268415188,38.70510164,Primary(1-8),577,503,,No Water Supply In Premises,No Service,,,,Simple Pit Latrine,Limited,Yes,577,503,No,Dirty But Used,No Service,Yes,No,No,No,No,No
