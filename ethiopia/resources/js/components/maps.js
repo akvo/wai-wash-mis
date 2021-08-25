@@ -83,13 +83,8 @@ function Map({ geoUrl }) {
         coordinates: defCenter,
         zoom: 1,
     });
-    const {
-        state,
-        level1,
-        level2,
-        firstFilter,
-        markerDetail,
-    } = UIStore.useState();
+    const { state, level1, level2, firstFilter, markerDetail } =
+        UIStore.useState();
     const level1Key = state?.config?.locations?.level1;
     const level2Key = state?.config?.locations?.level2;
     const latlong = state?.config?.latlong;
@@ -98,11 +93,14 @@ function Map({ geoUrl }) {
     const [content, setContent] = useState("");
 
     useEffect(() => {
-        let filterData =
-            state?.data &&
-            state?.data.filter(
-                (x) => x[level1Key]?.toLowerCase() === level1?.toLowerCase()
-            );
+        let filterData = state?.data;
+        if (level1) {
+            filterData =
+                state?.data &&
+                state?.data.filter(
+                    (x) => x[level1Key]?.toLowerCase() === level1?.toLowerCase()
+                );
+        }
         setFilterData(filterData);
     }, [level1]);
 
@@ -145,7 +143,7 @@ function Map({ geoUrl }) {
             };
         });
     };
-
+    console.log("filterData", filterData);
     return (
         <div>
             <div className="map-buttons">
@@ -343,6 +341,12 @@ function Map({ geoUrl }) {
                                 highlighted || selected
                                     ? markerSize * 2
                                     : markerSize;
+                            console.log(
+                                "coordinates",
+                                coordinates,
+                                "markersize",
+                                markerSize
+                            );
                             return (
                                 <Marker key={index} coordinates={coordinates}>
                                     <circle

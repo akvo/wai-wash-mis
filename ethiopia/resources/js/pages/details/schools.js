@@ -14,9 +14,11 @@ const Schools = ({ geoUrl }) => {
     const { data, config } = school;
     const { main: mainConfig } = config;
 
-    let firstDataSource = data.filter(
-        (x) => level1 === x?.[config.locations.level1]?.toLowerCase()
-    );
+    let firstDataSource = level1
+        ? data.filter(
+              (x) => level1 === x?.[config.locations.level1]?.toLowerCase()
+          )
+        : data;
     if (level2) {
         firstDataSource = firstDataSource.map((x) => {
             if (level2 === x?.[config.locations.level2]?.toLowerCase()) {
@@ -121,7 +123,7 @@ const Schools = ({ geoUrl }) => {
                         size="small"
                         dataSource={firstDataSource}
                         columns={firstColumns}
-                        pagination={false}
+                        pagination
                         bordered={true}
                     />
                 </div>

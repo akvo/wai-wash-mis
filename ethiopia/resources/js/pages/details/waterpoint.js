@@ -16,9 +16,9 @@ function WaterPoint({ geoUrl }) {
     const { main: mainConfig } = config;
 
     let firstDataSource = data.filter((x) =>
-        x[mainConfig.select.key]
-            ?.toLowerCase()
-            .includes(mainConfig.select.value?.toLowerCase())
+        mainConfig.select.value
+            .map((v) => v.toLowerCase())
+            .includes(x[mainConfig.select.key]?.toLowerCase())
     );
 
     firstDataSource = level2
