@@ -7,6 +7,7 @@ import HouseHold from "./household";
 import Schools from "./schools";
 import HealthFacilities from "./health-facilities";
 import WaterPoint from "./waterpoint";
+import CommunityLead from "./community-lead";
 
 import { UIStore } from "../../store";
 
@@ -72,6 +73,7 @@ function Detail() {
                 <Menu.Item key="school">Schools</Menu.Item>
                 <Menu.Item key="health">Health Facilities</Menu.Item>
                 <Menu.Item key="wp">Water Points</Menu.Item>
+                <Menu.Item key="clts">Community Led Total Sanitation</Menu.Item>
             </Menu>
             <Content className="content-container">
                 {!geoUrl && <ContentLoading />}
@@ -105,6 +107,9 @@ function Detail() {
 
                 {geoUrl && firstFilter.toLocaleLowerCase() === "wp" && (
                     <WaterPoint geoUrl={geoUrl} />
+                )}
+                {firstFilter.toLocaleLowerCase() === "clts" && (
+                    <CommunityLead geoUrl={geoUrl} />
                 )}
             </Content>
         </div>
