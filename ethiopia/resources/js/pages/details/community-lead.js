@@ -1,16 +1,5 @@
-import React, { useState, useEffect, useRef } from "react";
-import {
-    Col,
-    Menu,
-    Row,
-    Divider,
-    Table,
-    Tag,
-    Modal,
-    Typography,
-    Button,
-} from "antd";
-import DetailPoint from "../../components/detail-point";
+import React from "react";
+import { Col, Row, Divider, Table, Modal, Typography, Button } from "antd";
 import camelCase from "lodash/camelCase";
 import sortBy from "lodash/sortBy";
 import reverse from "lodash/reverse";
@@ -18,7 +7,7 @@ import reverse from "lodash/reverse";
 import Map from "../../components/maps";
 
 import { UIStore } from "../../store";
-import { invert, sumBy } from "lodash";
+import { countBy, invert, sumBy } from "lodash";
 
 const { Title, Text } = Typography;
 
@@ -63,6 +52,22 @@ const CommunityLead = ({ geoUrl }) => {
 
     indicators.unshift(indicators.pop());
 
+    const handleCountStatus = (row, ci, status) => {
+        const lData = data?.map((d) => {
+            return Object.keys(d).reduce(
+                (n, k) => ((n[k] = isNaN(d[k]) ? d[k]?.toLowerCase() : d), n),
+                {}
+            );
+        });
+        const amount = countBy(lData, (item) => {
+            return (
+                item?.[ci["Woreda"]] === row?.[ci["Woreda"]]?.toLowerCase() &&
+                item?.[ci["ODF Status"]] === status
+            );
+        });
+        return amount.true || 0;
+    };
+
     const openModal = (dt, r) => {
         const dtinit = [
             {
@@ -95,13 +100,23 @@ const CommunityLead = ({ geoUrl }) => {
         const ci = invert(config);
         const ds = dtinit.map((s) => ({
             ...s,
-            value: ci?.[s.key] === undefined ? 0 : row?.[ci?.[s.key]] || 0,
+            value:
+                ci?.[s.key] === undefined
+                    ? handleCountStatus(row, ci, s.key)
+                    : row?.[ci?.[s.key]] || 0,
         }));
         Modal.info({
             icon: "",
-            title: dt,
+            title: `Summary Data of ${dt}`,
             content: (
-                <Table columns={sColumns} dataSource={ds} pagination={false} />
+                <>
+                    <hr />
+                    <Table
+                        columns={sColumns}
+                        dataSource={ds}
+                        pagination={false}
+                    />
+                </>
             ),
         });
     };

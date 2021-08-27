@@ -74,8 +74,9 @@ const handleOnChangeLevel2 = (key) => {
 
 const renderLevel1Option = (level1, level1List) => {
     useEffect(() => {
-        if (!level1List.includes(level1) && level1) {
-            handleOnChangeLevel1(level1List[0]);
+        const list = level1List.map((l) => l.toLowerCase());
+        if (level1 && !list.includes(level1)) {
+            handleOnChangeLevel1(list[0]);
         }
     });
     return (
