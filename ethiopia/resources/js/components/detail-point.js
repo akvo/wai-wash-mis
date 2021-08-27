@@ -43,6 +43,7 @@ const DetailPoint = ({ markerDetail, config, name }) => {
                     columns={columns}
                     pagination={false}
                     bordered={true}
+                    scroll={{ y: 800 }}
                 />
             </div>
         );

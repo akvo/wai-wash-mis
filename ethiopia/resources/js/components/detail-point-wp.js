@@ -12,7 +12,7 @@ const DetailPointWaterPoint = ({
     reservoir,
     reservoirConfig,
     taps,
-    tapsConfig
+    tapsConfig,
 }) => {
     const columns = [
         {
@@ -31,38 +31,36 @@ const DetailPointWaterPoint = ({
 
     const renderMoreDetail = (data, config, columns) => {
         if (data.length === 0) {
-            return <Text type="secondary">No Data</Text>
+            return <Text type="secondary">No Data</Text>;
         }
         return (
             <Collapse accordion>
-                {
-                    data.map((r, ri) => {
-                        let source = [];
-                        const name = config?.names
-                                        ? config.names.map(n => r[n]).join(" - ")
-                                        : "No name";
-                        const fk = r?.[config.foreign_key];
-                        Object.keys(r).forEach((x, i) => {
-                            const d = capitalize(config[x].replaceAll("_", " "));
-                            source.push({
-                                key: `${fk}-${ri}-${i}`,
-                                data: d,
-                                value: r[x] !== "" ? r[x] : " - ",
-                            });
+                {data.map((r, ri) => {
+                    let source = [];
+                    const name = config?.names
+                        ? config.names.map((n) => r[n]).join(" - ")
+                        : "No name";
+                    const fk = r?.[config.foreign_key];
+                    Object.keys(r).forEach((x, i) => {
+                        const d = capitalize(config[x].replaceAll("_", " "));
+                        source.push({
+                            key: `${fk}-${ri}-${i}`,
+                            data: d,
+                            value: r[x] !== "" ? r[x] : " - ",
                         });
-                        return (
-                            <Panel header={name} key={fk + "-" + ri}>
-                                <Table
-                                    dataSource={source}
-                                    size="small"
-                                    columns={columns}
-                                    pagination={false}
-                                    bordered={true}
-                                />
-                            </Panel>
-                        )
-                    })
-                }
+                    });
+                    return (
+                        <Panel header={name} key={fk + "-" + ri}>
+                            <Table
+                                dataSource={source}
+                                size="small"
+                                columns={columns}
+                                pagination={false}
+                                bordered={true}
+                            />
+                        </Panel>
+                    );
+                })}
             </Collapse>
         );
     };
@@ -94,6 +92,7 @@ const DetailPointWaterPoint = ({
                             columns={columns}
                             pagination={false}
                             bordered={true}
+                            scroll={{ y: 800 }}
                         />
                     </Panel>
                     <Panel header="Reservoir Details" key="2">

@@ -123,8 +123,9 @@ const Schools = ({ geoUrl }) => {
                         size="small"
                         dataSource={firstDataSource}
                         columns={firstColumns}
-                        pagination
+                        pagination={false}
                         bordered={true}
+                        scroll={{ y: 800 }}
                     />
                 </div>
             </Col>
