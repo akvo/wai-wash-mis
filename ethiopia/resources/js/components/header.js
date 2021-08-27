@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Layout, Menu, Button, Select, Image } from "antd";
 
 import { UIStore } from "../store";
@@ -30,7 +30,54 @@ const renderLogo = () => {
     );
 };
 
+const renderLoginBtn = () => {
+    return (
+        <div>
+            <Button
+                onClick={() =>
+                    window.open(
+                        "https://www.figma.com/proto/WaWFfzgSEwfbt3PVtSGYI5/WAI---ET-V5?page-id=605%3A1338&node-id=687%3A77&viewport=1039%2C1676%2C1&scaling=min-zoom",
+                        "blank"
+                    )
+                }
+                type="secondary"
+            >
+                Login
+            </Button>
+        </div>
+    );
+};
+
+const handleOnChangeLevel1 = (key) => {
+    UIStore.update((e) => {
+        e.level1 = key;
+        e.level2 = null;
+        e.page = "details";
+        e.markerDetail = {
+            ...e.markerDetail,
+            active: false,
+            data: {},
+        };
+    });
+};
+
+const handleOnChangeLevel2 = (key) => {
+    UIStore.update((e) => {
+        e.level2 = key;
+        e.markerDetail = {
+            ...e.markerDetail,
+            active: false,
+            data: {},
+        };
+    });
+};
+
 const renderLevel1Option = (level1, level1List) => {
+    useEffect(() => {
+        if (!level1List.includes(level1) && level1) {
+            handleOnChangeLevel1(level1List[0]);
+        }
+    });
     return (
         <Select
             style={{ width: 220, marginLeft: "5px", marginRight: "5px" }}
@@ -39,9 +86,11 @@ const renderLevel1Option = (level1, level1List) => {
             onChange={handleOnChangeLevel1}
         >
             {level1List &&
-                level1List.map((x) => (
-                    <Select.Option key={x.toLowerCase()}>{x}</Select.Option>
-                ))}
+                level1List
+                    .sort()
+                    .map((x) => (
+                        <Select.Option key={x.toLowerCase()}>{x}</Select.Option>
+                    ))}
         </Select>
     );
 };
@@ -67,48 +116,6 @@ const renderLevel2Option = (level2, level2List) => {
                 ))}
         </Select>
     );
-};
-
-const renderLoginBtn = () => {
-    return (
-        <div>
-            <Button
-                onClick={() =>
-                    window.open(
-                        "https://www.figma.com/proto/WaWFfzgSEwfbt3PVtSGYI5/WAI---ET-V5?page-id=605%3A1338&node-id=687%3A77&viewport=1039%2C1676%2C1&scaling=min-zoom",
-                        "blank"
-                    )
-                }
-                type="secondary"
-            >
-                Login
-            </Button>
-        </div>
-    );
-};
-
-const handleOnChangeLevel1 = (key) => {
-    UIStore.update((e) => {
-        e.level2 = null;
-        e.level1 = key;
-        e.page = "details";
-        e.markerDetail = {
-            ...e.markerDetail,
-            active: false,
-            data: {},
-        };
-    });
-};
-
-const handleOnChangeLevel2 = (key) => {
-    UIStore.update((e) => {
-        e.level2 = key;
-        e.markerDetail = {
-            ...e.markerDetail,
-            active: false,
-            data: {},
-        };
-    });
 };
 
 export function HeaderHome() {
@@ -148,7 +155,7 @@ export const HeaderDetail = () => {
                 <div>
                     {renderLevel1Option(level1, level1List)}
                     {renderLevel2Option(level2, level2List)}
-                    {level2 && (
+                    {level1 && (
                         <Button onClick={() => handleOnChangeLevel1(null)}>
                             Remove Filter
                         </Button>

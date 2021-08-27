@@ -24,7 +24,7 @@ import { filter } from "lodash";
 const mapMaxZoom = 4;
 const defCenter = ["38.69590", "7.34350"];
 const colorRange = ["#bbedda", "#a7e1cb", "#92d5bd", "#7dcaaf", "#67bea1"];
-const showMarkerOnFirstFilterValues = ["wp", "health", "school"];
+const showMarkerOnFirstFilterValues = ["school", "wp"];
 
 const ToolTipContent = ({ data, geo, config }) => {
     const { UNIT_NAME, UNIT_TYPE } = geo;
