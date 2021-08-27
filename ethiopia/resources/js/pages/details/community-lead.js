@@ -22,7 +22,7 @@ import { invert, sumBy } from "lodash";
 
 const { Title, Text } = Typography;
 
-function CommunityLead() {
+const CommunityLead = ({ geoUrl }) => {
     const store = UIStore.useState();
     const { level2, clts } = store;
     const { data, config } = clts;
@@ -191,17 +191,24 @@ function CommunityLead() {
     return (
         <Row>
             <Col span="24">
-                <Title level={4}>Community Led Total Sanitation</Title>
-                <Text>
-                    # of communities declared/# of communities in program for
-                    each kebele
-                </Text>
-                <Table
-                    columns={vCols}
-                    dataSource={vSource}
-                    bordered
-                    pagination={false}
-                />
+                {geoUrl && (
+                    <div key="maps" className="map-container">
+                        <Map geoUrl={geoUrl} />
+                    </div>
+                )}
+                <div className="table-container">
+                    <Title level={4}>Community Led Total Sanitation</Title>
+                    <Divider />
+                    <Text>
+                        # of communities (declared) in program for each kebele
+                    </Text>
+                    <Table
+                        columns={vCols}
+                        dataSource={vSource}
+                        bordered
+                        pagination={false}
+                    />
+                </div>
                 <div className="table-container">
                     <Title level={4}>Full Data Table</Title>
                     <Divider />
@@ -215,6 +222,6 @@ function CommunityLead() {
             </Col>
         </Row>
     );
-}
+};
 
 export default CommunityLead;
