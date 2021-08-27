@@ -43,11 +43,10 @@ const CommunityLead = ({ geoUrl }) => {
     firstDataSource = reverse(sortBy(firstDataSource, ["value"]));
 
     const indicators = mainConfig.indicators.map((x) => ({
-        title: x.name,
-        dataIndex: camelCase(x.name),
         key: camelCase(x.name),
-        width: `${70 / mainConfig.indicators.length}%`,
-        align: "center",
+        title: x.name,
+        width: 200,
+        dataIndex: camelCase(x.name),
     }));
 
     indicators.unshift(indicators.pop());
@@ -125,9 +124,10 @@ const CommunityLead = ({ geoUrl }) => {
         {
             title: mainConfig.name,
             dataIndex: "name",
-            width: "30%",
+            width: 275,
             key: "name",
             visible: false,
+            fixed: "left",
             render: (dt, r) => {
                 return (
                     <Button type="link" onClick={() => openModal(dt, r)}>
@@ -137,7 +137,7 @@ const CommunityLead = ({ geoUrl }) => {
             },
         },
         ...indicators,
-    ].filter((c) => c.dataIndex !== "id");
+    ].filter((c) => !["id", "kebele"].includes(c.dataIndex));
 
     const sColumns = [
         {
@@ -198,7 +198,7 @@ const CommunityLead = ({ geoUrl }) => {
             mean:
                 s.total > 0
                     ? (
-                          sumBy(firstDataSource, "timeDeltaDays") / s.total
+                          sumBy(firstDataSource, "progressTimeDays") / s.total
                       ).toFixed(2)
                     : "N/A",
         })),
@@ -232,6 +232,7 @@ const CommunityLead = ({ geoUrl }) => {
                         dataSource={firstDataSource}
                         size="small"
                         bordered={true}
+                        scroll={{ x: 800, y: 300 }}
                     />
                 </div>
             </Col>
