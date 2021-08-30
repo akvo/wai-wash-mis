@@ -49,7 +49,7 @@ const CommunityLead = ({ geoUrl }) => {
     const indicators = mainConfig.indicators.map((x) => ({
         key: camelCase(x.name),
         title: x.name,
-        width: 200,
+        width: 215,
         dataIndex: camelCase(x.name),
     }));
 
@@ -124,7 +124,7 @@ const CommunityLead = ({ geoUrl }) => {
         });
     };
 
-    const firstColumns = [
+    let firstColumns = [
         {
             title: mainConfig.name,
             dataIndex: "name",
@@ -142,6 +142,19 @@ const CommunityLead = ({ geoUrl }) => {
         },
         ...indicators,
     ].filter((c) => !["id", "kebele"].includes(c.dataIndex));
+    const ordered = [
+        "name",
+        "odfStatus",
+        "dateTriggered",
+        "dateOfVerification",
+        "progressTimeDays",
+        "timeToCompleteDays",
+        "implementingPartner",
+        "remarks",
+    ];
+    firstColumns = firstColumns.sort((a, b) => {
+        return ordered.indexOf(a.key) - ordered.indexOf(b.key);
+    });
 
     const sColumns = [
         {
@@ -236,7 +249,8 @@ const CommunityLead = ({ geoUrl }) => {
                         dataSource={firstDataSource}
                         size="small"
                         bordered={true}
-                        scroll={{ x: 800, y: 300 }}
+                        pagination={false}
+                        scroll={{ y: 500 }}
                     />
                 </div>
             </Col>
