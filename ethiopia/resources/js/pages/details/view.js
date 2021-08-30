@@ -77,22 +77,6 @@ function Detail() {
             </Menu>
             <Content className="content-container">
                 {!geoUrl && <ContentLoading />}
-                {geoUrl && ["hh"].includes(firstFilter.toLocaleLowerCase()) && (
-                    <div>
-                        <Menu
-                            selectedKeys={[secondFilter]}
-                            onClick={handleMenu}
-                            mode="horizontal"
-                            style={{ borderBottom: 0 }}
-                        >
-                            <Menu.Item key="all">All</Menu.Item>
-                            <Menu.Item key="water">Water</Menu.Item>
-                            <Menu.Item key="sanitation">Sanitation</Menu.Item>
-                            <Menu.Item key="hygiene">Hygiene</Menu.Item>
-                        </Menu>
-                    </div>
-                )}
-
                 {geoUrl && firstFilter.toLocaleLowerCase() === "hh" && (
                     <HouseHold geoUrl={geoUrl} />
                 )}
