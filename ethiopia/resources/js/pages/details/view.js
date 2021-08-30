@@ -12,6 +12,7 @@ import CommunityLead from "./community-lead";
 import { UIStore } from "../../store";
 
 import "./styles.scss";
+import Home from "../home/view";
 
 const { Content } = Layout;
 const ContentLoading = () => (
@@ -69,6 +70,7 @@ function Detail() {
                 className="first-filter"
                 style={{ backgroundColor: "#F9F9F9" }}
             >
+                <Menu.Item key="home">Home</Menu.Item>
                 <Menu.Item key="hh">Households</Menu.Item>
                 <Menu.Item key="school">Schools</Menu.Item>
                 <Menu.Item key="clts">Community Led Total Sanitation</Menu.Item>
@@ -95,6 +97,7 @@ function Detail() {
                 {firstFilter.toLocaleLowerCase() === "clts" && (
                     <CommunityLead geoUrl={geoUrl} />
                 )}
+                {firstFilter.toLocaleLowerCase() === "home" && <Home />}
             </Content>
         </div>
     );
