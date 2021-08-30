@@ -12,7 +12,7 @@ import { UIStore } from "../../store";
 function WaterPoint({ geoUrl }) {
     const store = UIStore.useState();
     const { level2, wp, markerDetail } = store;
-    const { data, config, locations } = wp;
+    const { data, config } = wp;
     const { main: mainConfig } = config;
 
     let firstDataSource = data.filter((x) =>
@@ -30,6 +30,9 @@ function WaterPoint({ geoUrl }) {
           })
         : firstDataSource.map((x) => ({ ...x, hidden: false }));
     firstDataSource = firstDataSource.filter((x) => !x.hidden);
+    if (Object.keys(markerDetail?.data).length) {
+        firstDataSource = [markerDetail.data];
+    }
     firstDataSource = firstDataSource.map((x, i) => {
         let res = {
             key: i,
@@ -144,6 +147,7 @@ function WaterPoint({ geoUrl }) {
                     visible={markerDetail.active}
                     onClose={() =>
                         UIStore.update((e) => {
+                            e.level2 = null;
                             e.markerDetail = {
                                 ...e.markerDetail,
                                 active: false,
