@@ -55,6 +55,20 @@ function Home() {
         };
     });
     const wp = store.wp.data
+        .filter((x) => {
+            let include = true;
+            if (level1) {
+                include =
+                    x[store.wp.config.locations.level1].toLowerCase() ===
+                    level1.toLowerCase();
+            }
+            if (level2) {
+                include =
+                    x[store.wp.config.locations.level2].toLowerCase() ===
+                    level2.toLowerCase();
+            }
+            return include;
+        })
         .map((x) => {
             if (
                 store.wp.config.main.select.value.includes(
