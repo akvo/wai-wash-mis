@@ -8,4 +8,17 @@
     .ant-row.ant-row-center.ant-row-middle {
         margin: 25px 0;
     }
+
+    img.icons {
+        max-width: 80%;
+        width: 80%;
+        padding: 20px;
+    }
+
+    .ant-card-body {
+        .card-stats {
+            min-height: 138px;
+            margin: 10px;
+        }
+    }
 }
