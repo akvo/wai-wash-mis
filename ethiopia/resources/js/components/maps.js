@@ -127,11 +127,15 @@ function Map({ geoUrl, mapHeight = 350 }) {
     };
 
     const onMapClick = (geo) => {
-        const { UNIT_NAME } = geo.properties;
+        const { UNIT_TYPE, UNIT_NAME } = geo.properties;
         UIStore.update((e) => {
             /**
              * toggle
              */
+            e.level1 =
+                UNIT_NAME.toLowerCase() === e.level2
+                    ? null
+                    : UNIT_TYPE.toLowerCase();
             e.level2 =
                 UNIT_NAME?.toLowerCase() === e.level2
                     ? null
@@ -231,13 +235,6 @@ function Map({ geoUrl, mapHeight = 350 }) {
                                     level2 &&
                                     level2.toString().toLowerCase() ===
                                         name.toLowerCase();
-                                let enableMapOnClick = false;
-                                if (level1) {
-                                    enableMapOnClick =
-                                        geo.properties?.UNIT_TYPE.toLowerCase() ===
-                                        level1.toString().toLowerCase();
-                                }
-
                                 return (
                                     <Geography
                                         key={geo.rsmKey}
@@ -258,11 +255,9 @@ function Map({ geoUrl, mapHeight = 350 }) {
                                             setContent("");
                                         }}
                                         onClick={() => {
-                                            enableMapOnClick && onMapClick(geo);
+                                            onMapClick(geo);
                                         }}
-                                        cursor={
-                                            enableMapOnClick ? "pointer" : ""
-                                        }
+                                        cursor="pointer"
                                         style={{
                                             default: {
                                                 fill: active
