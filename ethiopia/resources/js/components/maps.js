@@ -78,7 +78,7 @@ const ToolTipMarker = ({ item, config, firstFilter }) => {
     );
 };
 
-function Map({ geoUrl }) {
+function Map({ geoUrl, mapHeight = 350 }) {
     const [position, setPosition] = useState({
         coordinates: defCenter,
         zoom: 1,
@@ -191,7 +191,7 @@ function Map({ geoUrl }) {
             <ComposableMap
                 data-tip=""
                 projection="geoEquirectangular"
-                height={350}
+                height={mapHeight}
                 projectionConfig={{ scale: 25000 }}
             >
                 <ZoomableGroup
