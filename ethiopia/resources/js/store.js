@@ -40,6 +40,10 @@ export const UIStore = new Store({
         data: cltsData,
         config: cltsConfig,
     },
+    home: {
+        data: [],
+        config: wpConfig,
+    },
     state: {
         data: [],
         config: {},
@@ -49,7 +53,7 @@ export const UIStore = new Store({
     page: "home",
     level1: null,
     level2: null,
-    firstFilter: "hh",
+    firstFilter: "home",
     secondFilter: "all",
     level1List: [],
     level2List: [],

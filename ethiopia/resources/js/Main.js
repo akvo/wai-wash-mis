@@ -3,10 +3,54 @@ import { Layout } from "antd";
 
 import { UIStore } from "./store";
 
-import Home from "./pages/home/view";
 import Detail from "./pages/details/view";
 
 import "./main.scss";
+import { uniq, trim } from "lodash";
+
+const wpSource = [
+    {
+        name: "School",
+        column: "Water Supply Source",
+        source: "school",
+    },
+    {
+        name: "Household",
+        column: "Main Source of Drinking Water",
+        source: "hh",
+    },
+    {
+        name: "Health Facilities",
+        column: "Description of Water Supply in Health Facilities",
+        source: "health",
+    },
+];
+
+const handleLevelList = (store, level1 = null) => {
+    return uniq(
+        wpSource
+            .map((s) => {
+                const cf = store[s.source].config;
+                let dt = store[s.source].data;
+                dt = level1
+                    ? dt
+                          .filter(
+                              (x) =>
+                                  x[cf?.locations?.level1]?.toLowerCase() ===
+                                  level1?.toLowerCase()
+                          )
+                          .map((x) => x[cf?.locations?.level2])
+                    : dt?.map((x) => x[cf?.locations?.level1]);
+
+                dt = dt.filter(
+                    (value, index, self) => self.indexOf(value) === index
+                );
+                return dt;
+            })
+            .flatMap((s) => s)
+            .filter((s) => trim(s) !== "")
+    );
+};
 
 function Main() {
     const store = UIStore.useState();
@@ -17,25 +61,32 @@ function Main() {
         const { level1, level2 } = config?.locations;
 
         const level1List =
-            data &&
-            data
-                .map((x) => x[level1])
-                .filter((value, index, self) => self.indexOf(value) === index);
+            firstFilter === "home"
+                ? handleLevelList(store)
+                : data &&
+                  data
+                      .map((x) => x[level1])
+                      .filter(
+                          (value, index, self) => self.indexOf(value) === index
+                      );
 
         let level2List = [];
         if (store?.level1) {
             level2List =
-                data &&
-                data
-                    .filter(
-                        (x) =>
-                            x[level1]?.toLowerCase() ===
-                            store.level1?.toLowerCase()
-                    )
-                    .map((x) => x[level2])
-                    .filter(
-                        (value, index, self) => self.indexOf(value) === index
-                    );
+                firstFilter === "home"
+                    ? handleLevelList(store, store?.level1)
+                    : data &&
+                      data
+                          .filter(
+                              (x) =>
+                                  x[level1]?.toLowerCase() ===
+                                  store.level1?.toLowerCase()
+                          )
+                          .map((x) => x[level2])
+                          .filter(
+                              (value, index, self) =>
+                                  self.indexOf(value) === index
+                          );
         }
 
         UIStore.update((e) => {
@@ -58,7 +109,7 @@ function Main() {
     return (
         <Layout>
             <Layout className="site-layout">
-                {page === "home" ? <Home /> : <Detail />}
+                <Detail />
             </Layout>
         </Layout>
     );
