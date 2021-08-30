@@ -141,7 +141,6 @@ function Map({ geoUrl, mapHeight = 350 }) {
 
     const onMarkerClick = (data) => {
         UIStore.update((e) => {
-            e.level2 = data[level2Key].toLowerCase();
             e.markerDetail = {
                 ...e.markerDetail,
                 active: true,

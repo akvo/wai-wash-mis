@@ -23,16 +23,16 @@ function WaterPoint({ geoUrl }) {
 
     firstDataSource = level2
         ? firstDataSource.map((x) => {
-              if (level2 === x?.[config.locations.level2]?.toLowerCase()) {
+              if (
+                  level2.toLowerCase() ===
+                  x?.[config.locations.level2]?.toLowerCase()
+              ) {
                   return { ...x, hidden: false };
               }
               return { ...x, hidden: true };
           })
         : firstDataSource.map((x) => ({ ...x, hidden: false }));
     firstDataSource = firstDataSource.filter((x) => !x.hidden);
-    if (Object.keys(markerDetail?.data).length) {
-        firstDataSource = [markerDetail.data];
-    }
     firstDataSource = firstDataSource.map((x, i) => {
         let res = {
             key: i,
@@ -49,15 +49,6 @@ function WaterPoint({ geoUrl }) {
                 values += 5;
             }
             if (x[i.key] === "more than 100") {
-                values += 10;
-            }
-            if (
-                x[i.key] ===
-                "Institutional use (school or healthcare facility/ health centre)"
-            ) {
-                values += 10;
-            }
-            if (x[i.key] === "Drinking water") {
                 values += 10;
             }
             res = {
@@ -86,17 +77,6 @@ function WaterPoint({ geoUrl }) {
                 bg = "#fa0";
             }
             if (dt === "more than 100") {
-                bg = "#dc3545";
-                color = "#fff";
-            }
-            if (
-                dt ===
-                "Institutional use (school or healthcare facility/ health centre)"
-            ) {
-                bg = "#dc3545";
-                color = "#fff";
-            }
-            if (dt === "Drinking water") {
                 bg = "#dc3545";
                 color = "#fff";
             }
@@ -147,7 +127,6 @@ function WaterPoint({ geoUrl }) {
                     visible={markerDetail.active}
                     onClose={() =>
                         UIStore.update((e) => {
-                            e.level2 = null;
                             e.markerDetail = {
                                 ...e.markerDetail,
                                 active: false,
