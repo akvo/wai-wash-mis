@@ -11,16 +11,7 @@ const renderLogo = () => {
             className="header-logo-wrapper"
             onClick={(e) =>
                 UIStore.update((e) => {
-                    e.page = "home";
-                    e.level1 = null;
-                    e.level2 = null;
-                    e.firstFilter = "hh";
-                    e.secondFilter = "all";
-                    e.markerDetail = {
-                        ...e.markerDetail,
-                        active: false,
-                        data: {},
-                    };
+                    e.firstFilter = "home";
                 })
             }
         >
