@@ -1,46 +1,46 @@
-Woreda,Kebele,Name_of_Health_facility,lat,Long,Type_of_healthy_facility,Description of Water Supply in Health Facilities,water service level,Latrine_Description,Sanitation,Physically_Separate_Latrines_for_Male_Female_Patients,Facilitated_Access_for_Disabled,Latrine_condition,992194004|Is_there_hand_washing_facility_with_in_5m_of_the_toilet,Hygiene,Is_hand_washing_facility_operating_i.e_with_water,Is_Soap_available_at_each_hand_washing_stand,Is_there_a_toilet_for_staff
-Shashamene,Mararo,Mararo,7.21461843,38.67594311,Health Post,No water supply in premises,No Service,No Latrine,No Service,No,No,"Filthy ,unused",No Facility,No Service,Yes,No,No
-Shashamene,Jigesa qorke,Jigesa,7.205212947,38.66626716,Health Post,No water supply in premises,No Service,No Latrine,No Service,No,No,"Filthy ,unused",No Facility,No Service,Yes,No,No
-Shashamene,Hagugata quni,Hagugata quni,7.264082978,38.58960468,Health Post,No water supply in premises,No Service,No Latrine,No Service,No,No,"Filthy ,unused",No Facility,No Service,Yes,No,No
-Shashamene,Turufe Watara elemo,Turufe Watara elemo,7.245780004,38.6165247,Health Post,No water supply in premises,No Service,No Latrine,No Service,No,No,"Filthy ,unused",No Facility,No Service,Yes,No,No
-Shashamene,Gonde Qarso,Gonde,7.154682435,38.64090917,Health Post,No water supply in premises,No Service,No Latrine,No Service,No,No,"Filthy ,unused",No Facility,No Service,Yes,No,No
-Shashamene,Wayo Danisa,Danisa,7.193509433,38.60052814,Health Post,No water supply in premises,No Service,No Latrine,No Service,No,No,"Filthy ,unused",No Facility,No Service,Yes,No,No
-Shashamene,Faji Sole,Sole,7.276442627,38.57360435,Health Post,No water supply in premises,No Service,No Latrine,No Service,No,No,"Filthy ,unused",No Facility,No Service,Yes,No,No
-Shashamene,Bute Filicha,Bute Filicha,7.16110729,38.77235469,Health Post,No water supply in premises,No Service,No Latrine,No Service,No,No,"Filthy ,unused",No Facility,No Service,Yes,No,No
-Shashamene,Togaa,Togaa,7.216662389,38.71614969,Health Post,No water supply in premises,No Service,No Latrine,No Service,No,No,"Filthy ,unused",No Facility,No Service,Yes,No,No
-Shashamene,Faji Goba,Faji Goba,7.168558623,38.73412143,Health Post,No water supply in premises,No Service,No Latrine,No Service,No,No,"Filthy ,unused",No Facility,No Service,Yes,No,No
-Shashamene,Maja Dama,Maja Dama,7.302370499,38.62835374,Health Post,No water supply in premises,No Service,No Latrine,No Service,No,No,"Filthy ,unused",No Facility,No Service,Yes,No,No
-Shashamene,Edola Burqa,Edola Burqa,7.226484876,38.48695793,Health Post,No water supply in premises,No Service,No Latrine,No Service,No,No,"Filthy ,unused",No Facility,No Service,Yes,No,No
-Shashamene,Kore Rogicha,Kore Rogicha,7.230371409,38.54364747,Health Post,No water supply in premises,No Service,No Latrine,No Service,No,No,"Filthy ,unused",No Facility,No Service,Yes,No,No
-Shashamene,ilala Qorke,ilala Qorke,7.212805736,38.7257987,Health Post,No water supply in premises,No Service,No Latrine,No Service,No,No,"Filthy ,unused",No Facility,No Service,Yes,No,No
-Shashamene,Jalo Dida,Jalo Dida,3.47273833,40.8652264,Health Post,No water supply in premises,No Service,No Latrine,No Service,No,No,"Filthy ,unused",No Facility,No Service,Yes,No,No
-Shashamene,Turufe Watara elemo,Elemo Abiyu,7.27013982,38.62717546,Other,No water supply in premises,No Service,Simple pit latrine,Limited,No,No,"Clean, used",No Facility,No Service,Yes,No,No
-Shashamene,Jangala Wandare,Jangala,7.276442687,38.57366776,Health Post,No water supply in premises,No Service,Simple pit latrine,Limited,No,No,"Clean, used",No Facility,No Service,Yes,No,No
-Shashamene,Hursa Simbo,Hursa,7.150766143,38.71990378,Other,Protected Wells,Basic,Simple pit latrine,Limited,No,No,"Clean, used",No Facility,No Service,Yes,No,No
-Shashamene,Jangala Wandare,Wandare,7.13387699,38.767677,Health Post,No water supply in premises,No Service,Simple pit latrine,Limited,No,No,Dirty but used,No Facility,No Service,Yes,No,No
-Shashamene,Hursa Simbo,Hursa,7.14808504,38.72910688,Health Post,No water supply in premises,No Service,Simple pit latrine,Limited,No,No,"Clean, used",No Facility,No Service,Yes,No,No
-Shashamene,Bulchana Danaba,Bulchana Danaba,7.138887886,38.67667591,Health Post,Pipeline Connections,Basic,Simple pit latrine,Limited,No,No,"Clean, used",No Facility,No Service,Yes,No,No
-Shashamene,Togaa,Togaa,7.138190924,38.67605151,Other,Pipeline Connections,Basic,Simple pit latrine,Limited,No,No,"Clean, used",No Facility,No Service,Yes,No,No
-Shashamene,Abaroo,Abaroo,7.302099889,38.62927804,Health Post,No water supply in premises,No Service,Simple pit latrine,Limited,No,No,"Clean, used",No Facility,No Service,Yes,No,No
-Shashamene,Kore Borojota,Kore Borojota,7.245911689,38.66902731,Health Post,No water supply in premises,No Service,Simple pit latrine,Limited,No,No,Dirty but used,No Facility,No Service,Yes,No,No
-Shashamene,Ebichaa,Ebichaa,7.249437768,38.47497502,Health Post,No water supply in premises,No Service,Simple pit latrine,Limited,No,No,"Clean, used",No Facility,No Service,Yes,No,No
-Shashamene,Alache Harabate,Harabate,7.276356523,38.5321869,Health Post,No water supply in premises,No Service,Simple pit latrine,Limited,No,No,"Clean, used",No Facility,No Service,Yes,No,No
-Shashamene,Alache Harabate,Harabate,7.301294433,38.54929243,Other,No water supply in premises,No Service,Simple pit latrine,Limited,No,No,"Clean, used",No Facility,No Service,Yes,No,No
-Shashamene,Oine Cafo umbure,Oine Cafo umbure,7.310346603,38.52918913,Health Post,No water supply in premises,No Service,Simple pit latrine,Limited,No,No,"Clean, used",No Facility,No Service,Yes,No,No
-Shashamene,Kubi Guta,Kubi Guta,7.150766143,38.71990378,Health Post,No water supply in premises,No Service,Simple pit latrine,Limited,No,No,Dirty but used,No Facility,No Service,Yes,No,No
-Shashamene,Chafa Gutaa,Chafa Gutaa,7.156822574,38.58286349,Health Post,No water supply in premises,No Service,Simple pit latrine,Limited,No,No,Dirty but used,No Facility,No Service,Yes,No,No
-Shashamene,Xaxesa dadesa,Xaxxeesa,7.216151695,38.53464929,Health Post,No water supply in premises,No Service,Simple pit latrine,Limited,No,No,Dirty but used,No Facility,No Service,Yes,No,No
-Shashamene,Bura Borama,Bura,7.310437011,38.52914373,Health Post,No water supply in premises,No Service,Simple pit latrine,Limited,No,No,"Clean, used",No Facility,No Service,Yes,No,No
-Shashamene,Watara Shagule,Aradano,7.237007531,38.52273462,Other,Rain Water Harvesting,Limited,Simple pit latrine,Limited,No,No,"Clean, used",No Facility,No Service,Yes,No,No
-Shashamene,Culule Habara,Culule,7.235160526,38.5211061,Health Post,No water supply in premises,No Service,Simple pit latrine,Limited,No,No,"Clean, used",No Facility,No Service,Yes,No,No
-Shashamene,Obenso Jalo,Obenso Jalo,7.137074888,38.71185196,Health Post,No water supply in premises,No Service,Simple pit latrine,Limited,No,No,Dirty but used,No Facility,No Service,Yes,No,No
-Shashamene,Wotara Shagule,Wotara Shagule,7.162902864,38.3250903,Health Post,No water supply in premises,No Service,Simple pit latrine,Limited,No,No,"Clean, used",No Facility,No Service,Yes,No,No
-Shashamene,Alelu ilu,Aleluu,7.186426419,38.73818686,Health Post,No water supply in premises,No Service,Simple pit latrine,Limited,No,No,Dirty but used,No Facility,No Service,Yes,No,No
-Shashamene,Karara Filicha,Karara Filicha,7.265392725,38.60794753,Health Post,No water supply in premises,No Service,VIP,Usable,No,No,"Clean, used",No Facility,No Service,Yes,No,No
-Shashamene,Dalati Calalaqa,Dalati Calalaqa,7.212954639,38.70350725,Health Post,No water supply in premises,No Service,VIP,Usable,No,No,"Clean, used",No Facility,No Service,Yes,No,No
-Shashamene,Faji Gole,Faji Gole,7.265975306,38.65713648,Health Post,No water supply in premises,No Service,VIP,Usable,No,No,"Filthy ,unused",No Facility,No Service,Yes,No,No
-Shashamene,Awashoo Dhanquu,Awashoo,7.269931948,38.62739305,Health Post,No water supply in premises,No Service,VIP,Usable,No,No,"Clean, used",No Facility,No Service,Yes,No,No
-Shashamene,Cabi Dida nyataa,Cabi Dida nyataa,7.301475236,38.54918353,Health Post,No water supply in premises,No Service,VIP,Usable,No,No,"Clean, used",No Facility,No Service,Yes,No,No
-Shashamene,Cabi Dida nyataa,Cabi,3.473636998,40.86346448,Other,No water supply in premises,No Service,VIP,Usable,No,No,"Clean, used",No Facility,No Service,Yes,No,No
-Shashamene,Aradano Shifa,Aradano Shifa,3.474919322,40.81812332,Health Post,No water supply in premises,No Service,VIP,Usable,No,No,Dirty but used,No Facility,No Service,Yes,No,No
-Shashamene,Faji Gole,Faji Gole,7.255313945,38.67422011,Other,Pipeline Connections,Basic,VIP,Usable,No,No,"Clean, used",No Facility,No Service,Yes,No,No
+Woreda,Kebele,Name_of_Health_facility,Latitude,Longitude,Type_of_healthy_facility,Description of Water Supply in Health Facilities,Water,Latrine_Description,Sanitation,Physically_Separate_Latrines_for_Male_Female_Patients,Facilitated_Access_for_Disabled,Latrine_condition,992194004|Is_there_hand_washing_facility_with_in_5m_of_the_toilet,Hygiene,Is_hand_washing_facility_operating_i.e_with_water,Is_Soap_available_at_each_hand_washing_stand,Is_there_a_toilet_for_staff
+Shashemene,Mararo,Mararo,7.21461843,38.67594311,Health Post,No water supply in premises,No Service,No Latrine,No Service,No,No,"Filthy ,unused",No Facility,No Service,Yes,No,No
+Shashemene,Jigesa qorke,Jigesa,7.205212947,38.66626716,Health Post,No water supply in premises,No Service,No Latrine,No Service,No,No,"Filthy ,unused",No Facility,No Service,Yes,No,No
+Shashemene,Hagugata quni,Hagugata quni,7.264082978,38.58960468,Health Post,No water supply in premises,No Service,No Latrine,No Service,No,No,"Filthy ,unused",No Facility,No Service,Yes,No,No
+Shashemene,Turufe Watara elemo,Turufe Watara elemo,7.245780004,38.6165247,Health Post,No water supply in premises,No Service,No Latrine,No Service,No,No,"Filthy ,unused",No Facility,No Service,Yes,No,No
+Shashemene,Gonde Qarso,Gonde,7.154682435,38.64090917,Health Post,No water supply in premises,No Service,No Latrine,No Service,No,No,"Filthy ,unused",No Facility,No Service,Yes,No,No
+Shashemene,Wayo Danisa,Danisa,7.193509433,38.60052814,Health Post,No water supply in premises,No Service,No Latrine,No Service,No,No,"Filthy ,unused",No Facility,No Service,Yes,No,No
+Shashemene,Faji Sole,Sole,7.276442627,38.57360435,Health Post,No water supply in premises,No Service,No Latrine,No Service,No,No,"Filthy ,unused",No Facility,No Service,Yes,No,No
+Shashemene,Bute Filicha,Bute Filicha,7.16110729,38.77235469,Health Post,No water supply in premises,No Service,No Latrine,No Service,No,No,"Filthy ,unused",No Facility,No Service,Yes,No,No
+Shashemene,Togaa,Togaa,7.216662389,38.71614969,Health Post,No water supply in premises,No Service,No Latrine,No Service,No,No,"Filthy ,unused",No Facility,No Service,Yes,No,No
+Shashemene,Faji Goba,Faji Goba,7.168558623,38.73412143,Health Post,No water supply in premises,No Service,No Latrine,No Service,No,No,"Filthy ,unused",No Facility,No Service,Yes,No,No
+Shashemene,Maja Dama,Maja Dama,7.302370499,38.62835374,Health Post,No water supply in premises,No Service,No Latrine,No Service,No,No,"Filthy ,unused",No Facility,No Service,Yes,No,No
+Shashemene,Edola Burqa,Edola Burqa,7.226484876,38.48695793,Health Post,No water supply in premises,No Service,No Latrine,No Service,No,No,"Filthy ,unused",No Facility,No Service,Yes,No,No
+Shashemene,Kore Rogicha,Kore Rogicha,7.230371409,38.54364747,Health Post,No water supply in premises,No Service,No Latrine,No Service,No,No,"Filthy ,unused",No Facility,No Service,Yes,No,No
+Shashemene,ilala Qorke,ilala Qorke,7.212805736,38.7257987,Health Post,No water supply in premises,No Service,No Latrine,No Service,No,No,"Filthy ,unused",No Facility,No Service,Yes,No,No
+Shashemene,Jalo Dida,Jalo Dida,3.47273833,40.8652264,Health Post,No water supply in premises,No Service,No Latrine,No Service,No,No,"Filthy ,unused",No Facility,No Service,Yes,No,No
+Shashemene,Turufe Watara elemo,Elemo Abiyu,7.27013982,38.62717546,Other,No water supply in premises,No Service,Simple pit latrine,Limited,No,No,"Clean, used",No Facility,No Service,Yes,No,No
+Shashemene,Jangala Wandare,Jangala,7.276442687,38.57366776,Health Post,No water supply in premises,No Service,Simple pit latrine,Limited,No,No,"Clean, used",No Facility,No Service,Yes,No,No
+Shashemene,Hursa Simbo,Hursa,7.150766143,38.71990378,Other,Protected Wells,Baisc,Simple pit latrine,Limited,No,No,"Clean, used",No Facility,No Service,Yes,No,No
+Shashemene,Jangala Wandare,Wandare,7.13387699,38.767677,Health Post,No water supply in premises,No Service,Simple pit latrine,Limited,No,No,Dirty but used,No Facility,No Service,Yes,No,No
+Shashemene,Hursa Simbo,Hursa,7.14808504,38.72910688,Health Post,No water supply in premises,No Service,Simple pit latrine,Limited,No,No,"Clean, used",No Facility,No Service,Yes,No,No
+Shashemene,Bulchana Danaba,Bulchana Danaba,7.138887886,38.67667591,Health Post,Pipeline Connections,Baisc,Simple pit latrine,Limited,No,No,"Clean, used",No Facility,No Service,Yes,No,No
+Shashemene,Togaa,Togaa,7.138190924,38.67605151,Other,Pipeline Connections,Baisc,Simple pit latrine,Limited,No,No,"Clean, used",No Facility,No Service,Yes,No,No
+Shashemene,Abaroo,Abaroo,7.302099889,38.62927804,Health Post,No water supply in premises,No Service,Simple pit latrine,Limited,No,No,"Clean, used",No Facility,No Service,Yes,No,No
+Shashemene,Kore Borojota,Kore Borojota,7.245911689,38.66902731,Health Post,No water supply in premises,No Service,Simple pit latrine,Limited,No,No,Dirty but used,No Facility,No Service,Yes,No,No
+Shashemene,Ebichaa,Ebichaa,7.249437768,38.47497502,Health Post,No water supply in premises,No Service,Simple pit latrine,Limited,No,No,"Clean, used",No Facility,No Service,Yes,No,No
+Shashemene,Alache Harabate,Harabate,7.276356523,38.5321869,Health Post,No water supply in premises,No Service,Simple pit latrine,Limited,No,No,"Clean, used",No Facility,No Service,Yes,No,No
+Shashemene,Alache Harabate,Harabate,7.301294433,38.54929243,Other,No water supply in premises,No Service,Simple pit latrine,Limited,No,No,"Clean, used",No Facility,No Service,Yes,No,No
+Shashemene,Oine Cafo umbure,Oine Cafo umbure,7.310346603,38.52918913,Health Post,No water supply in premises,No Service,Simple pit latrine,Limited,No,No,"Clean, used",No Facility,No Service,Yes,No,No
+Shashemene,Kubi Guta,Kubi Guta,7.150766143,38.71990378,Health Post,No water supply in premises,No Service,Simple pit latrine,Limited,No,No,Dirty but used,No Facility,No Service,Yes,No,No
+Shashemene,Chafa Gutaa,Chafa Gutaa,7.156822574,38.58286349,Health Post,No water supply in premises,No Service,Simple pit latrine,Limited,No,No,Dirty but used,No Facility,No Service,Yes,No,No
+Shashemene,Xaxesa dadesa,Xaxxeesa,7.216151695,38.53464929,Health Post,No water supply in premises,No Service,Simple pit latrine,Limited,No,No,Dirty but used,No Facility,No Service,Yes,No,No
+Shashemene,Bura Borama,Bura,7.310437011,38.52914373,Health Post,No water supply in premises,No Service,Simple pit latrine,Limited,No,No,"Clean, used",No Facility,No Service,Yes,No,No
+Shashemene,Watara Shagule,Aradano,7.237007531,38.52273462,Other,Rain Water Harvesting,Limited,Simple pit latrine,Limited,No,No,"Clean, used",No Facility,No Service,Yes,No,No
+Shashemene,Culule Habara,Culule,7.235160526,38.5211061,Health Post,No water supply in premises,No Service,Simple pit latrine,Limited,No,No,"Clean, used",No Facility,No Service,Yes,No,No
+Shashemene,Obenso Jalo,Obenso Jalo,7.137074888,38.71185196,Health Post,No water supply in premises,No Service,Simple pit latrine,Limited,No,No,Dirty but used,No Facility,No Service,Yes,No,No
+Shashemene,Wotara Shagule,Wotara Shagule,7.162902864,38.3250903,Health Post,No water supply in premises,No Service,Simple pit latrine,Limited,No,No,"Clean, used",No Facility,No Service,Yes,No,No
+Shashemene,Alelu ilu,Aleluu,7.186426419,38.73818686,Health Post,No water supply in premises,No Service,Simple pit latrine,Limited,No,No,Dirty but used,No Facility,No Service,Yes,No,No
+Shashemene,Karara Filicha,Karara Filicha,7.265392725,38.60794753,Health Post,No water supply in premises,No Service,VIP,Usable,No,No,"Clean, used",No Facility,No Service,Yes,No,No
+Shashemene,Dalati Calalaqa,Dalati Calalaqa,7.212954639,38.70350725,Health Post,No water supply in premises,No Service,VIP,Usable,No,No,"Clean, used",No Facility,No Service,Yes,No,No
+Shashemene,Faji Gole,Faji Gole,7.265975306,38.65713648,Health Post,No water supply in premises,No Service,VIP,Usable,No,No,"Filthy ,unused",No Facility,No Service,Yes,No,No
+Shashemene,Awashoo Dhanquu,Awashoo,7.269931948,38.62739305,Health Post,No water supply in premises,No Service,VIP,Usable,No,No,"Clean, used",No Facility,No Service,Yes,No,No
+Shashemene,Cabi Dida nyataa,Cabi Dida nyataa,7.301475236,38.54918353,Health Post,No water supply in premises,No Service,VIP,Usable,No,No,"Clean, used",No Facility,No Service,Yes,No,No
+Shashemene,Cabi Dida nyataa,Cabi,3.473636998,40.86346448,Other,No water supply in premises,No Service,VIP,Usable,No,No,"Clean, used",No Facility,No Service,Yes,No,No
+Shashemene,Aradano Shifa,Aradano Shifa,3.474919322,40.81812332,Health Post,No water supply in premises,No Service,VIP,Usable,No,No,Dirty but used,No Facility,No Service,Yes,No,No
+Shashemene,Faji Gole,Faji Gole,7.255313945,38.67422011,Other,Pipeline Connections,Baisc,VIP,Usable,No,No,"Clean, used",No Facility,No Service,Yes,No,No

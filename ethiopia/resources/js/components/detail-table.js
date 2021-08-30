@@ -183,6 +183,7 @@ const DetailTable = () => {
                     pagination={false}
                     dataSource={tb.data}
                     columns={tb.column}
+                    scroll={{ y: 800 }}
                 />
             </div>
         ));

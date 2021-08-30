@@ -13,7 +13,7 @@ const { Title, Text } = Typography;
 
 const CommunityLead = ({ geoUrl }) => {
     const store = UIStore.useState();
-    const { level2, clts } = store;
+    const { level1, level2, clts } = store;
     const { data, config } = clts;
     const { main: mainConfig } = config;
 
@@ -25,6 +25,10 @@ const CommunityLead = ({ geoUrl }) => {
               return { ...x, hidden: true };
           })
         : data.map((x) => ({ ...x, hidden: false }));
+    if (level1)
+        firstDataSource = firstDataSource.filter(
+            (d) => level1 === d?.[config.locations.level1]?.toLowerCase()
+        );
     firstDataSource = firstDataSource.filter((x) => !x.hidden);
     firstDataSource = firstDataSource.map((x, i) => {
         let res = {

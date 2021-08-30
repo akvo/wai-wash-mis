@@ -82,7 +82,7 @@ const renderLevel1Option = (level1, level1List) => {
     return (
         <Select
             style={{ width: 220, marginLeft: "5px", marginRight: "5px" }}
-            placeholder="Select District"
+            placeholder="Select Woreda"
             value={level1}
             onChange={handleOnChangeLevel1}
         >
@@ -100,7 +100,7 @@ const renderLevel2Option = (level2, level2List) => {
     return (
         <Select
             style={{ width: 220, marginLeft: "5px", marginRight: "5px" }}
-            placeholder="Select Municipality"
+            placeholder="Select Kebele"
             allowClear={true}
             value={level2}
             onChange={handleOnChangeLevel2}

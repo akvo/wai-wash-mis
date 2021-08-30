@@ -25,9 +25,18 @@ const indicatorRank = {
     noService: -2,
 };
 
-const generateChartOptions = (config, data, level2Key, firstFilter, level2) => {
-    data = data.filter((x) => x[level2Key] !== "");
-    const locations = Object.keys(groupBy(data, level2Key));
+const generateChartOptions = (
+    config,
+    data,
+    level2Key,
+    firstFilter,
+    level2,
+    level2List
+) => {
+    if (level2) data = data.filter((x) => x[level2Key] !== "");
+    let locations = Object.keys(groupBy(data, level2Key));
+    if (level2List.length)
+        locations = locations.filter((l) => level2List.includes(l));
     const options = config?.charts.map((item) => {
         data = data.filter((x) => item.value.includes(x[item.key]));
         let option = {
@@ -162,14 +171,13 @@ const generateChartOptions = (config, data, level2Key, firstFilter, level2) => {
 
 const HouseHold = ({ geoUrl }) => {
     const store = UIStore.useState();
-    const { level1, level2, state, firstFilter, secondFilter } = store;
+    const { level2, state, firstFilter, secondFilter, level2List } = store;
     const [chartOptions, setChartOptions] = useState();
     const chartsRef = useRef([]);
 
     useEffect(() => {
         setChartOptions(null);
         const { data, config } = state;
-        const level1Key = config?.locations?.level1;
         const level2Key = config?.locations?.level2;
 
         let options = [];
@@ -179,10 +187,11 @@ const HouseHold = ({ geoUrl }) => {
             filterData,
             level2Key,
             firstFilter,
-            level2
+            level2,
+            level2List
         );
         setChartOptions(options);
-    }, [firstFilter, secondFilter, level1, level2]);
+    }, [firstFilter, secondFilter, level2List, level2]);
 
     const onChartsClick = (params, index) => {
         const echartInstance = chartsRef.current[index].getEchartsInstance();

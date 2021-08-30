@@ -1,6 +1,6 @@
 {
-    "/js/app.js": "/js/app.js",
-    "/css/app.css": "/css/app.css",
-    "/images/wai-logo.png": "/images/wai-logo.png",
-    "/data/eth-filtered.topo.json": "/data/eth-filtered.topo.json"
+    "/js/app.js": "/js/app.js?id=948a67eec5c44a7ef487",
+    "/css/app.css": "/css/app.css?id=a86101e4175555bfc46c",
+    "/images/wai-logo.png": "/images/wai-logo.png?id=db9929f6a0f967aa9208",
+    "/data/eth-filtered.topo.json": "/data/eth-filtered.topo.json?id=66bf99ac4a2a43f02c22"
 }

@@ -134,6 +134,8 @@ function WaterPoint({ geoUrl }) {
                         columns={firstColumns}
                         size="small"
                         bordered={true}
+                        pagination={false}
+                        scroll={{ y: 800 }}
                     />
                 </div>
                 <Drawer

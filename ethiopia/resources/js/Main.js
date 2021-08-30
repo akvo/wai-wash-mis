@@ -46,6 +46,12 @@ function Main() {
             };
             e.level1List = level1List;
             e.level2List = level2List;
+            if (
+                e.level2 &&
+                !level2List.map((l) => l.toLowerCase()).includes(e.level2)
+            ) {
+                e.level2 = level2List[0]?.toLowerCase();
+            }
         });
     }, [state]);
 

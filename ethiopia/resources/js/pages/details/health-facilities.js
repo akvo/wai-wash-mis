@@ -54,7 +54,12 @@ const HealthFacilities = ({ geoUrl }) => {
         return { ...res, value: values };
     });
 
-    firstDataSource = sortBy(firstDataSource, "value");
+    firstDataSource = level2
+        ? (firstDataSource = [
+              ...firstDataSource.filter((d) => d.opacity === "100%"),
+              ...firstDataSource.filter((d) => d.opacity === "20%"),
+          ])
+        : sortBy(firstDataSource, "value");
 
     const indicators = mainConfig.indicators.map((x) => ({
         title: x.name,
@@ -123,8 +128,9 @@ const HealthFacilities = ({ geoUrl }) => {
                         size="small"
                         dataSource={firstDataSource}
                         columns={firstColumns}
-                        pagination
+                        pagination={false}
                         bordered={true}
+                        scroll={{ y: 800 }}
                     />
                 </div>
             </Col>
