@@ -83,13 +83,8 @@ function Map({ geoUrl }) {
         coordinates: defCenter,
         zoom: 1,
     });
-    const {
-        state,
-        level1,
-        level2,
-        firstFilter,
-        markerDetail,
-    } = UIStore.useState();
+    const { state, level1, level2, firstFilter, markerDetail } =
+        UIStore.useState();
     const level1Key = state?.config?.locations?.level1;
     const level2Key = state?.config?.locations?.level2;
     const latlong = state?.config?.latlong;
@@ -107,7 +102,7 @@ function Map({ geoUrl }) {
                 );
         }
         setFilterData(filterData);
-    }, [level1]);
+    }, [level1, level2]);
 
     const domain = filterData
         ? Object.values(groupBy(filterData, level2Key)).reduce(
@@ -129,7 +124,13 @@ function Map({ geoUrl }) {
     const onMapClick = (geo) => {
         const { UNIT_NAME } = geo.properties;
         UIStore.update((e) => {
-            e.level2 = UNIT_NAME && UNIT_NAME.toLowerCase();
+            /**
+             * toggle
+             */
+            e.level2 =
+                UNIT_NAME?.toLowerCase() === e.level2
+                    ? null
+                    : UNIT_NAME && UNIT_NAME.toLowerCase();
             e.markerDetail = {
                 ...e.markerDetail,
                 active: false,
@@ -231,11 +232,6 @@ function Map({ geoUrl }) {
                                     enableMapOnClick =
                                         geo.properties?.UNIT_TYPE.toLowerCase() ===
                                         level1.toString().toLowerCase();
-                                }
-                                if (level2) {
-                                    enableMapOnClick =
-                                        name.toLowerCase() ===
-                                        level2.toString().toLowerCase();
                                 }
 
                                 return (
