@@ -99,10 +99,17 @@ function Home() {
                                     <Col span={12}>
                                         <Statistic
                                             title="Functional Waterpoints"
-                                            value={(
-                                                (wp.f / (wp.nf + wp.f)) *
-                                                100
-                                            ).toFixed(2)}
+                                            value={
+                                                wp?.f && wp?.nf
+                                                    ? (
+                                                          (wp.f /
+                                                              (wp.nf + wp.f)) *
+                                                          100
+                                                      ).toFixed(2)
+                                                    : wp?.f
+                                                    ? 100
+                                                    : 0
+                                            }
                                             suffix="%"
                                         />
                                         <p>{wp.f} Waterpoints</p>
@@ -110,10 +117,17 @@ function Home() {
                                     <Col span={12}>
                                         <Statistic
                                             title="Non-Functional Waterpoints"
-                                            value={(
-                                                (wp.nf / (wp.nf + wp.f)) *
-                                                100
-                                            ).toFixed(2)}
+                                            value={
+                                                wp?.f && wp?.nf
+                                                    ? (
+                                                          (wp.nf /
+                                                              (wp.nf + wp.f)) *
+                                                          100
+                                                      ).toFixed(2)
+                                                    : wp?.nf
+                                                    ? 100
+                                                    : 0
+                                            }
                                             suffix="%"
                                         />
                                         <p>{wp.nf} Waterpoints</p>
