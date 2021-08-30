@@ -97,43 +97,45 @@ const HealthFacilities = ({ geoUrl }) => {
 
     return (
         <Row>
-            <Col span="24">
+            <Col span={12} className="map-block">
                 {geoUrl && (
                     <div key="maps" className="map-container">
-                        <Map geoUrl={geoUrl} />
+                        <Map geoUrl={geoUrl} mapHeight={640} />
                     </div>
                 )}
+            </Col>
+            <Col span={12} className="table-block">
                 <div className="table-container">
-                    <Drawer
-                        width={640}
-                        placement="right"
-                        visible={markerDetail.active}
-                        onClose={() =>
-                            UIStore.update((e) => {
-                                e.markerDetail = {
-                                    ...e.markerDetail,
-                                    active: false,
-                                    data: {},
-                                };
-                            })
-                        }
-                    >
-                        <DetailPoint
-                            markerDetail={markerDetail}
-                            config={config}
-                            name={mainConfig.key}
-                        />
-                    </Drawer>
                     <Table
                         size="small"
                         dataSource={firstDataSource}
                         columns={firstColumns}
                         pagination={false}
                         bordered={true}
-                        scroll={{ y: 800 }}
+                        scroll={{ y: "calc(100vh - 243px)" }}
                     />
                 </div>
             </Col>
+            <Drawer
+                width={640}
+                placement="right"
+                visible={markerDetail.active}
+                onClose={() =>
+                    UIStore.update((e) => {
+                        e.markerDetail = {
+                            ...e.markerDetail,
+                            active: false,
+                            data: {},
+                        };
+                    })
+                }
+            >
+                <DetailPoint
+                    markerDetail={markerDetail}
+                    config={config}
+                    name={mainConfig.key}
+                />
+            </Drawer>
         </Row>
     );
 };

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import ReactECharts from "echarts-for-react";
-import { Col, Menu, Row, Divider } from "antd";
+import { Col, Menu, Row, Card, Divider } from "antd";
 
 import Map from "../../components/maps";
 import DetailTable from "../../components/detail-table";
@@ -207,12 +207,14 @@ const HouseHold = ({ geoUrl }) => {
 
     return (
         <Row>
-            <Col span="24">
+            <Col span={12} className="map-block">
                 {geoUrl && (
-                    <div key="maps" className="map-container">
-                        <Map geoUrl={geoUrl} />
+                    <div className="map-container">
+                        <Map geoUrl={geoUrl} mapHeight={640} />
                     </div>
                 )}
+            </Col>
+            <Col span={12} className="chart-block">
                 {geoUrl &&
                     chartOptions &&
                     chartOptions.map((opt, index) => (

@@ -81,10 +81,15 @@ const ToolTipMarker = ({ item, config, firstFilter }) => {
 function Map({ geoUrl, mapHeight = 350 }) {
     const [position, setPosition] = useState({
         coordinates: defCenter,
-        zoom: 1,
+        zoom: 2.5,
     });
-    const { state, level1, level2, firstFilter, markerDetail } =
-        UIStore.useState();
+    const {
+        state,
+        level1,
+        level2,
+        firstFilter,
+        markerDetail,
+    } = UIStore.useState();
     const level1Key = state?.config?.locations?.level1;
     const level2Key = state?.config?.locations?.level2;
     const latlong = state?.config?.latlong;
@@ -162,7 +167,7 @@ function Map({ geoUrl, mapHeight = 350 }) {
                                     zoom: position.zoom - 0.5,
                                 });
                         }}
-                        disabled={position.zoom <= 1}
+                        disabled={position.zoom <= 2.5}
                     />
                 </Tooltip>
                 <Tooltip title="zoom in">
@@ -183,7 +188,7 @@ function Map({ geoUrl, mapHeight = 350 }) {
                         type="secondary"
                         icon={<FullscreenOutlined />}
                         onClick={() => {
-                            setPosition({ coordinates: defCenter, zoom: 1 });
+                            setPosition({ coordinates: defCenter, zoom: 2.5 });
                         }}
                     />
                 </Tooltip>
