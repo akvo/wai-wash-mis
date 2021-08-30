@@ -12,7 +12,7 @@ import { UIStore } from "../../store";
 function WaterPoint({ geoUrl }) {
     const store = UIStore.useState();
     const { level2, wp, markerDetail } = store;
-    const { data, config, locations } = wp;
+    const { data, config } = wp;
     const { main: mainConfig } = config;
 
     let firstDataSource = data.filter((x) =>
@@ -23,7 +23,10 @@ function WaterPoint({ geoUrl }) {
 
     firstDataSource = level2
         ? firstDataSource.map((x) => {
-              if (level2 === x?.[config.locations.level2]?.toLowerCase()) {
+              if (
+                  level2.toLowerCase() ===
+                  x?.[config.locations.level2]?.toLowerCase()
+              ) {
                   return { ...x, hidden: false };
               }
               return { ...x, hidden: true };
@@ -46,15 +49,6 @@ function WaterPoint({ geoUrl }) {
                 values += 5;
             }
             if (x[i.key] === "more than 100") {
-                values += 10;
-            }
-            if (
-                x[i.key] ===
-                "Institutional use (school or healthcare facility/ health centre)"
-            ) {
-                values += 10;
-            }
-            if (x[i.key] === "Drinking water") {
                 values += 10;
             }
             res = {
@@ -83,17 +77,6 @@ function WaterPoint({ geoUrl }) {
                 bg = "#fa0";
             }
             if (dt === "more than 100") {
-                bg = "#dc3545";
-                color = "#fff";
-            }
-            if (
-                dt ===
-                "Institutional use (school or healthcare facility/ health centre)"
-            ) {
-                bg = "#dc3545";
-                color = "#fff";
-            }
-            if (dt === "Drinking water") {
                 bg = "#dc3545";
                 color = "#fff";
             }
