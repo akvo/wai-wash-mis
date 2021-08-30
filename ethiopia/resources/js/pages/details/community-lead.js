@@ -222,35 +222,37 @@ const CommunityLead = ({ geoUrl }) => {
     ];
     return (
         <Row>
-            <Col span="24">
+            <Col span={12} className="map-block">
                 {geoUrl && (
                     <div key="maps" className="map-container">
-                        <Map geoUrl={geoUrl} />
+                        <Map geoUrl={geoUrl} mapHeight={640} />
                     </div>
                 )}
+            </Col>
+            <Col span={12} className="table-block" style={{ padding: 20 }}>
+                <Title style={{ marginBottom: 0 }} level={4}>
+                    Community Led Total Sanitation
+                </Title>
+                <Divider />
+                <Text>
+                    # of communities (declared) in program for each kebele
+                </Text>
+                <Table
+                    columns={vCols}
+                    dataSource={vSource}
+                    bordered
+                    pagination={false}
+                />
+            </Col>
+            <Col span={24}>
                 <div className="table-container">
-                    <Title level={4}>Community Led Total Sanitation</Title>
-                    <Divider />
-                    <Text>
-                        # of communities (declared) in program for each kebele
-                    </Text>
-                    <Table
-                        columns={vCols}
-                        dataSource={vSource}
-                        bordered
-                        pagination={false}
-                    />
-                </div>
-                <div className="table-container">
-                    <Title level={4}>Full Data Table</Title>
-                    <Divider />
                     <Table
                         columns={firstColumns}
                         dataSource={firstDataSource}
                         size="small"
                         bordered={true}
+                        scroll={{ y: "calc(100vh - 243px)" }}
                         pagination={false}
-                        scroll={{ y: 500 }}
                     />
                 </div>
             </Col>

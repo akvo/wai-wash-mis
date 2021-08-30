@@ -103,45 +103,45 @@ function WaterPoint({ geoUrl }) {
 
     return (
         <Row>
-            <Col span="24">
+            <Col span={12} className="map-block">
                 {geoUrl && (
                     <div key="maps" className="map-container">
-                        <Map geoUrl={geoUrl} />
+                        <Map geoUrl={geoUrl} mapHeight={640} />
                     </div>
                 )}
+            </Col>
+            <Col span={12} className="table-block">
                 <div className="table-container">
-                    <h4>Non Functional Facilities</h4>
-                    <Divider />
                     <Table
                         dataSource={firstDataSource}
                         columns={firstColumns}
                         size="small"
                         bordered={true}
                         pagination={false}
-                        scroll={{ y: 800 }}
+                        scroll={{ y: "calc(100vh - 243px)" }}
                     />
                 </div>
-                <Drawer
-                    width={640}
-                    placement="right"
-                    visible={markerDetail.active}
-                    onClose={() =>
-                        UIStore.update((e) => {
-                            e.markerDetail = {
-                                ...e.markerDetail,
-                                active: false,
-                                data: {},
-                            };
-                        })
-                    }
-                >
-                    <DetailPoint
-                        markerDetail={markerDetail}
-                        config={config}
-                        name={mainConfig.key}
-                    />
-                </Drawer>
             </Col>
+            <Drawer
+                width={640}
+                placement="right"
+                visible={markerDetail.active}
+                onClose={() =>
+                    UIStore.update((e) => {
+                        e.markerDetail = {
+                            ...e.markerDetail,
+                            active: false,
+                            data: {},
+                        };
+                    })
+                }
+            >
+                <DetailPoint
+                    markerDetail={markerDetail}
+                    config={config}
+                    name={mainConfig.key}
+                />
+            </Drawer>
         </Row>
     );
 }
